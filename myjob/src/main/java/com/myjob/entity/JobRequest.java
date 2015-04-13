@@ -22,8 +22,8 @@ public class JobRequest {
 	private long jobSid;
 	
 	@Id
-	@Column(name="user_sid")
-	private long userSid;
+	@Column(name="resume_sid")
+	private long resumeSid;
 	
 	@Column(name="request_time")
 	private Date requestTime;
@@ -43,8 +43,8 @@ public class JobRequest {
 	private Job job;
 	
 	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
-	@PrimaryKeyJoinColumn(name="user_sid")
-	private User user;
+	@PrimaryKeyJoinColumn(name="resume_sid")
+	private Resume resume;
 
 	public long getJobSid() {
 		return jobSid;
@@ -54,12 +54,12 @@ public class JobRequest {
 		this.jobSid = jobSid;
 	}
 
-	public long getUserSid() {
-		return userSid;
+	public long getResumeSid() {
+		return resumeSid;
 	}
 
-	public void setUserSid(long userSid) {
-		this.userSid = userSid;
+	public void setResumeSid(long userSid) {
+		this.resumeSid = userSid;
 	}
 
 	public Date getRequestTime() {
@@ -102,11 +102,11 @@ public class JobRequest {
 		this.job = job;
 	}
 
-	public User getUser() {
-		return user;
+	public Resume getResume() {
+		return resume;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setResume(Resume resume) {
+		this.resume = resume;
 	}
 }

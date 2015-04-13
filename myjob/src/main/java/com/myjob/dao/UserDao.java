@@ -1,15 +1,11 @@
 package com.myjob.dao;
 
-import javax.annotation.Resource;
-
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.myjob.entity.User;
 
 @Repository
-public class UserDao {
-	@Resource HibernateTemplate template;
+public class UserDao extends BaseDao {
 	
 	public User get(long sid){
 		return template.get(User.class, sid);

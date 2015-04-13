@@ -1,8 +1,6 @@
 package com.myjob.service;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -10,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.myjob.dao.ResumeDao;
 import com.myjob.entity.Resume;
+import com.myjob.entity.criteria.QueryResult;
 import com.myjob.entity.criteria.ResumeQueryCriteria;
 import com.myjob.entity.values.ResumeStatus;
 
@@ -51,8 +50,12 @@ public class ResumeService {
 		resumeDao.create(resume);
 	}
 	
-	public List<Resume> query(ResumeQueryCriteria criteria){
-		// TODO: call dao to query data
-		return new ArrayList<Resume>();
+	public QueryResult<Resume> query(ResumeQueryCriteria criteria){
+		return resumeDao.query(criteria);
+	}
+	
+	public QueryResult<Resume> queryMyResumes(ResumeQueryCriteria criteria,long userSid) {
+		criteria.setUserSid(userSid);
+		return resumeDao.query(criteria);
 	}
 }

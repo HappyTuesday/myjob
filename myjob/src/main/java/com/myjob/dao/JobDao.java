@@ -1,15 +1,17 @@
 package com.myjob.dao;
 
-import javax.annotation.Resource;
+import org.hibernate.criterion.DetachedCriteria;
 
-import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.myjob.entity.Job;
+import com.myjob.entity.criteria.JobQueryCriteria;
+import com.myjob.entity.criteria.QueryResult;
 
 @Repository
-public class JobDao {
-	@Resource HibernateTemplate template;
+public class JobDao extends BaseDao {
+	
+	private String[] searchedProperties = "company.category,company.description,company.name,description,name,profession,qualification,workingLocation.city,workingLocation.province".split(",");
 	
 	public Job get(long sid){
 		return template.get(Job.class, sid);
@@ -21,5 +23,18 @@ public class JobDao {
 	
 	public void update(Job job){
 		template.update(job);
+	}
+	
+	public QueryResult<Job> query(JobQueryCriteria qc){
+		DetachedCriteria criteria = DetachedCriteria.forClass(Job.class);
+		
+		eq(criteria, "company.sid", qc.getCompanySid());
+		eq(criteria, "status", qc.getStatus());
+		in(criteria, "company.name", qc.getCompanyName());
+		in(criteria, "company.category", qc.getCategory());
+		in(criteria, "profession", qc.getProfoession());
+		search(criteria, searchedProperties, qc);
+		
+		return executeQuery(criteria, qc);
 	}
 }
