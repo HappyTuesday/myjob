@@ -1,23 +1,30 @@
 package com.myjob.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.myjob.common.QueryResult;
+import com.myjob.criteria.JobRequestQueryCriteria;
+import com.myjob.dao.JobRequestDao;
 import com.myjob.entity.JobRequest;
-import com.myjob.entity.criteria.QueryCriteria;
+import com.myjob.entity.values.JobRequestStatus;
 
 @Service
 public class JobResponseService {
 	
-	public List<JobRequest> queryReceivedResponses(QueryCriteria criteria,long userSid) {
-		// TODO: call dao to query data
-		return new ArrayList<JobRequest>();
+	@Resource
+	private JobRequestDao jobRequestDao;
+	
+	public QueryResult<JobRequest> queryReceivedResponses(JobRequestQueryCriteria criteria,long userSid) {
+		criteria.setUserSid(userSid);
+		criteria.setRequestStatus(new JobRequestStatus[]{JobRequestStatus.approved,JobRequestStatus.rejected});
+		return jobRequestDao.query(criteria);
 	}
 	
-	public List<JobRequest> querySentResponses(QueryCriteria criteria,long companySid){
-		// TODO: call dao to query data
-		return new ArrayList<JobRequest>();
+	public QueryResult<JobRequest> querySentResponses(JobRequestQueryCriteria criteria,long companySid){
+		criteria.setCompanySid(companySid);
+		criteria.setRequestStatus(new JobRequestStatus[]{JobRequestStatus.approved,JobRequestStatus.rejected});
+		return jobRequestDao.query(criteria);
 	}
 }

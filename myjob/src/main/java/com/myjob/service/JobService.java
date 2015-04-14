@@ -1,16 +1,15 @@
 package com.myjob.service;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.myjob.common.QueryResult;
+import com.myjob.criteria.JobQueryCriteria;
 import com.myjob.dao.JobDao;
 import com.myjob.entity.Job;
-import com.myjob.entity.criteria.JobQueryCriteria;
 import com.myjob.entity.values.JobStatus;
 
 @Service
@@ -30,8 +29,11 @@ public class JobService {
 	
 	public void update(Job job){
 		Job jobp=jobDao.get(job.getSid());
-		// TODO: merge job to jobp
-		jobDao.update(jobp);
+		
+		job.setStatus(jobp.getStatus());
+		job.setWorkingLocationSid(jobp.getWorkingLocationSid());
+		
+		jobDao.update(job);
 	}
 	
 	public void create(Job job){
@@ -39,8 +41,13 @@ public class JobService {
 		jobDao.create(job);
 	}
 	
-	public List<Job> search(JobQueryCriteria criteria){
-		// TODO: call dao to query data
-		return new ArrayList<Job>();
+	public QueryResult<Job> search(JobQueryCriteria criteria){
+		return jobDao.query(criteria);
+	}
+	
+	public QueryResult<Job> queryMyPublishedJobs(JobQueryCriteria criteria,long companySid){
+		criteria.setCompanySid(companySid);
+		
+		return jobDao.query(criteria);
 	}
 }

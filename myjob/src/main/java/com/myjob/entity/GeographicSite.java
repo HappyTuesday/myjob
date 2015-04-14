@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Table(name="geographic_site")
 public class GeographicSite {
 	@Id
-	@Column(name="sid")
+	@Column(name="sid",updatable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long sid;
 	

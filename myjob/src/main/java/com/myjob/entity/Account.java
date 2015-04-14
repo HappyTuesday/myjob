@@ -18,10 +18,10 @@ import com.myjob.entity.values.AccountType;
 public class Account {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="sid")
+	@Column(name="sid",updatable=false)
 	private long sid;
 	
-	@Column(name="login_name")
+	@Column(name="login_name",updatable=false)
 	private String loginName;
 	
 	@Column(name="password")
@@ -30,7 +30,7 @@ public class Account {
 	@Column(name="email")
 	private String email;
 	
-	@Column(name="account_type")
+	@Column(name="account_type",updatable=false)
 	@Enumerated
 	private AccountType type;
 	

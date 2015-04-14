@@ -3,9 +3,9 @@ package com.myjob.dao;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.stereotype.Repository;
 
+import com.myjob.common.QueryResult;
+import com.myjob.criteria.ResumeQueryCriteria;
 import com.myjob.entity.Resume;
-import com.myjob.entity.criteria.QueryResult;
-import com.myjob.entity.criteria.ResumeQueryCriteria;
 
 @Repository
 public class ResumeDao extends BaseDao {

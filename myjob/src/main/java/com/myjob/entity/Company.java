@@ -21,7 +21,7 @@ import com.myjob.entity.values.CompanyStatus;
 @Table(name="company")
 public class Company {
 	@Id
-	@Column(name="sid")
+	@Column(name="sid",updatable=false)
 	private long sid;
 	
 	@Column(name="name")

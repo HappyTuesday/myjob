@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
 
 import com.myjob.dao.CompanyDao;
 import com.myjob.entity.Company;
+import com.myjob.service.exception.ServiceLogicException;
 
 @Service
 public class CompanyService {
 	@Resource
 	private CompanyDao companyDao;
 	
-	public void create(Company company){
+	public void create(Company company) throws ServiceLogicException{
 		company.setCreateDate(new Date());
 		companyDao.create(company);
 	}

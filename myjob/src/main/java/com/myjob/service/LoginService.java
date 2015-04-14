@@ -4,9 +4,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.myjob.criteria.AccountQueryCriteria;
 import com.myjob.dao.AccountDao;
 import com.myjob.entity.Account;
-import com.myjob.entity.criteria.AccountQueryCriteria;
 import com.myjob.entity.values.AccountType;
 import com.myjob.service.exception.ServiceException;
 import com.myjob.service.exception.ServiceInternalException;

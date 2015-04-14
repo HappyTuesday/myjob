@@ -1,4 +1,4 @@
-package com.myjob.entity.criteria;
+package com.myjob.common;
 
 public class QueryResult<T> {
 	private long count;

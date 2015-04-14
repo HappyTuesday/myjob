@@ -11,8 +11,8 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.myjob.entity.criteria.QueryCriteria;
-import com.myjob.entity.criteria.QueryResult;
+import com.myjob.common.QueryResult;
+import com.myjob.criteria.QueryCriteria;
 
 public class BaseDao {
 	

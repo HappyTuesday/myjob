@@ -3,9 +3,9 @@ package com.myjob.dao;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.stereotype.Repository;
 
+import com.myjob.common.QueryResult;
+import com.myjob.criteria.AccountQueryCriteria;
 import com.myjob.entity.Account;
-import com.myjob.entity.criteria.AccountQueryCriteria;
-import com.myjob.entity.criteria.QueryResult;
 
 @Repository
 public class AccountDao extends BaseDao {

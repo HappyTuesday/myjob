@@ -6,10 +6,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.myjob.common.QueryResult;
+import com.myjob.criteria.ResumeQueryCriteria;
 import com.myjob.dao.ResumeDao;
 import com.myjob.entity.Resume;
-import com.myjob.entity.criteria.QueryResult;
-import com.myjob.entity.criteria.ResumeQueryCriteria;
 import com.myjob.entity.values.ResumeStatus;
 
 @Service
@@ -41,8 +41,10 @@ public class ResumeService {
 	
 	public void update(Resume resume){
 		Resume resumep=resumeDao.get(resume.getSid());
-		// TODO: merge resume to resumep
-		resumeDao.update(resumep);
+		
+		resume.setStatus(resumep.getStatus());
+		
+		resumeDao.update(resume);
 	}
 	
 	public void create(Resume resume){

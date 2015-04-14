@@ -25,7 +25,7 @@ public class Job {
 	@Column(name="sid")
 	private long sid;
 	
-	@Column(name="company_sid")
+	@Column(name="company_sid",updatable=false)
 	private long company_sid;
 	
 	@Column(name="name")

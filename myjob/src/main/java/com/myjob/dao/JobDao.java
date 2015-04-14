@@ -1,12 +1,11 @@
 package com.myjob.dao;
 
 import org.hibernate.criterion.DetachedCriteria;
-
 import org.springframework.stereotype.Repository;
 
+import com.myjob.common.QueryResult;
+import com.myjob.criteria.JobQueryCriteria;
 import com.myjob.entity.Job;
-import com.myjob.entity.criteria.JobQueryCriteria;
-import com.myjob.entity.criteria.QueryResult;
 
 @Repository
 public class JobDao extends BaseDao {

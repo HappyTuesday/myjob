@@ -22,11 +22,11 @@ import com.myjob.entity.values.ResumeStatus;
 @Table(name="resume")
 public class Resume {
 	@Id
-	@Column(name="sid")
+	@Column(name="sid",updatable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long sid;
 	
-	@Column(name="user_sid")
+	@Column(name="user_sid",updatable=false)
 	private long userSid;
 	
 	@Column(name="school")

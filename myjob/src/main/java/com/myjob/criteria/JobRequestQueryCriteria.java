@@ -1,4 +1,4 @@
-package com.myjob.entity.criteria;
+package com.myjob.criteria;
 
 import com.myjob.entity.values.JobRequestStatus;
 
@@ -12,7 +12,7 @@ public class JobRequestQueryCriteria extends QueryCriteria {
 	
 	private Long jobSid;
 	
-	private JobRequestStatus requestStatus;
+	private JobRequestStatus[] requestStatus;
 
 	public Long getCompanySid() {
 		return companySid;
@@ -38,11 +38,11 @@ public class JobRequestQueryCriteria extends QueryCriteria {
 		this.resumeSid = resumeSid;
 	}
 
-	public JobRequestStatus getRequestStatus() {
+	public JobRequestStatus[] getRequestStatus() {
 		return requestStatus;
 	}
 
-	public void setRequestStatus(JobRequestStatus requestStatus) {
+	public void setRequestStatus(JobRequestStatus[] requestStatus) {
 		this.requestStatus = requestStatus;
 	}
 

@@ -13,6 +13,6 @@ public class CompanyHomeController {
 	
 	@RequestMapping
 	public String home(){
-		return "forward:/jobs";
+		return "forward:/resumes";
 	}
 }

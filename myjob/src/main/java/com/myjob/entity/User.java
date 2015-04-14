@@ -17,7 +17,7 @@ import com.myjob.entity.values.UserStatus;
 @Table(name="user")
 public class User {
 	@Id
-	@Column(name="sid")
+	@Column(name="sid",updatable=false)
 	private long sid;
 	
 	@Column(name="name")

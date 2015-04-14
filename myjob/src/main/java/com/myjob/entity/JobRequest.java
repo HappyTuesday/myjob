@@ -18,14 +18,14 @@ import com.myjob.entity.values.JobRequestStatus;
 @Table(name="job_request")
 public class JobRequest {
 	@Id
-	@Column(name="job_sid")
+	@Column(name="job_sid",updatable=false)
 	private long jobSid;
 	
 	@Id
-	@Column(name="resume_sid")
+	@Column(name="resume_sid",updatable=false)
 	private long resumeSid;
 	
-	@Column(name="request_time")
+	@Column(name="request_time",updatable=false)
 	private Date requestTime;
 	
 	@Column(name="request_comment")

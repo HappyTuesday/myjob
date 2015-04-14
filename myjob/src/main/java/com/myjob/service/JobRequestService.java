@@ -4,10 +4,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.myjob.common.QueryResult;
+import com.myjob.criteria.JobRequestQueryCriteria;
 import com.myjob.dao.JobRequestDao;
 import com.myjob.entity.JobRequest;
-import com.myjob.entity.criteria.JobRequestQueryCriteria;
-import com.myjob.entity.criteria.QueryResult;
 
 @Service
 public class JobRequestService {
