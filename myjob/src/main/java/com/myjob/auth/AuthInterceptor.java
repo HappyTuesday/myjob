@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.myjob.entity.values.AccountType;
+import com.myjob.entity.Account;
 import com.myjob.service.LoginService;
 import com.myjob.service.exception.ServiceException;
 import com.myjob.web.util.KeyProvider;
@@ -36,26 +36,26 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		}
 
 		Ticket ticket = ticketOperator.getTicket(request);
-		AccountType accountType;
+		Account loginAccount;
 		if(ticket != null){
 			try{
-				accountType = loginService.login(ticket.getLoginName(), ticket.getPassword());
+				loginAccount = loginService.login(ticket.getLoginName(), ticket.getPassword());
 			}catch(ServiceException e){
-				accountType = null;
+				loginAccount = null;
 			}
 		}else{
-			accountType = null;
+			loginAccount = null;
 		}
 		
-		if(accountType == null){
+		if(loginAccount == null){
 			response.sendRedirect("/login");
 			return false;
-		}else if(!Arrays.asList(authPassport.value()).contains(accountType)){
+		}else if(!Arrays.asList(authPassport.value()).contains(loginAccount.getType())){
 			response.sendRedirect("/error/denied");
 			return false;
 		}
 		
-		request.getSession().setAttribute(keyprovider.accountTypeKey(), accountType);;
+		request.getSession().setAttribute(keyprovider.loginAccountKey(), loginAccount);;
 		return true;
 	}
 }

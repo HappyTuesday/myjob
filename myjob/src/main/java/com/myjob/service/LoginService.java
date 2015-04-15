@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import com.myjob.criteria.AccountQueryCriteria;
 import com.myjob.dao.AccountDao;
 import com.myjob.entity.Account;
-import com.myjob.entity.values.AccountType;
 import com.myjob.service.exception.ServiceException;
 import com.myjob.service.exception.ServiceInternalException;
 import com.myjob.service.exception.ServiceLogicException;
@@ -16,7 +15,7 @@ import com.myjob.service.exception.ServiceLogicException;
 public class LoginService {
 	@Resource AccountDao accountDao;
 	
-	public AccountType login(String loginName,String password) throws ServiceException{
+	public Account login(String loginName,String password) throws ServiceException{
 		AccountQueryCriteria criteria = new AccountQueryCriteria();
 		criteria.setLoginName(loginName);
 		Account[] accounts = accountDao.query(criteria).getData();
@@ -29,7 +28,7 @@ public class LoginService {
 			if(account.getPassword() != password){
 				throw new ServiceLogicException(getClass(),"invalid password");
 			}else{
-				return account.getType();
+				return account;
 			}
 		}
 	}

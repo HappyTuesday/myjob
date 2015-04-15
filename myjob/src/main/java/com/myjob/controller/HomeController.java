@@ -3,14 +3,21 @@ package com.myjob.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.myjob.entity.values.AccountType;
+
 @Controller
 @RequestMapping({"/","/home","/index","/default"})
-public class HomeController {
+public class HomeController extends ControllerBase {
 	
 	@RequestMapping
 	public String home(){
-		// TODO: redirect to the home page according to current login accout type.
-		return "redirect:/home/user";
+		if(loginAccountType() == AccountType.company){
+			return "redirect:/home/company";
+		}else if(loginAccountType() == AccountType.user){
+			return "redirect:/home/user";
+		}else{
+			return "redirect:/home/user";
+		}
 	}
 	
 	@RequestMapping("/about")

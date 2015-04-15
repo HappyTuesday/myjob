@@ -10,18 +10,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.myjob.auth.AuthPassport;
 import com.myjob.criteria.ResumeQueryCriteria;
 import com.myjob.entity.values.AccountType;
-import com.myjob.model.converter.ResumeConverter;
+import com.myjob.model.ResumeModel;
 import com.myjob.service.ResumeService;
 
 @Controller
 @RequestMapping("/resumes")
 @AuthPassport({AccountType.company,AccountType.user})
-public class ResumeSearchController {
+public class ResumeSearchController extends ControllerBase {
 	
 	@Resource
 	private ResumeService resumeService;
-	@Resource
-	private ResumeConverter resumeConverter;
 	
 	@RequestMapping
 	@AuthPassport(AccountType.company)
@@ -39,13 +37,13 @@ public class ResumeSearchController {
 	@AuthPassport(AccountType.company)
 	@ResponseBody
 	public Object searchData(@ModelAttribute ResumeQueryCriteria criteria) throws Exception{
-		return resumeConverter.toModel(resumeService.query(criteria));
+		return convertQueryResult(resumeService.query(criteria),ResumeModel.class);
 	}
 	
 	@RequestMapping("/my/data")
 	@AuthPassport(AccountType.user)
 	@ResponseBody
 	public Object searchMyData(@ModelAttribute ResumeQueryCriteria criteria) throws Exception{
-		return resumeConverter.toModel(resumeService.queryMyResumes(criteria, 0));
+		return convertQueryResult(resumeService.queryMyResumes(criteria,loginAccountSid()),ResumeModel.class);
 	}
 }

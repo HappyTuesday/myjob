@@ -8,7 +8,7 @@ public class KeyProvider {
 		return "login-ticket";
 	}
 	
-	public String accountTypeKey(){
-		return "account-type";
+	public String loginAccountKey(){
+		return "login-account";
 	}
 }

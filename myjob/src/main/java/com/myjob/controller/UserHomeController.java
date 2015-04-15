@@ -9,7 +9,7 @@ import com.myjob.entity.values.AccountType;
 @Controller
 @RequestMapping({"/home/user"})
 @AuthPassport({AccountType.user})
-public class UserHomeController {
+public class UserHomeController extends ControllerBase {
 
 	@RequestMapping
 	public String home(){

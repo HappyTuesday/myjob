@@ -7,19 +7,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.myjob.entity.User;
 import com.myjob.model.UserRegisterModel;
-import com.myjob.model.converter.UserRegisterConverter;
 import com.myjob.service.UserService;
 import com.myjob.service.exception.ServiceLogicException;
 
 @Controller
 @RequestMapping({"/register/user"})
-public class UserRegisterController {
+public class UserRegisterController extends ControllerBase {
 	
 	@Resource
 	private UserService userService;
-	@Resource
-	private UserRegisterConverter userRegisterConverter;
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String register(@ModelAttribute UserRegisterModel model){
@@ -29,7 +27,7 @@ public class UserRegisterController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String registerSubmit(@ModelAttribute UserRegisterModel model){
 		try {
-			userService.create(userRegisterConverter.toValue(model));
+			userService.create(convert(model,User.class));
 			return "redirect:/home/user";
 		} catch (ServiceLogicException e) {
 			return "/register/user";

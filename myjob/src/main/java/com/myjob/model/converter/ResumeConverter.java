@@ -1,20 +1,16 @@
 package com.myjob.model.converter;
 
+import org.springframework.core.convert.converter.Converter;
+
 import com.myjob.entity.Resume;
-import com.myjob.infrastructure.Converter;
 import com.myjob.model.ResumeModel;
 
-@Converter
-public class ResumeConverter extends BaseConverter<ResumeModel, Resume>{
-	public ResumeModel toModel(Resume resume){
-		ResumeModel model=new ResumeModel();
-		// TODO: convert
-		return model;
+public class ResumeConverter implements Converter<Resume, ResumeModel>{
+
+	@Override
+	public ResumeModel convert(Resume source) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
-	public Resume toValue(ResumeModel model){
-		Resume resume=new Resume();
-		// TODO: convert
-		return resume;
-	}
 }
