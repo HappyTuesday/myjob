@@ -21,7 +21,7 @@
 	
 	<context:component-scan base-package="com.myjob"/>
 	
-	<bean id="conversionService" class="org.springframework.context.support.FormattingConversionServiceFactoryBean">
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
 			<bean class="com.myjob.model.converter.*Converter" />
 		</property>

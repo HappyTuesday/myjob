@@ -18,6 +18,15 @@ public class ResumeService {
 	private ResumeDao resumeDao;
 	
 	public void active(long resumeSid){
+		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
+		criteria.setStatus(ResumeStatus.active);
+		
+		Resume[] activedResumes = resumeDao.query(criteria).getData();
+		for(Resume activedResume : activedResumes){
+			activedResume.setStatus(ResumeStatus.inactive);
+			resumeDao.update(activedResume);
+		}
+		
 		Resume resume = resumeDao.get(resumeSid);
 		resume.setStatus(ResumeStatus.active);
 		resumeDao.update(resume);
