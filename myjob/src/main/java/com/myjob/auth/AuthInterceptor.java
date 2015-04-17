@@ -1,6 +1,9 @@
 package com.myjob.auth;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -28,10 +31,22 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
+
 		if(!handler.getClass().isAssignableFrom(HandlerMethod.class))
 			return true;
-		AuthPassport authPassport = ((HandlerMethod)handler).getMethodAnnotation(AuthPassport.class);
-		if(authPassport == null || authPassport.value() == null){
+		
+		List<AuthPassport> authPassports = new ArrayList<AuthPassport>();
+		authPassports.add(((HandlerMethod)handler).getMethodAnnotation(AuthPassport.class));
+		authPassports.add(((HandlerMethod)handler).getBean().getClass().getAnnotation(AuthPassport.class));
+		
+		authPassports.removeIf(new Predicate<AuthPassport>() {
+			@Override
+			public boolean test(AuthPassport authPassport) {
+				return authPassport == null || authPassport.value() == null;
+			}
+		});
+		
+		if(authPassports.size() == 0){
 			return true;
 		}
 
@@ -50,9 +65,13 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		if(loginAccount == null){
 			response.sendRedirect("/login");
 			return false;
-		}else if(!Arrays.asList(authPassport.value()).contains(loginAccount.getType())){
-			response.sendRedirect("/error/denied");
-			return false;
+		}
+		
+		for(AuthPassport authPassport:authPassports){
+			if(!Arrays.asList(authPassport.value()).contains(loginAccount.getType())){
+				response.sendRedirect("/error/denied");
+				return false;
+			}
 		}
 		
 		request.getSession().setAttribute(keyprovider.loginAccountKey(), loginAccount);;

@@ -13,8 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.parsing.Location;
-
 import com.myjob.entity.values.CompanyStatus;
 
 @Entity
@@ -27,8 +25,8 @@ public class Company {
 	@Column(name="name")
 	private String name;
 
-	@Column(name="location_sid")
-	private long location_sid;
+	@Column(name="location_sid",insertable=false,updatable=false)
+	private long locationSid;
 	
 	@Column(name="category")
 	private String category;
@@ -49,7 +47,7 @@ public class Company {
 	
 	@OneToOne(cascade=CascadeType.ALL,optional=false,fetch=FetchType.EAGER)
 	@JoinColumn(name="location_sid",nullable=false)
-	private Location location;
+	private GeographicSite location;
 
 	public long getSid() {
 		return sid;
@@ -68,11 +66,11 @@ public class Company {
 	}
 
 	public long getLocation_sid() {
-		return location_sid;
+		return locationSid;
 	}
 
 	public void setLocation_sid(long location_sid) {
-		this.location_sid = location_sid;
+		this.locationSid = location_sid;
 	}
 
 	public String getCategory() {
@@ -115,11 +113,11 @@ public class Company {
 		this.account = account;
 	}
 
-	public Location getLocation() {
+	public GeographicSite getLocation() {
 		return location;
 	}
 
-	public void setLocation(Location location) {
+	public void setLocation(GeographicSite location) {
 		this.location = location;
 	}
 }

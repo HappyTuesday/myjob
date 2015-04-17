@@ -1,5 +1,6 @@
 package com.myjob.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -16,13 +17,16 @@ import com.myjob.entity.values.JobRequestStatus;
 
 @Entity
 @Table(name="job_request")
-public class JobRequest {
+public class JobRequest implements Serializable {
+	
+	private static final long serialVersionUID = 6800535403816564306L;
+
 	@Id
-	@Column(name="job_sid",updatable=false)
+	@Column(name="job_sid",insertable=false,updatable=false)
 	private long jobSid;
 	
 	@Id
-	@Column(name="resume_sid",updatable=false)
+	@Column(name="resume_sid",insertable=false,updatable=false)
 	private long resumeSid;
 	
 	@Column(name="request_time",updatable=false)
