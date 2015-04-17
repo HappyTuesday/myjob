@@ -28,6 +28,9 @@ public class JobRequest {
 	@Column(name="request_time",updatable=false)
 	private Date requestTime;
 	
+	@Column(name="response_time")
+	private Date responseTime;
+	
 	@Column(name="request_comment")
 	private String requestComment;
 	
@@ -68,6 +71,14 @@ public class JobRequest {
 
 	public void setRequestTime(Date requestTime) {
 		this.requestTime = requestTime;
+	}
+
+	public Date getResponseTime() {
+		return responseTime;
+	}
+
+	public void setResponseTime(Date responseTime) {
+		this.responseTime = responseTime;
 	}
 
 	public String getRequestComment() {
