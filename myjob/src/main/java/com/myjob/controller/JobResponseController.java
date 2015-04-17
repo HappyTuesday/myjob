@@ -21,26 +21,26 @@ public class JobResponseController extends ControllerBase {
 	@Resource
 	private JobResponseService jobResponseService;
 	
-	@RequestMapping({"/received"})
+	@RequestMapping("/received")
 	@AuthPassport({AccountType.user})
 	public String receivedResponse(@ModelAttribute JobRequestQueryCriteria criteria){
 		return "/job/response";
 	}
 	
-	@RequestMapping({"/sent"})
+	@RequestMapping("/sent")
 	@AuthPassport({AccountType.company})
 	public String sentResponse(@ModelAttribute JobRequestQueryCriteria criteria){
 		return "job/response";
 	}
 	
-	@RequestMapping({"/received"})
+	@RequestMapping("/received/data")
 	@AuthPassport({AccountType.user})
 	@ResponseBody
 	public Object receivedResponseData(@ModelAttribute JobRequestQueryCriteria criteria){
 		return convertQueryResult(jobResponseService.queryReceivedResponses(criteria, loginAccountSid()),JobResponseModel.class);
 	}
 	
-	@RequestMapping({"/sent"})
+	@RequestMapping("/sent/data")
 	@AuthPassport({AccountType.company})
 	@ResponseBody
 	public Object sentResponseData(@ModelAttribute JobRequestQueryCriteria criteria){

@@ -1,14 +1,13 @@
 package com.myjob.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.stereotype.Repository;
-
-@Repository
+@Entity
 @Table(name="geographic_site")
 public class GeographicSite {
 	@Id

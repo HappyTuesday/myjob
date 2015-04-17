@@ -19,6 +19,7 @@ public class LoginService {
 		AccountQueryCriteria criteria = new AccountQueryCriteria();
 		criteria.setLoginName(loginName);
 		Account[] accounts = accountDao.query(criteria).getData();
+		System.out.println(accounts);
 		if(accounts.length == 0){
 			throw new ServiceLogicException(getClass(),"invalid account login name");
 		}else if(accounts.length > 1){

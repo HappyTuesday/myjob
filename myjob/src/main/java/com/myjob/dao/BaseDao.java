@@ -33,11 +33,13 @@ public class BaseDao {
 		}else{
 			dataList = template.findByCriteria(criteria,qc.firstResult(),qc.maxResults());
 		}
+
 		@SuppressWarnings("unchecked")
 		T[] data = (T[]) dataList.toArray();
 		criteria.setProjection(Projections.rowCount());
 		long count = (long) template.findByCriteria(criteria).get(0);
 		QueryResult<T> result = new QueryResult<T>();
+		System.out.println(data);
 		result.setData(data);
 		result.setCount(count);
 		result.setPageIndex(qc.getPageIndex());

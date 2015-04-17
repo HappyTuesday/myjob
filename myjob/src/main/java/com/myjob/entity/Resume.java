@@ -26,7 +26,7 @@ public class Resume {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long sid;
 	
-	@Column(name="user_sid",updatable=false)
+	@Column(name="user_sid",insertable=false,updatable=false)
 	private long userSid;
 	
 	@Column(name="school")

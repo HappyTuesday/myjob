@@ -25,7 +25,7 @@ public class Job {
 	@Column(name="sid")
 	private long sid;
 	
-	@Column(name="company_sid",updatable=false)
+	@Column(name="company_sid",insertable=false,updatable=false)
 	private long company_sid;
 	
 	@Column(name="name")
@@ -34,7 +34,7 @@ public class Job {
 	@Column(name="update_time")
 	private Date updateTime;
 	
-	@Column(name="working_location_sid")
+	@Column(name="working_location_sid",insertable=false,updatable=false)
 	private long workingLocationSid;
 	
 	@Column(name="profession")

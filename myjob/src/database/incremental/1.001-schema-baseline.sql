@@ -2,7 +2,8 @@ CREATE TABLE IF NOT EXISTS account(
 	sid bigint not null primary key auto_increment,
 	login_name varchar(200) not null,
 	password varchar(200) not null,
-	type varchar(100) not null
+	email varchar(200) not null,
+	account_type varchar(100) not null
 );
 
 CREATE TABLE IF NOT EXISTS geographic_site(
