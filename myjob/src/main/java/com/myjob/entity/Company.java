@@ -5,8 +5,10 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -19,7 +21,7 @@ import com.myjob.entity.values.CompanyStatus;
 @Table(name="company")
 public class Company {
 	@Id
-	@Column(name="sid",updatable=false)
+	@Column(name="sid",insertable=false,updatable=false)
 	private long sid;
 	
 	@Column(name="name")
@@ -35,14 +37,14 @@ public class Company {
 	private String description;
 	
 	@Column(name="status")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private CompanyStatus status;
 	
 	@Column(name="create_date")
 	private Date createDate;
 	
 	@OneToOne(cascade=CascadeType.ALL,optional=false)
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="sid",nullable=false)
 	private Account account;
 	
 	@OneToOne(cascade=CascadeType.ALL,optional=false)

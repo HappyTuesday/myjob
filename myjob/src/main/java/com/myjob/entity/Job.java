@@ -5,8 +5,8 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,7 +53,7 @@ public class Job {
 	private Integer amount;
 	
 	@Column(name="status")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private JobStatus status;
 	
 	@ManyToOne(cascade=CascadeType.REFRESH)
@@ -96,11 +96,11 @@ public class Job {
 		this.updateTime = updateTime;
 	}
 
-	public long getWorkingLocation() {
+	public long getWorkingLocationSid() {
 		return workingLocationSid;
 	}
 
-	public void setWorkingLocation(long workingLocationSid) {
+	public void setWorkingLocationSid(long workingLocationSid) {
 		this.workingLocationSid = workingLocationSid;
 	}
 
@@ -152,20 +152,16 @@ public class Job {
 		this.status = status;
 	}
 
-	public long getWorkingLocationSid() {
-		return workingLocationSid;
-	}
-
-	public void setWorkingLocationSid(long workingLocationSid) {
-		this.workingLocationSid = workingLocationSid;
-	}
-
 	public Company getCompany() {
 		return company;
 	}
 
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+
+	public GeographicSite getWorkingLocation() {
+		return workingLocation;
 	}
 
 	public void setWorkingLocation(GeographicSite workingLocation) {

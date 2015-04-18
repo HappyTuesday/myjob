@@ -3,10 +3,12 @@ package com.myjob.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -31,15 +33,15 @@ public class Account {
 	private String email;
 	
 	@Column(name="account_type",updatable=false)
-	@Enumerated
-	private AccountType type;
+	@Enumerated(EnumType.STRING)
+	private AccountType accountType;
 	
-	@OneToOne(cascade=CascadeType.ALL,optional=true)
-	@PrimaryKeyJoinColumn
+	@OneToOne(cascade=CascadeType.ALL,optional=true,mappedBy="account")
+	@JoinColumn(name="sid",nullable=true)
 	private User user;
 	
-	@OneToOne(cascade=CascadeType.ALL,optional=true)
-	@PrimaryKeyJoinColumn
+	@OneToOne(cascade=CascadeType.ALL,optional=true,mappedBy="account")
+	@JoinColumn(name="sid",nullable=true)
 	private Company company;
 
 	public long getSid() {
@@ -74,12 +76,12 @@ public class Account {
 		this.email = email;
 	}
 
-	public AccountType getType() {
-		return type;
+	public AccountType getAccountType() {
+		return accountType;
 	}
 
-	public void setType(AccountType type) {
-		this.type = type;
+	public void setAccountType(AccountType type) {
+		this.accountType = type;
 	}
 
 	public User getUser() {

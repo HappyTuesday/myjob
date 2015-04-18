@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -24,7 +25,7 @@ public class User {
 	private String name;
 
 	@Column(name="status")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private UserStatus status;
 	
 	@Column(name="create_date")

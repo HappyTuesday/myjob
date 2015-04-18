@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.myjob.dao.CompanyDao;
 import com.myjob.entity.Company;
+import com.myjob.entity.values.AccountType;
+import com.myjob.entity.values.CompanyStatus;
 import com.myjob.service.exception.ServiceLogicException;
 
 @Service
@@ -17,6 +19,8 @@ public class CompanyService {
 	
 	public void create(Company company) throws ServiceLogicException{
 		company.setCreateDate(new Date());
+		company.getAccount().setAccountType(AccountType.company);
+		company.setStatus(CompanyStatus.active);
 		companyDao.create(company);
 	}
 	

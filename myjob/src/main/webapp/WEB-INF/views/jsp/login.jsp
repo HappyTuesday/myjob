@@ -2,6 +2,9 @@
 
 <form method="post" action="/login">
 	<div>
+		${error}
+	</div>
+	<div>
 		<span>login name:</span><input type="text" name="loginName"/>
 	</div>
 	<div>

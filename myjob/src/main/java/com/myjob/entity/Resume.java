@@ -5,8 +5,8 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,11 +45,11 @@ public class Resume {
 	private Date birthday;
 	
 	@Column(name="gender")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	
 	@Column(name="qualification")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private Qualification qualification;
 	
 	@Column(name="working_years")
@@ -65,7 +65,7 @@ public class Resume {
 	private Date updateTime;
 	
 	@Column(name="status")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private ResumeStatus status;
 	
 	@ManyToOne(cascade=CascadeType.REFRESH)

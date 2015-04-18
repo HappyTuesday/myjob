@@ -29,7 +29,7 @@ public class ControllerBase {
 	
 	protected AccountType loginAccountType(){
 		Account account = loginAccount();
-		return account !=null ? account.getType():null;
+		return account !=null ? account.getAccountType():null;
 	}
 	
 	protected long loginAccountSid() {

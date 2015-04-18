@@ -1,11 +1,12 @@
 package com.myjob.model.converter;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
 import com.myjob.entity.GeographicSite;
 import com.myjob.model.GeographicSiteModel;
 
-
+@Component
 public class GeographicSiteConverter implements Converter<GeographicSite,GeographicSiteModel>{
 	public GeographicSiteModel convert(GeographicSite source) {
 		GeographicSiteModel geographicSiteModel = new GeographicSiteModel();

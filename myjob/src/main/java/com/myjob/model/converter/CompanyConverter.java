@@ -3,16 +3,16 @@ package com.myjob.model.converter;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import com.myjob.entity.Resume;
-import com.myjob.model.ResumeModel;
+import com.myjob.entity.Company;
+import com.myjob.model.CompanyModel;
 
 @Component
-public class ResumeConverter implements Converter<Resume, ResumeModel>{
+public class CompanyConverter implements Converter<Company, CompanyModel> {
 
 	@Override
-	public ResumeModel convert(Resume source) {
+	public CompanyModel convert(Company source) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }

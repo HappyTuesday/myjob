@@ -23,7 +23,10 @@
 	
 	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
-			<bean class="com.myjob.model.converter.JobConverter" />
+			<set>
+				<ref bean="companyConverter"/>
+				<ref bean="companyRegisterModelConverter"/>
+			</set>
 		</property>
 	</bean>
 </beans>

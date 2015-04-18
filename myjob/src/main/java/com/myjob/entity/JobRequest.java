@@ -6,8 +6,8 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -42,7 +42,7 @@ public class JobRequest implements Serializable {
 	private String hrRemark;
 	
 	@Column(name="status")
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private JobRequestStatus status;
 	
 	@ManyToOne(cascade=CascadeType.REFRESH)

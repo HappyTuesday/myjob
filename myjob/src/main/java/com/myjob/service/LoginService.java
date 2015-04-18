@@ -21,13 +21,14 @@ public class LoginService {
 		AccountQueryCriteria criteria = new AccountQueryCriteria();
 		criteria.setLoginName(loginName);
 		List<Account> accounts = accountDao.query(criteria).getData();
-		System.out.println(accounts);
+
 		if(accounts.isEmpty()){
 			throw new ServiceLogicException(getClass(),"invalid account login name");
 		}else if(accounts.size() > 1){
 			throw new ServiceInternalException(getClass(),"more than one loginName ["+loginName+"] found in database");
 		}else{
 			Account account = accounts.get(0);
+			System.out.println("input password: [" + password + "], origin password: [" + account.getPassword() + "]");
 			if(account.getPassword() != password){
 				throw new ServiceLogicException(getClass(),"invalid password");
 			}else{

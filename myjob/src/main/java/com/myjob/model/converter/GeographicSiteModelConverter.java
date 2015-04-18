@@ -1,13 +1,12 @@
 package com.myjob.model.converter;
 
-import javax.annotation.Resource;
-
-import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
 import com.myjob.entity.GeographicSite;
 import com.myjob.model.GeographicSiteModel;
 
+@Component
 public class GeographicSiteModelConverter implements Converter<GeographicSiteModel,GeographicSite> {
 	@Override
 	public GeographicSite convert(GeographicSiteModel source) {

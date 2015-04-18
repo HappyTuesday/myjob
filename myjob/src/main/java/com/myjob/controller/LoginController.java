@@ -34,7 +34,7 @@ public class LoginController extends ControllerBase {
 	}
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public String loginSubmit(@ModelAttribute LoginModel model,Model viewModel,HttpServletResponse response) throws ServiceException, IOException{
+	public String loginSubmit(@ModelAttribute LoginModel model,Model models,HttpServletResponse response) throws ServiceException, IOException{
 		try {
 			Account account = loginService.login(model.getLoginName(), model.getPassword());
 			
@@ -44,9 +44,9 @@ public class LoginController extends ControllerBase {
 			ticket.setCreateTime(new Date());
 			
 			ticketOperator.setTicket(ticket, response, model.isRememberMe());
-			return "redirect:/home/" + account.getType();
+			return "redirect:/home/" + account.getAccountType();
 		} catch (ServiceLogicException e) {
-			viewModel.addAttribute("error", e.getMessage());
+			models.addAttribute("error", e.getMessage());
 			return "/login";
 		}
 	}
