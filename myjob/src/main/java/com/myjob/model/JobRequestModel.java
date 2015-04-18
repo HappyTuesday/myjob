@@ -7,6 +7,10 @@ import com.myjob.entity.Resume;
 import com.myjob.entity.values.JobRequestStatus;
 
 public class JobRequestModel {
+	private String hrRemark;
+	private String status;
+	private JobModel job;
+	private ResumeModel resume;
 	private Date requestTime;	
 	private String requestComment;
 	public Date getRequestTime() {
@@ -27,12 +31,6 @@ public class JobRequestModel {
 	public void setHrRemark(String hrRemark) {
 		this.hrRemark = hrRemark;
 	}
-	public JobRequestStatus getStatus() {
-		return status;
-	}
-	public void setStatus(JobRequestStatus status) {
-		this.status = status;
-	}
 	public JobModel getJob() {
 		return job;
 	}
@@ -45,15 +43,13 @@ public class JobRequestModel {
 	public void setResume(ResumeModel resume) {
 		this.resume = resume;
 	}
-	public Date getResponseTime() {
-		return responseTime;
+	public String getStatus() {
+		return status;
 	}
-	public void setResponseTime(Date responseTime) {
-		this.responseTime = responseTime;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-	private String hrRemark;
-	private JobRequestStatus status;
-	private JobModel job;
-	private ResumeModel resume;
-	private Date responseTime;
+	
+
+
 }

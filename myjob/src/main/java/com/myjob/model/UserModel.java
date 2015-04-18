@@ -8,7 +8,7 @@ import com.myjob.entity.values.UserStatus;
 public class UserModel {
 	private long sid;
 	private String name;
-	private Account account;
+	private AccountModel account;
 	private Date createDate;
 	private String status;
 }
