@@ -8,7 +8,13 @@ import com.myjob.model.GeographicSiteModel;
 
 public class GeographicSiteConverter implements Converter<GeographicSite,GeographicSiteModel>{
 	public GeographicSiteModel convert(GeographicSite source) {
-		return null;
+		GeographicSiteModel geographicSiteModel = new GeographicSiteModel();
+		geographicSiteModel.setSid(source.getSid());
+		geographicSiteModel.setAddress(source.getAddress());
+		geographicSiteModel.setCity(source.getCity());
+		geographicSiteModel.setPostCode(source.getPostCode());
+		geographicSiteModel.setProvince(source.getProvince());
+		return geographicSiteModel;
 	}
 
 }
