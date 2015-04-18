@@ -16,6 +16,9 @@ public class JobConverter implements Converter<Job, JobModel> {
 	
 	@Resource
 	private GeographicSiteConverter geographicSiteConverter;
+	
+	@Resource
+	private QualificationFormatter qualificationFormatter;
 
 	@Override
 	public JobModel convert(Job source) {
@@ -25,7 +28,7 @@ public class JobConverter implements Converter<Job, JobModel> {
 		jobModel.setDescripton(source.getDescripton());
 		jobModel.setName(source.getName());
 		jobModel.setProfession(source.getProfession());
-		jobModel.setQualification(source.getQualification().toString());
+		jobModel.setQualification(qualificationFormatter.print(source.getQualification(), null));
 		jobModel.setSid(source.getSid());
 		jobModel.setStatus(source.getStatus().toString());
 		jobModel.setUpdateTime(source.getUpdateTime());
