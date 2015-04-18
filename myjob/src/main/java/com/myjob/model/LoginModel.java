@@ -17,9 +17,9 @@ public class LoginModel {
 		this.password = password;
 	}
 	public boolean isRememberMe() {
-		return rememberMe;
+		return rememberMe != null && rememberMe;
 	}
-	public void setRememberMe(boolean rememberMe) {
+	public void setRememberMe(Boolean rememberMe) {
 		this.rememberMe = rememberMe;
 	}
 }

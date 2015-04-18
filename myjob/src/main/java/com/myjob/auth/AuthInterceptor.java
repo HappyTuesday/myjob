@@ -13,7 +13,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.myjob.entity.Account;
-import com.myjob.service.LoginService;
+import com.myjob.service.AccountService;
 import com.myjob.service.exception.ServiceException;
 import com.myjob.web.util.KeyProvider;
 import com.myjob.web.util.TicketOperator;
@@ -26,7 +26,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 	private KeyProvider keyprovider;
 	
 	@Resource
-	private LoginService loginService;
+	private AccountService loginService;
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request,

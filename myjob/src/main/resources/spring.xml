@@ -26,6 +26,8 @@
 			<set>
 				<ref bean="companyConverter"/>
 				<ref bean="companyRegisterModelConverter"/>
+				<ref bean="accountConverter"/>
+				<ref bean="geographicSiteConverter"/>
 			</set>
 		</property>
 	</bean>

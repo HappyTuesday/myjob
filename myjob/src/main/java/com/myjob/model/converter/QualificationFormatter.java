@@ -4,9 +4,11 @@ import java.text.ParseException;
 import java.util.Locale;
 
 import org.springframework.format.Formatter;
+import org.springframework.stereotype.Component;
 
 import com.myjob.entity.values.Qualification;
 
+@Component
 public class QualificationFormatter implements Formatter<Qualification> {
 
 	@Override

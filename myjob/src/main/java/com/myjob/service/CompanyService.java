@@ -16,7 +16,7 @@ import com.myjob.service.exception.ServiceLogicException;
 public class CompanyService {
 	@Resource
 	private CompanyDao companyDao;
-	
+
 	public void create(Company company) throws ServiceLogicException{
 		company.setCreateDate(new Date());
 		company.getAccount().setAccountType(AccountType.company);

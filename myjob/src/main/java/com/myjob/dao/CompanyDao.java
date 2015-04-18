@@ -12,6 +12,8 @@ public class CompanyDao extends BaseDao {
 	}
 	
 	public void create(Company company){
+		template.save(company.getAccount());
+		company.setSid(company.getAccount().getSid());
 		template.save(company);
 	}
 }

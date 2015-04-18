@@ -1,10 +1,12 @@
 package com.myjob.model.converter;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
 import com.myjob.entity.Account;
 import com.myjob.model.AccountModel;
 
+@Component
 public class AccountConverter implements Converter<Account,AccountModel> {
 
 	@Override

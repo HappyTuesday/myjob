@@ -10,6 +10,7 @@ import com.myjob.infrastructure.Operator;
 public class CookieOperator {
 	public void setCookieValue(HttpServletResponse response,String cookieName,String cookieValue){
 		Cookie cookie = new Cookie(cookieName, cookieValue);
+		System.out.println("cookie: " + cookieName + " = " + cookieValue);
 		response.addCookie(cookie);
 	}
 	

@@ -14,7 +14,7 @@ import com.myjob.service.exception.ServiceInternalException;
 import com.myjob.service.exception.ServiceLogicException;
 
 @Service
-public class LoginService {
+public class AccountService {
 	@Resource AccountDao accountDao;
 	
 	public Account login(String loginName,String password) throws ServiceException{
@@ -29,7 +29,7 @@ public class LoginService {
 		}else{
 			Account account = accounts.get(0);
 			System.out.println("input password: [" + password + "], origin password: [" + account.getPassword() + "]");
-			if(account.getPassword() != password){
+			if(!account.getPassword().equals(password)){
 				throw new ServiceLogicException(getClass(),"invalid password");
 			}else{
 				return account;

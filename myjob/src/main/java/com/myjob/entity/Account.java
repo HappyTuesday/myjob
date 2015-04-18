@@ -36,12 +36,12 @@ public class Account {
 	@Enumerated(EnumType.STRING)
 	private AccountType accountType;
 	
-	@OneToOne(cascade=CascadeType.ALL,optional=true,mappedBy="account")
-	@JoinColumn(name="sid",nullable=true)
+	@OneToOne(cascade=CascadeType.ALL,optional=true)
+	@PrimaryKeyJoinColumn
 	private User user;
 	
-	@OneToOne(cascade=CascadeType.ALL,optional=true,mappedBy="account")
-	@JoinColumn(name="sid",nullable=true)
+	@OneToOne(cascade=CascadeType.ALL,optional=true)
+	@PrimaryKeyJoinColumn
 	private Company company;
 
 	public long getSid() {

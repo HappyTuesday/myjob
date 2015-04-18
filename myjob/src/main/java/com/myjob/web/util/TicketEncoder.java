@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Base64;
 
 import org.springframework.stereotype.Component;
 
@@ -18,8 +19,8 @@ public class TicketEncoder {
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
 			try{
 				objectOutputStream.writeObject(ticket);
-				String text = byteArrayOutputStream.toString();
-				return text;
+				byte[] encodedBytes = Base64.getEncoder().encode(byteArrayOutputStream.toByteArray());
+				return new String(encodedBytes);
 			} finally{
 				objectOutputStream.close();
 			}
@@ -29,7 +30,9 @@ public class TicketEncoder {
 	}
 	
 	public Ticket decode(String encodedText) throws IOException, ClassNotFoundException{
-		ByteArrayInputStream stream = new ByteArrayInputStream(encodedText.getBytes());
+		byte[] decodedBytes = Base64.getDecoder().decode(encodedText.getBytes());
+		
+		ByteArrayInputStream stream = new ByteArrayInputStream(decodedBytes);
 		try{
 			ObjectInputStream objectInputStream = new ObjectInputStream(stream);
 			try{

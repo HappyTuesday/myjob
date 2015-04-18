@@ -14,6 +14,10 @@ public class AccountDao extends BaseDao {
 		return template.get(Account.class, sid);
 	}
 	
+	public void create(Account account){
+		template.save(account);
+	}
+	
 	public QueryResult<Account> query(AccountQueryCriteria qc){
 		DetachedCriteria criteria = DetachedCriteria.forClass(Account.class);
 		

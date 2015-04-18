@@ -44,7 +44,7 @@ public class Company {
 	private Date createDate;
 	
 	@OneToOne(cascade=CascadeType.ALL,optional=false)
-	@JoinColumn(name="sid",nullable=false)
+	@PrimaryKeyJoinColumn
 	private Account account;
 	
 	@OneToOne(cascade=CascadeType.ALL,optional=false)

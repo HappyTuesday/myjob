@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.myjob.auth.Ticket;
 import com.myjob.infrastructure.Operator;
-import com.sun.org.apache.bcel.internal.generic.PUTSTATIC;
 
 @Operator
 public class TicketOperator {
@@ -30,6 +29,7 @@ public class TicketOperator {
 	}
 	
 	public Ticket getTicket(HttpServletRequest request){
+		
 		String ticketText = request.getHeader(keyProvider.ticketKey());
 		System.out.println("header-ticket: " + ticketText);
 		if(ticketText == null){

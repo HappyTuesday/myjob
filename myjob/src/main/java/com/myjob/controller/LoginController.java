@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.myjob.auth.Ticket;
 import com.myjob.entity.Account;
 import com.myjob.model.LoginModel;
-import com.myjob.service.LoginService;
+import com.myjob.service.AccountService;
 import com.myjob.service.exception.ServiceException;
 import com.myjob.service.exception.ServiceLogicException;
 import com.myjob.web.util.TicketOperator;
@@ -23,7 +23,7 @@ import com.myjob.web.util.TicketOperator;
 @Controller
 public class LoginController extends ControllerBase {
 	@Resource
-	private LoginService loginService;
+	private AccountService loginService;
 	
 	@Resource
 	private TicketOperator ticketOperator;
