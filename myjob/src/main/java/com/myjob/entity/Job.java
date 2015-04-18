@@ -56,11 +56,11 @@ public class Job {
 	@Enumerated
 	private JobStatus status;
 	
-	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="company_sid",nullable=false)
 	private Company company;
 	
-	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="working_location_sid",nullable=false)
 	private GeographicSite workingLocation;
 

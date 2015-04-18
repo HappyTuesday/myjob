@@ -9,7 +9,8 @@ public class CompanyRegisterModel {
 	private String name;
 	private String category;
 	private String description;
-	private AccountModel account;	
+	private AccountModel account;
+	private GeographicSiteModel location;
 	public String getName() {
 		return name;
 	}
@@ -33,5 +34,11 @@ public class CompanyRegisterModel {
 	}
 	public void setAccount(AccountModel account) {
 		this.account = account;
+	}
+	public GeographicSiteModel getLocation() {
+		return location;
+	}
+	public void setLocation(GeographicSiteModel location) {
+		this.location = location;
 	}
 }

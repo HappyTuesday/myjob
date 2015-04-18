@@ -45,7 +45,7 @@ public class Company {
 	@PrimaryKeyJoinColumn
 	private Account account;
 	
-	@OneToOne(cascade=CascadeType.ALL,optional=false,fetch=FetchType.EAGER)
+	@OneToOne(cascade=CascadeType.ALL,optional=false)
 	@JoinColumn(name="location_sid",nullable=false)
 	private GeographicSite location;
 

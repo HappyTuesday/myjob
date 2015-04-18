@@ -1,5 +1,7 @@
 package com.myjob.controller;
 
+import java.util.ArrayList;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -39,15 +41,14 @@ public class ControllerBase {
 		return conversionService.convert(source, targetClass);
 	}
 	
-	@SuppressWarnings("unchecked")
 	protected <S,T> QueryResult<T> convertQueryResult(QueryResult<S> source,Class<T> targetClass){
 		QueryResult<T> target=new QueryResult<T>();
 		target.setCount(source.getCount());
 		target.setPageIndex(source.getPageIndex());
 		target.setPageSize(source.getPageSize());
-		target.setData((T[]) new Object[source.getData().length]);
-		for(int i=0;i<source.getData().length;i++){
-			target.getData()[i] = conversionService.convert(source.getData()[i], targetClass);
+		target.setData(new ArrayList<T>(source.getData().size()));
+		for(int i=0;i<source.getData().size();i++){
+			target.getData().set(i, conversionService.convert(source.getData().get(i), targetClass));
 		}
 		return target;
 	}

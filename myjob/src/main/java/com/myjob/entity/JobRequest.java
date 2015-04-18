@@ -45,11 +45,11 @@ public class JobRequest implements Serializable {
 	@Enumerated
 	private JobRequestStatus status;
 	
-	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@PrimaryKeyJoinColumn(name="job_sid")
 	private Job job;
 	
-	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@PrimaryKeyJoinColumn(name="resume_sid")
 	private Resume resume;
 

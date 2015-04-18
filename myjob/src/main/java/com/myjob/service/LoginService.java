@@ -1,5 +1,7 @@
 package com.myjob.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -18,14 +20,14 @@ public class LoginService {
 	public Account login(String loginName,String password) throws ServiceException{
 		AccountQueryCriteria criteria = new AccountQueryCriteria();
 		criteria.setLoginName(loginName);
-		Account[] accounts = accountDao.query(criteria).getData();
+		List<Account> accounts = accountDao.query(criteria).getData();
 		System.out.println(accounts);
-		if(accounts.length == 0){
+		if(accounts.isEmpty()){
 			throw new ServiceLogicException(getClass(),"invalid account login name");
-		}else if(accounts.length > 1){
+		}else if(accounts.size() > 1){
 			throw new ServiceInternalException(getClass(),"more than one loginName ["+loginName+"] found in database");
 		}else{
-			Account account = accounts[0];
+			Account account = accounts.get(0);
 			if(account.getPassword() != password){
 				throw new ServiceLogicException(getClass(),"invalid password");
 			}else{

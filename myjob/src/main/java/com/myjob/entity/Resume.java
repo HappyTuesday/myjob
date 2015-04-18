@@ -68,7 +68,7 @@ public class Resume {
 	@Enumerated
 	private ResumeStatus status;
 	
-	@ManyToOne(cascade=CascadeType.REFRESH,fetch=FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.REFRESH)
 	@JoinColumn(name="user_sid",nullable=false)
 	private User user;
 

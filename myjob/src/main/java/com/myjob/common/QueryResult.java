@@ -1,9 +1,11 @@
 package com.myjob.common;
 
+import java.util.List;
+
 public class QueryResult<T> {
 	private long count;
 	
-	private T[] data;
+	private List<T> data;
 	
 	private int pageIndex;
 	
@@ -17,11 +19,11 @@ public class QueryResult<T> {
 		this.count = count;
 	}
 
-	public T[] getData() {
+	public List<T> getData() {
 		return data;
 	}
 
-	public void setData(T[] data) {
+	public void setData(List<T> data) {
 		this.data = data;
 	}
 

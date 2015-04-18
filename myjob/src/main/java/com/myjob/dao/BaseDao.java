@@ -18,6 +18,7 @@ public class BaseDao {
 	
 	@Resource HibernateTemplate template;
 	
+	@SuppressWarnings("unchecked")
 	protected <T> QueryResult<T> executeQuery(DetachedCriteria criteria,QueryCriteria qc) {
 		if(qc.getOrderby()!=null && !qc.getOrderby().trim().isEmpty()){
 			if(qc.isDesc()){
@@ -27,20 +28,20 @@ public class BaseDao {
 			}
 		}
 		
-		List<?> dataList;
+		List<?> data;
+		long count;
 		if(qc.getPageSize() <= 0){
-			dataList = template.findByCriteria(criteria);
+			data = template.findByCriteria(criteria);
+			count = 0;
 		}else{
-			dataList = template.findByCriteria(criteria,qc.firstResult(),qc.maxResults());
+			data = template.findByCriteria(criteria,qc.firstResult(),qc.maxResults());
+			criteria.setProjection(Projections.rowCount());
+			count = (long) template.findByCriteria(criteria).get(0);
 		}
 
-		@SuppressWarnings("unchecked")
-		T[] data = (T[]) dataList.toArray();
-		criteria.setProjection(Projections.rowCount());
-		long count = (long) template.findByCriteria(criteria).get(0);
 		QueryResult<T> result = new QueryResult<T>();
-		System.out.println(data);
-		result.setData(data);
+		
+		result.setData((List<T>) data);
 		result.setCount(count);
 		result.setPageIndex(qc.getPageIndex());
 		result.setPageSize(qc.getPageSize());

@@ -1,6 +1,7 @@
 package com.myjob.service;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -21,7 +22,7 @@ public class ResumeService {
 		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
 		criteria.setStatus(ResumeStatus.active);
 		
-		Resume[] activedResumes = resumeDao.query(criteria).getData();
+		List<Resume> activedResumes = resumeDao.query(criteria).getData();
 		for(Resume activedResume : activedResumes){
 			activedResume.setStatus(ResumeStatus.inactive);
 			resumeDao.update(activedResume);
