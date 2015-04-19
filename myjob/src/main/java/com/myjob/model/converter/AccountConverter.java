@@ -18,6 +18,4 @@ public class AccountConverter implements Converter<Account,AccountModel> {
 		accountModel.setSid(source.getSid());
 		return accountModel;
 	}
-
-
 }

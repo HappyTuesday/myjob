@@ -43,7 +43,7 @@ public class LoginController extends ControllerBase {
 			ticket.setPassword(model.getPassword());
 			ticket.setCreateTime(new Date());
 			
-			ticketOperator.setTicket(ticket, response, model.isRememberMe());
+			ticketOperator.setTicket(ticket, response, model.getRememberMe());
 			return "redirect:/home/" + account.getAccountType();
 		} catch (ServiceLogicException e) {
 			models.addAttribute("error", e.getMessage());

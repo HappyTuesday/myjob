@@ -12,6 +12,6 @@ public class JobCreateModelConverter implements Converter<JobCreateModel,Job>{
 	public Job convert(JobCreateModel source) {
 		Job job = new Job();
 		
-		return null;
+		return job;
 	}
 }

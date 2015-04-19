@@ -30,5 +30,10 @@
 				<ref bean="geographicSiteConverter"/>
 			</set>
 		</property>
+		<property name="formatters">
+			<set>
+				<ref bean="qualificationFormatter"/>
+			</set>
+		</property>
 	</bean>
 </beans>
