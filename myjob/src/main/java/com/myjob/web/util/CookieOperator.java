@@ -25,7 +25,7 @@ public class CookieOperator {
 	
 	private Cookie findCookieByName(Cookie[] cookies,String cookieName){
 		for(Cookie cookie:cookies){
-			if(cookie.getName() == cookieName){
+			if(cookie.getName().equals(cookieName)){
 				return cookie;
 			}
 		}

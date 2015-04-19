@@ -7,8 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -24,7 +22,7 @@ public class Company {
 	@Column(name="sid",insertable=false,updatable=false)
 	private long sid;
 	
-	@Column(name="name")
+	@Column(name="name",unique=true)
 	private String name;
 
 	@Column(name="location_sid",insertable=false,updatable=false)

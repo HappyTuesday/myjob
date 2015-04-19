@@ -8,7 +8,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -23,7 +22,7 @@ public class Account {
 	@Column(name="sid",updatable=false)
 	private long sid;
 	
-	@Column(name="login_name",updatable=false)
+	@Column(name="login_name",updatable=false,unique=true)
 	private String loginName;
 	
 	@Column(name="password")

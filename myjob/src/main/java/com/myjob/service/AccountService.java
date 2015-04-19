@@ -28,7 +28,7 @@ public class AccountService {
 			throw new ServiceInternalException(getClass(),"more than one loginName ["+loginName+"] found in database");
 		}else{
 			Account account = accounts.get(0);
-			System.out.println("input password: [" + password + "], origin password: [" + account.getPassword() + "]");
+			//System.out.println("input password: [" + password + "], origin password: [" + account.getPassword() + "]");
 			if(!account.getPassword().equals(password)){
 				throw new ServiceLogicException(getClass(),"invalid password");
 			}else{

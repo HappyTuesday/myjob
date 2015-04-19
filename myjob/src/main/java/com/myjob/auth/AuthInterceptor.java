@@ -46,7 +46,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 			}
 		});
 		
-		System.out.println("...interceptor: " + handler);
+		System.out.println("--intercept: " + handler);
 		
 		if(authPassports.size() == 0){
 			return true;

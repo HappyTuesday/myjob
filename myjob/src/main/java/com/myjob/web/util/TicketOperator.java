@@ -20,21 +20,20 @@ public class TicketOperator {
 	@Resource
 	private CookieOperator cookieOperator;
 	
-	public void setTicket(Ticket ticket,HttpServletResponse response,boolean rememberMe) throws IOException{
+	public void setTicket(Ticket ticket,HttpServletResponse response,Boolean rememberMe) throws IOException{
 		String ticketText = ticketEncoder.encode(ticket);
 		response.setHeader(keyProvider.ticketKey(), ticketText);
-		if(rememberMe){
+		if(rememberMe != null && rememberMe){
 			cookieOperator.setCookieValue(response, keyProvider.ticketKey(), ticketText);
 		}
 	}
 	
 	public Ticket getTicket(HttpServletRequest request){
-		
 		String ticketText = request.getHeader(keyProvider.ticketKey());
-		System.out.println("header-ticket: " + ticketText);
+		//System.out.println("header-ticket: " + ticketText);
 		if(ticketText == null){
 			ticketText = cookieOperator.getCookieValue(request, keyProvider.ticketKey());
-			System.out.println("cookie-ticket: " + ticketText);
+			//System.out.println("cookie-ticket: " + ticketText);
 		}
 		
 		if(ticketText == null){
