@@ -26,7 +26,7 @@ public class JobController extends ControllerBase {
 	public String detail(@PathVariable long job_sid,Model models){
 		JobModel model = convert(jobService.detail(job_sid), JobModel.class);
 		models.addAttribute(model);
-		return "/job/detail";
+		return "job.detail";
 	}
 	
 	@RequestMapping(value="/delete/{job_sid}",method=RequestMethod.POST)

@@ -21,7 +21,7 @@ public class CompanyRegisterController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String register(@ModelAttribute CompanyRegisterModel model){
-		return "/register/company";
+		return "register.company";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
@@ -30,7 +30,7 @@ public class CompanyRegisterController extends ControllerBase {
 			companyService.create(convert(model, Company.class));
 			return "redirect:/home/company";
 		} catch (ServiceLogicException e) {
-			return "/register/company";
+			return "register.company";
 		}
 	}
 }

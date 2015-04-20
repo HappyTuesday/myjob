@@ -30,7 +30,7 @@ public class LoginController extends ControllerBase {
 	
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public String login(@ModelAttribute LoginModel model){
-		return "/login";
+		return "login";
 	}
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
@@ -47,7 +47,7 @@ public class LoginController extends ControllerBase {
 			return "redirect:/home/" + account.getAccountType();
 		} catch (ServiceLogicException e) {
 			models.addAttribute("error", e.getMessage());
-			return "/login";
+			return "login";
 		}
 	}
 	

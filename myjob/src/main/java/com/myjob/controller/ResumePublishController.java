@@ -23,12 +23,12 @@ public class ResumePublishController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String publish(@ModelAttribute ResumeCreateModel model){
-		return "/resume/publish";
+		return "resume.publish";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submit(@ModelAttribute ResumeCreateModel model){
 		resumeService.create(convert(model, Resume.class));
-		return "redirect:/resumes";
+		return "redirect:/resume/resumes";
 	}
 }

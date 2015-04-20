@@ -16,12 +16,12 @@ public class HomeController extends ControllerBase {
 		}else if(loginAccountType() == AccountType.user){
 			return "redirect:/home/user";
 		}else{
-			return "redirect:/jobs";
+			return "redirect:/job/jobs";
 		}
 	}
 	
 	@RequestMapping("/about")
 	public String about(){
-		return "/about";
+		return "about";
 	}
 }
