@@ -11,7 +11,12 @@ public class JobCreateModelConverter implements Converter<JobCreateModel,Job>{
 	@Override
 	public Job convert(JobCreateModel source) {
 		Job job = new Job();
-		
+		job.setAmount(source.getAmount());
+		job.setDescripton(source.getDescripton());
+		job.setName(source.getName());
+		job.setProfession(source.getProfession());
+		job.setQualification(source.getQualification());
+		job.setWorkingYears(source.getWorkingYears());
 		return job;
 	}
 }

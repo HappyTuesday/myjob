@@ -19,7 +19,7 @@ public class ResumeModel {
 	
 	private String idCard;
 	
-	private String birthday;
+	private Date birthday;
 	
 	private Gender gender;
 	
@@ -83,11 +83,11 @@ public class ResumeModel {
 		this.idCard = idCard;
 	}
 
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

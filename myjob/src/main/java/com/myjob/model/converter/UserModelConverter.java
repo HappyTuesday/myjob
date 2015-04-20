@@ -3,21 +3,26 @@ package com.myjob.model.converter;
 import javax.annotation.Resource;
 
 import org.springframework.core.convert.converter.Converter;
-import org.springframework.stereotype.Component;
 
-import com.myjob.entity.Account;
+
+
 import com.myjob.entity.User;
-import com.myjob.model.UserRegisterModel;
+import com.myjob.model.UserModel;
 
-@Component
-public class UserRegisterModelConverter implements Converter<UserRegisterModel, User> {
+public class UserModelConverter implements Converter<UserModel, User>{
 	@Resource
 	private AccountModelConverter accountModelConverter;
+
 	@Override
-	public User convert(UserRegisterModel source) {
+	public User convert(UserModel source) {
 		User user = new User();
 		user.setAccount(accountModelConverter.convert(source.getAccount()));
-		user.setName((source.getName()));
+		user.setCreateDate(source.getCreateDate());
+		user.setName(source.getName());
+		user.setSid(source.getSid());
+		user.setStatus(source.getStatus());
 		return user;
 	}
+	
+
 }
