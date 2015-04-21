@@ -23,12 +23,12 @@ public class JobPublishController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String publish(@ModelAttribute JobCreateModel model){
-		return "/job/publish";
+		return "job.publish";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submit(@ModelAttribute JobCreateModel model){
 		jobService.create(convert(model, Job.class));
-		return "redirect:/job/search/my";
+		return "redirect:/job/jobs/my";
 	}
 }

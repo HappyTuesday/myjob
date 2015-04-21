@@ -24,13 +24,13 @@ public class JobRequestController extends ControllerBase {
 	@RequestMapping(value="/sent")
 	@AuthPassport({AccountType.user})
 	public String sentRequests(@ModelAttribute JobRequestQueryCriteria criteria){
-		return "/job/requests";
+		return "job.requests";
 	}
 	
 	@RequestMapping(value="/received")
 	@AuthPassport({AccountType.company})
 	public String receivedRequests(@ModelAttribute JobRequestQueryCriteria criteria){
-		return "job/requests";
+		return "job.requests";
 	}
 	
 	@RequestMapping(value="/sent/data")

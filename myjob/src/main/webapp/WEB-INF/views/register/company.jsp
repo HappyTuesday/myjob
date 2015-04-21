@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+
 <h2>register company</h2>
 
 <form method="post" action="/register/company">

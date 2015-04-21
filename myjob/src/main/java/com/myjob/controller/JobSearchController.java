@@ -13,7 +13,7 @@ import com.myjob.model.JobModel;
 import com.myjob.service.JobService;
 
 @Controller
-@RequestMapping("/jobs")
+@RequestMapping("/job/jobs")
 public class JobSearchController extends ControllerBase {
 	
 	@Resource
@@ -21,13 +21,13 @@ public class JobSearchController extends ControllerBase {
 	
 	@RequestMapping
 	public String search(@ModelAttribute JobQueryCriteria criteria){
-		return "/jobs";
+		return "job.jobs";
 	}
 	
 	@RequestMapping("/my")
 	@AuthPassport(AccountType.company)
 	public String searchMy(@ModelAttribute JobQueryCriteria criteria){
-		return "/jobs";
+		return "job.jobs";
 	}
 	
 	@RequestMapping("/data")
