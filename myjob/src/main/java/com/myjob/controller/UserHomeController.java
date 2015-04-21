@@ -13,6 +13,6 @@ public class UserHomeController extends ControllerBase {
 
 	@RequestMapping
 	public String home(){
-		return "forward:/job/jobs";
+		return "forward:/job/search";
 	}
 }

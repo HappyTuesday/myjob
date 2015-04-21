@@ -28,7 +28,9 @@ public class ResumePublishController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submit(@ModelAttribute ResumeCreateModel model){
-		resumeService.create(convert(model, Resume.class));
-		return "redirect:/resume/resumes";
+		Resume resume = convert(model, Resume.class);
+		resume.setUser(loginUser());
+		resumeService.create(resume);
+		return "redirect:/resume/search";
 	}
 }

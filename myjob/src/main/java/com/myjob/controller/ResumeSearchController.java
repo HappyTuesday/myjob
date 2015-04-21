@@ -14,7 +14,7 @@ import com.myjob.model.ResumeModel;
 import com.myjob.service.ResumeService;
 
 @Controller
-@RequestMapping("/resume/resumes")
+@RequestMapping("/resume/search")
 @AuthPassport({AccountType.company,AccountType.user})
 public class ResumeSearchController extends ControllerBase {
 	
@@ -24,13 +24,13 @@ public class ResumeSearchController extends ControllerBase {
 	@RequestMapping
 	@AuthPassport(AccountType.company)
 	public String search(@ModelAttribute ResumeQueryCriteria criteria){
-		return "resume.resumes";
+		return "resume.search";
 	}
 	
 	@RequestMapping("/my")
 	@AuthPassport(AccountType.user)
 	public String searchMy(@ModelAttribute ResumeQueryCriteria criteria){
-		return "resume.resumes";
+		return "resume.search";
 	}
 	
 	@RequestMapping("/data")

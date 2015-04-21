@@ -28,7 +28,9 @@ public class JobPublishController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submit(@ModelAttribute JobCreateModel model){
-		jobService.create(convert(model, Job.class));
-		return "redirect:/job/jobs/my";
+		Job job = convert(model, Job.class);
+		job.setCompany(loginCompany());
+		jobService.create(job);
+		return "redirect:/job/search/my";
 	}
 }

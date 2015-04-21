@@ -3,10 +3,12 @@ package com.myjob.model.converter;
 import javax.annotation.Resource;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
 import com.myjob.entity.User;
 import com.myjob.model.UserModel;
 
+@Component
 public class UserConverter implements Converter<User,UserModel> {
 	
 	@Resource

@@ -31,6 +31,6 @@ public class ResumeEditController extends ControllerBase {
 	@RequestMapping(value="/{resume_sid}",method=RequestMethod.POST)
 	public String update(@PathVariable long resume_sid,@ModelAttribute ResumeEditModel model){
 		resumeService.update(convert(model, Resume.class));
-		return "redirect:/resume/resumes/my";
+		return "redirect:/resume/search/my";
 	}
 }

@@ -16,7 +16,7 @@ public class HomeController extends ControllerBase {
 		}else if(loginAccountType() == AccountType.user){
 			return "redirect:/home/user";
 		}else{
-			return "redirect:/job/jobs";
+			return "redirect:/job/search";
 		}
 	}
 	

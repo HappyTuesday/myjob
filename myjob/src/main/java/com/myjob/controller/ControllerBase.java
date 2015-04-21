@@ -9,6 +9,8 @@ import org.springframework.core.convert.ConversionService;
 
 import com.myjob.common.QueryResult;
 import com.myjob.entity.Account;
+import com.myjob.entity.Company;
+import com.myjob.entity.User;
 import com.myjob.entity.values.AccountType;
 import com.myjob.web.util.KeyProvider;
 
@@ -35,6 +37,16 @@ public class ControllerBase {
 	protected long loginAccountSid() {
 		Account account = loginAccount();
 		return account !=null ? account.getSid():0;
+	}
+	
+	protected Company loginCompany() {
+		Account account = loginAccount();
+		return account != null ? account.getCompany(): null;
+	}
+	
+	protected User loginUser() {
+		Account account=loginAccount();
+		return account != null ? account.getUser():null;
 	}
 	
 	protected <S,T> T convert(S source,Class<T> targetClass) {
