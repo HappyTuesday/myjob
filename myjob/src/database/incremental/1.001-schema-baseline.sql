@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS user(
 
 CREATE TABLE IF NOT EXISTS job(
 	sid bigint not null primary key auto_increment,
-	company_sid not null,
+	company_sid bigint not null,
 	name varchar(200) not null,
 	profession varchar(200) not null,
 	qualification varchar(200) not null,
