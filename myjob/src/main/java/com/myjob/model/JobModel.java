@@ -18,7 +18,7 @@ public class JobModel {
 	
 	private Double workingYears;
 	
-	private String descripton;
+	private String description;
 	
 	private Integer amount;
 	
@@ -76,12 +76,12 @@ public class JobModel {
 		this.workingYears = workingYears;
 	}
 
-	public String getDescripton() {
-		return descripton;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescripton(String descripton) {
-		this.descripton = descripton;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Integer getAmount() {

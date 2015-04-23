@@ -9,9 +9,11 @@ public class JobCreateModel {
 	
 	private Qualification qualification;
 	
+	private GeographicSiteModel workingLocation;
+	
 	private double workingYears;
 	
-	private String descripton;
+	private String description;
 	
 	private int amount;
 
@@ -47,12 +49,12 @@ public class JobCreateModel {
 		this.workingYears = workingYears;
 	}
 
-	public String getDescripton() {
-		return descripton;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescripton(String descripton) {
-		this.descripton = descripton;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getAmount() {
@@ -61,5 +63,13 @@ public class JobCreateModel {
 
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+
+	public GeographicSiteModel getWorkingLocation() {
+		return workingLocation;
+	}
+
+	public void setWorkingLocation(GeographicSiteModel workingLocation) {
+		this.workingLocation = workingLocation;
 	}
 }

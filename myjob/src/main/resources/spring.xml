@@ -29,6 +29,7 @@
 				<ref bean="accountConverter"/>
 				<ref bean="geographicSiteConverter"/>
 				<ref bean="jobCreateModelConverter"/>
+				<ref bean="job2EditModelConverter"/>
 			</set>
 		</property>
 		<property name="formatters">

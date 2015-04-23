@@ -1,3 +1,11 @@
+CREATE DATABASE IF NOT EXISTS myjob;
+
+ALTER database myjob CHARACTER SET utf8;
+
+ALTER database myjob COLLATE 'utf8_general_ci';
+
+USE myjob;
+
 CREATE TABLE IF NOT EXISTS account(
 	sid bigint not null primary key auto_increment,
 	login_name varchar(200) not null,
@@ -39,6 +47,7 @@ CREATE TABLE IF NOT EXISTS job(
 	qualification varchar(200) not null,
 	working_location_sid bigint not null,
 	working_years int not null,
+	amount int not null,
 	description varchar(1000) not null,
 	status varchar(100) not null,
 	update_time date not null

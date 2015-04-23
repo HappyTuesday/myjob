@@ -38,6 +38,7 @@ public class JobService {
 	
 	public void create(Job job){
 		job.setUpdateTime(new Date());
+		job.setStatus(JobStatus.active);
 		jobDao.create(job);
 	}
 	

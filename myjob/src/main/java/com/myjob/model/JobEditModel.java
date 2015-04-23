@@ -12,9 +12,13 @@ public class JobEditModel {
 	
 	private Qualification qualification;
 	
+	private int amount;
+	
+	private GeographicSiteModel workingLocation;
+	
 	private Double workingYears;
 	
-	private String descripton;
+	private String description;
 
 	public long getSid() {
 		return sid;
@@ -56,11 +60,27 @@ public class JobEditModel {
 		this.workingYears = workingYears;
 	}
 
-	public String getDescripton() {
-		return descripton;
+	public GeographicSiteModel getWorkingLocation() {
+		return workingLocation;
 	}
 
-	public void setDescripton(String descripton) {
-		this.descripton = descripton;
+	public void setWorkingLocation(GeographicSiteModel workingLocation) {
+		this.workingLocation = workingLocation;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

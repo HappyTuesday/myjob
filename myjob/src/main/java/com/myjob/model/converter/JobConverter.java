@@ -22,7 +22,7 @@ public class JobConverter implements Converter<Job, JobModel> {
 		JobModel jobModel = new JobModel();
 		jobModel.setAmount(source.getAmount());
 		jobModel.setCompany(companyConverter.convert(source.getCompany()));
-		jobModel.setDescripton(source.getDescripton());
+		jobModel.setDescription(source.getDescription());
 		jobModel.setName(source.getName());
 		jobModel.setProfession(source.getProfession());
 		jobModel.setQualification(source.getQualification());

@@ -41,13 +41,14 @@ public class Job {
 	private String profession;
 	
 	@Column(name="qualification")
+	@Enumerated(EnumType.STRING)
 	private Qualification qualification;
 	
 	@Column(name="working_years")
 	private Double workingYears;
 	
 	@Column(name="description")
-	private String descripton;
+	private String description;
 	
 	@Column(name="amount")
 	private Integer amount;
@@ -128,12 +129,12 @@ public class Job {
 		this.workingYears = workingYears;
 	}
 
-	public String getDescripton() {
-		return descripton;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescripton(String descripton) {
-		this.descripton = descripton;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Integer getAmount() {
