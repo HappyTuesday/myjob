@@ -1,7 +1,9 @@
 package com.myjob.model.converter;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Locale;
+import java.util.Properties;
 
 import org.springframework.format.Formatter;
 
@@ -12,7 +14,21 @@ public class GenderFormatter implements Formatter<Gender>{
 	@Override
 	public String print(Gender object, Locale arg1) {
 		
-		return object.toString();
+		Properties pro = new Properties();
+		try {
+			pro.load(AccountTypeFormatter.class.getResourceAsStream("/com/myjob/model/converter/EntityValues.properties"));
+			if(object.toString()=="male"){
+				return pro.getProperty("male");
+			}else if(object.toString()=="female"){
+				return  pro.getProperty("female");
+			}
+			
+		} catch (IOException e) {
+			System.err.println("Cannot load properties file");
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 	@Override
