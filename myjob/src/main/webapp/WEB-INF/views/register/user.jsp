@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<link rel="stylesheet" type="text/css" href="./content/login_user.css">
+<link rel="stylesheet" type="text/css" href="/content/login_user.css">
 <div class="container-fluid">
 	<div class="div_nav">
 		<div class="div_logo">

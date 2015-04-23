@@ -6,10 +6,8 @@
 <tiles-definitions>
 	<definition name="layout" template="/WEB-INF/layouts/layout.jsp">
 		<put-attribute name="title" value="欢迎使用 - 我的工作"/>
-		<put-attribute name="header" value="/WEB-INF/layouts/header.jsp"/>
-		<put-attribute name="menu" value="/WEB-INF/layouts/menu.jsp"/>
+		<put-attribute name="menu" expression="/WEB-INF/layouts/menu.${loginAccount.accountType}.jsp"/>
 		<put-attribute name="body" value=""/>
-		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp"/>
 	</definition>
 	
 	<definition name="login" template="/WEB-INF/views/login.jsp"/>

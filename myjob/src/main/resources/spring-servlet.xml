@@ -24,6 +24,10 @@
 		</property>
 	</bean>
 	
+	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/content/**" location="/content/" />
+	<mvc:resources mapping="/scripts/**" location="/scripts/" />
+	
 	<mvc:interceptors>
 		<bean class="com.myjob.auth.AuthInterceptor" />
 	</mvc:interceptors>

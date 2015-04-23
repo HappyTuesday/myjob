@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<link rel="stylesheet" type="text/css" href="./content/main_user.css">
+<link rel="stylesheet" type="text/css" href="/content/main_user.css">
 <div class="tabbable"> 
 	<div class="tab-content">
 		<div class="tab-pane" id="tab2">

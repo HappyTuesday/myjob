@@ -23,6 +23,7 @@ public class TicketOperator {
 	public void setTicket(Ticket ticket,HttpServletResponse response,Boolean rememberMe) throws IOException{
 		String ticketText = ticketEncoder.encode(ticket);
 		response.setHeader(keyProvider.ticketKey(), ticketText);
+		cookieOperator.setCookieValue(response, keyProvider.ticketKey(), ticketText);
 		if(rememberMe != null && rememberMe){
 			cookieOperator.setCookieValue(response, keyProvider.ticketKey(), ticketText);
 		}
