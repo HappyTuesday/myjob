@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.myjob.entity.Resume;
+import com.myjob.entity.values.AccountType;
 import com.myjob.service.ResumeService;
+import com.myjob.web.auth.Allow;
 import com.myjob.web.model.ResumeEditModel;
 import com.myjob.web.model.ResumeModel;
 
 @Controller
 @RequestMapping("/resume/edit")
+@Allow(AccountType.user)
 public class ResumeEditController extends ControllerBase {
 	
 	@Resource

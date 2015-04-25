@@ -57,7 +57,7 @@
 	<div class="form-group">
 		<label class="col-md-2 control-label" for="description">详细信息</label>
 		<div class="col-md-10">
-			<textarea class="form-control" id="description" name="description" rows="30">${model.description}</textarea>
+			<textarea class="form-control" id="description" name="description" rows="15">${model.description}</textarea>
 		</div>
 	</div>
 	<div class="form-group">

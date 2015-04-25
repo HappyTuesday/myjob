@@ -17,7 +17,7 @@ import com.myjob.web.model.JobEditModel;
 
 @Controller
 @RequestMapping("/job/edit")
-@Allow({AccountType.company})
+@Allow(AccountType.company)
 public class JobEditController extends ControllerBase {
 	
 	@Resource
@@ -32,7 +32,9 @@ public class JobEditController extends ControllerBase {
 	
 	@RequestMapping(value="/{job_sid}",method=RequestMethod.POST)
 	public String update(@PathVariable long job_sid,@ModelAttribute JobEditModel model){
-		jobService.update(convert(model, Job.class));
-		return "redirect:/jobs/my";
+		Job job = convert(model, Job.class);
+		job.setSid(job_sid);
+		jobService.update(job);
+		return "redirect:/job/search/my";
 	}
 }

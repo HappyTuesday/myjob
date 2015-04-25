@@ -26,7 +26,7 @@ public class Job {
 	private long sid;
 	
 	@Column(name="company_sid",insertable=false,updatable=false)
-	private long company_sid;
+	private long companySid;
 	
 	@Column(name="name")
 	private String name;
@@ -58,7 +58,7 @@ public class Job {
 	private JobStatus status;
 	
 	@ManyToOne(cascade=CascadeType.REFRESH)
-	@JoinColumn(name="company_sid",nullable=false)
+	@JoinColumn(name="company_sid",nullable=false,updatable=false)
 	private Company company;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -73,12 +73,12 @@ public class Job {
 		this.sid = sid;
 	}
 
-	public long getCompany_sid() {
-		return company_sid;
+	public long getCompanySid() {
+		return companySid;
 	}
 
-	public void setCompany_sid(long company_sid) {
-		this.company_sid = company_sid;
+	public void setCompanySid(long company_sid) {
+		this.companySid = company_sid;
 	}
 
 	public String getName() {

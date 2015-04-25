@@ -11,6 +11,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/content/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/content/main_user.css">
+	<script src="/scripts/lib/jquery-2.1.3.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -36,7 +37,6 @@
 			<font>copyright&copy;2015&nbsp;&nbsp;&nbsp;软件1112&nbsp;成兴玲&nbsp;&nbsp;&nbsp;版权所有</font>
 		</div>
 	</div>
-	<script src="/scripts/lib/jquery-2.1.3.js"></script>
 	<script src="/scripts/lib/bootstrap.min.js"></script>
 	<script src="/scripts/lib/knockout-3.3.0.js"></script>
 </body>

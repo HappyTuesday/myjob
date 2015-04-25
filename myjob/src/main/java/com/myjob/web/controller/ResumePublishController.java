@@ -31,6 +31,6 @@ public class ResumePublishController extends ControllerBase {
 		Resume resume = convert(model, Resume.class);
 		resume.setUser(loginUser());
 		resumeService.create(resume);
-		return "redirect:/resume/search";
+		return "redirect:/resume/search/my";
 	}
 }

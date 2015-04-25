@@ -30,6 +30,7 @@
 				<ref bean="geographicSiteConverter"/>
 				<ref bean="jobCreateModelConverter"/>
 				<ref bean="job2EditModelConverter"/>
+				<ref bean="jobEditModelConverter"/>
 			</set>
 		</property>
 		<property name="formatters">

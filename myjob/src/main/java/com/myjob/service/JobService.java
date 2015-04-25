@@ -28,11 +28,8 @@ public class JobService {
 	}
 	
 	public void update(Job job){
-		Job jobp=jobDao.get(job.getSid());
-		
-		job.setStatus(jobp.getStatus());
-		job.setWorkingLocationSid(jobp.getWorkingLocationSid());
-		
+		job.setUpdateTime(new Date());
+		job.setStatus(JobStatus.active);
 		jobDao.update(job);
 	}
 	

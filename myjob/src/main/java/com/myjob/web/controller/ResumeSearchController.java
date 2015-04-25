@@ -30,7 +30,7 @@ public class ResumeSearchController extends ControllerBase {
 	@RequestMapping("/my")
 	@Allow(AccountType.user)
 	public String searchMy(@ModelAttribute ResumeQueryCriteria criteria){
-		return "resume.search";
+		return "resume.search.my";
 	}
 	
 	@RequestMapping("/data")
