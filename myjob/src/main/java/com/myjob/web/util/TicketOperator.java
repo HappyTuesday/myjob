@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.myjob.auth.Ticket;
 import com.myjob.infrastructure.Operator;
+import com.myjob.web.auth.Ticket;
 
 @Operator
 public class TicketOperator {

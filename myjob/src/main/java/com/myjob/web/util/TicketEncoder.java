@@ -9,7 +9,7 @@ import java.util.Base64;
 
 import org.springframework.stereotype.Component;
 
-import com.myjob.auth.Ticket;
+import com.myjob.web.auth.Ticket;
 
 @Component
 public class TicketEncoder {

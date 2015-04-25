@@ -11,4 +11,8 @@ public class KeyProvider {
 	public String loginAccountKey(){
 		return "loginAccount";
 	}
+	
+	public String tilesMenuTypeKey() {
+		return "tilesMenuType";
+	}
 }

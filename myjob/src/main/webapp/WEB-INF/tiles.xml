@@ -6,7 +6,7 @@
 <tiles-definitions>
 	<definition name="layout" template="/WEB-INF/layouts/layout.jsp">
 		<put-attribute name="title" value="欢迎使用 - 我的工作"/>
-		<put-attribute name="menu" expression="/WEB-INF/layouts/menu.${loginAccount.accountType}.jsp"/>
+		<put-attribute name="menu" expression="/WEB-INF/layouts/menu.${tilesMenuType}.jsp"/>
 		<put-attribute name="body" value=""/>
 	</definition>
 	
