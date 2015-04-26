@@ -6,31 +6,21 @@
 	<a class="btn btn-primary" href="/job/publish">发布新职位</a>
 </p>
 
-<div>
-	<form class="form js-query-crieria" method="post" action="/job/search/my/data">
-		<input type="hidden" name="pageIndex" value="${criteria.pageIndex}" data-bind="value: pageIndex">
-		<input type="hidden" name="pageSize" value="${criteria.pageSize}" data-bind="value: pageSize">
-		<input type="hidden" name="key" value="${criteria.key}" data-bind="value: key">
-		<input type="hidden" name="orderby" value="${criteria.orderby}" data-bind="value: orderby">
-		<input type="hidden" name="desc" value="${criteria.desc}" data-bind="value: desc">
-	</form>
-</div>
-	
-<div>
+<div data-bind="with: query">
 	<div class="row">
 		<div class="col-md-10">
 			<label>排序</label>
 			<div class="btn-group">
-				<button class="btn btn-default js-orderby" data-orderby-field="updateTime">更新时间</button>
-				<button class="btn btn-default js-orderby" data-orderby-field="name">职位名称</button>
-				<button class="btn btn-default js-orderby" data-orderby-field="qualification">最低学历</button>
-				<button class="btn btn-default js-orderby" data-orderby-field="workingYears">最低工作年限</button>
-				<button class="btn btn-default js-orderby" data-orderby-field="amount">招聘人数</button>
+				<button class="btn btn-default" data-bind="click: orderby.bind('updateTime')">更新时间</button>
+				<button class="btn btn-default" data-bind="click: orderby.bind('name')">职位名称</button>
+				<button class="btn btn-default" data-bind="click: orderby.bind('qualification')">最低学历</button>
+				<button class="btn btn-default" data-bind="click: orderby.bind('workingYears')">最低工作年限</button>
+				<button class="btn btn-default" data-bind="click: orderby.bind('amount')">招聘人数</button>
 			</div>
 		</div>
 		<div class="col-md-2 btn-group">
-			<button class="btn btn-default js-page-previous">上一页</button>
-			<button class="btn btn-default js-page-next">下一页</button>
+			<button class="btn btn-default" data-bind="click: previousPage">上一页</button>
+			<button class="btn btn-default" data-bind="click: nextPage">下一页</button>
 		</div>
 	</div>
 	
@@ -53,14 +43,15 @@
 				<td data-bind="text: name"></td>
 				<td data-bind="text: profession"></td>
 				<td data-bind="text: qualification"></td>
-				<td data-bind="text: workingLocation"><td>
+				<td data-bind="text: workingYears"></td>
+				<td data-bind="text: workingLocation.city"></td>
 				<td data-bind="text: amount"></td>
 				<td data-bind="text: status"></td>
 				<td data-bind="text: updateTime"></td>
-				<td>
-					<a class="btn btn-default" data-bind="attr: {href: '/job/edit/' + sid()}">修改</a>
-					<button class="btn btn-default">刷新</button>
-					<button class="btn btn-default">删除</button>
+				<td class="btn-group">
+					<a class="btn btn-default" data-bind="attr: {href: '/job/edit/' + sid}">修改</a>
+					<button class="btn btn-default" data-bind="click: $parent.refresh">刷新</button>
+					<button class="btn btn-default" data-bind="click: $parent.unshelve">下架</button>
 				</td>
 			</tr>
 		</tbody>
@@ -69,15 +60,15 @@
 	<nav>
 		<ul class="pagination">
 			<li>
-				<button class="js-page-previous" aria-label="Previous">
+				<button data-bind="click: previousPage">
 					<span aria-hidden="true">&laquo;</span>
 				</button>
 			</li>
 			<!-- ko foreach: paginationItems -->
-			<li><button class="js-page-index" data-bind="text: $data"></button></li>
+			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
 			<!-- /ko -->
 			<li>
-				<button class="js-page-next" aria-label="Next">
+				<button data-bind="click: nextPage">
 					<span aria-hidden="true">&raquo;</span>
 				</button>
 			</li>
@@ -85,4 +76,20 @@
 	</nav>
 </div>
 
-<script src="/scripts/query.js"></script>
+<script src="/scripts/query-view-model.js"></script>
+
+<script>
+	query.url = "/job/search/my/data";
+	
+	query.refresh = function(job){
+		post("/job/refresh/" + job.sid, "");
+	}
+	
+	query.unshelve = function(job){
+		post("/job/unshelve/" + job.sid, "");
+	}
+	
+	$(function(){
+		query.refresh();
+	});
+</script>
