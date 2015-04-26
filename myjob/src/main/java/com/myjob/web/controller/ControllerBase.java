@@ -55,13 +55,12 @@ public class ControllerBase {
 	
 	protected <S,T> QueryResult<T> convertQueryResult(QueryResult<S> source,Class<T> targetClass){
 		QueryResult<T> target=new QueryResult<T>();
-		target.setCount(source.getCount());
-		target.setPageIndex(source.getPageIndex());
-		target.setPageSize(source.getPageSize());
-		target.setData(new ArrayList<T>(source.getData().size()));
-		for(int i=0;i<source.getData().size();i++){
-			target.getData().set(i, conversionService.convert(source.getData().get(i), targetClass));
+		target.setTotalCount(source.getTotalCount());
+		target.setRecords(new ArrayList<T>());
+		for(S record:source.getRecords()){
+			target.getRecords().add(conversionService.convert(record, targetClass));
 		}
+
 		return target;
 	}
 }

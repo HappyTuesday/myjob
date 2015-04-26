@@ -2,20 +2,27 @@ package com.myjob.web.model;
 
 import java.util.Date;
 
+import org.codehaus.jackson.map.annotate.JsonView;
+
 import com.myjob.entity.values.JobStatus;
 import com.myjob.entity.values.Qualification;
 
 public class JobModel {
+	
+	public interface BrefView{};
+	
+	public interface DetailView extends BrefView{};
+	
 	private long sid;
-	
+
 	private String name;
-	
+
 	private Date updateTime;
-	
+
 	private String profession;
-	
+
 	private Qualification qualification;
-	
+
 	private Double workingYears;
 	
 	private String description;
@@ -28,6 +35,7 @@ public class JobModel {
 	
 	private GeographicSiteModel workingLocation;
 
+	@JsonView(BrefView.class)
 	public long getSid() {
 		return sid;
 	}
@@ -36,6 +44,7 @@ public class JobModel {
 		this.sid = sid;
 	}
 
+	@JsonView(BrefView.class)
 	public String getName() {
 		return name;
 	}
@@ -44,6 +53,7 @@ public class JobModel {
 		this.name = name;
 	}
 
+	@JsonView(BrefView.class)
 	public Date getUpdateTime() {
 		return updateTime;
 	}
@@ -52,6 +62,7 @@ public class JobModel {
 		this.updateTime = updateTime;
 	}
 
+	@JsonView(BrefView.class)
 	public String getProfession() {
 		return profession;
 	}
@@ -60,6 +71,7 @@ public class JobModel {
 		this.profession = profession;
 	}
 
+	@JsonView(BrefView.class)
 	public Qualification getQualification() {
 		return qualification;
 	}
@@ -68,6 +80,7 @@ public class JobModel {
 		this.qualification = qualification;
 	}
 
+	@JsonView(BrefView.class)
 	public Double getWorkingYears() {
 		return workingYears;
 	}
@@ -76,6 +89,7 @@ public class JobModel {
 		this.workingYears = workingYears;
 	}
 
+	@JsonView(BrefView.class)
 	public String getDescription() {
 		return description;
 	}
@@ -84,6 +98,7 @@ public class JobModel {
 		this.description = description;
 	}
 
+	@JsonView(BrefView.class)
 	public Integer getAmount() {
 		return amount;
 	}
@@ -92,6 +107,7 @@ public class JobModel {
 		this.amount = amount;
 	}
 
+	@JsonView(BrefView.class)
 	public JobStatus getStatus() {
 		return status;
 	}
@@ -100,6 +116,7 @@ public class JobModel {
 		this.status = status;
 	}
 
+	@JsonView(DetailView.class)
 	public CompanyModel getCompany() {
 		return company;
 	}
@@ -108,6 +125,7 @@ public class JobModel {
 		this.company = company;
 	}
 
+	@JsonView(BrefView.class)
 	public GeographicSiteModel getWorkingLocation() {
 		return workingLocation;
 	}

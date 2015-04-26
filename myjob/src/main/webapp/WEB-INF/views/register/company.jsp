@@ -10,11 +10,11 @@
 	<link rel="stylesheet" type="text/css" href="/content/login.css">
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<a href="#">
-					<img src="/image/logo.png" alt="logo" width="175" height="108">
+	<div class="container">
+		<div class="div_nav">
+			<div class="div_logo">
+				<a class="logo" href="/">
+					<img src="/images/logo.png" alt="logo">
 				</a>
 				<span class="title1">欢迎注册</span>
 			</div>

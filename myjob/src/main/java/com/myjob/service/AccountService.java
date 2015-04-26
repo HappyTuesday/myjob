@@ -20,7 +20,7 @@ public class AccountService {
 	public Account login(String loginName,String password) throws ServiceException{
 		AccountQueryCriteria criteria = new AccountQueryCriteria();
 		criteria.setLoginName(loginName);
-		List<Account> accounts = accountDao.query(criteria).getData();
+		List<Account> accounts = accountDao.query(criteria).getRecords();
 
 		if(accounts.isEmpty()){
 			throw new ServiceLogicException(getClass(),"invalid account login name");

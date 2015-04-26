@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myjob.criteria.JobQueryCriteria;
 import com.myjob.entity.values.AccountType;
@@ -37,6 +38,7 @@ public class JobSearchController extends ControllerBase {
 	
 	@RequestMapping("/my/data")
 	@Allow(AccountType.company)
+	@ResponseBody
 	public Object searchMyData(@ModelAttribute JobQueryCriteria criteria){
 		return convertQueryResult(jobService.queryMyPublishedJobs(criteria,loginAccountSid()), JobModel.class);
 	}

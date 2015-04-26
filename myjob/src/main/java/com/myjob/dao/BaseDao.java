@@ -41,10 +41,8 @@ public class BaseDao {
 
 		QueryResult<T> result = new QueryResult<T>();
 		
-		result.setData((List<T>) data);
-		result.setCount(count);
-		result.setPageIndex(qc.getPageIndex());
-		result.setPageSize(qc.getPageSize());
+		result.setRecords((List<T>) data);
+		result.setTotalCount(count);
 		return result;
 	}
 	
