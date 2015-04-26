@@ -14,7 +14,7 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<a href="#">
-					<img src="./image/logo.png" alt="logo" width="175" height="108">
+					<img src="/image/logo.png" alt="logo" width="175" height="108">
 				</a>
 				<span class="title1">欢迎注册</span>
 			</div>
@@ -23,7 +23,7 @@
 			<div class="col-md-4 col-md-offset-4 login-content">
 				<form role="form" class="form-horizontal" method="post" action="/register/user">
 					<div class="form-group">
-						<span class="col-md-4 title2">用户登录</span>
+						<span class="col-md-4 title2">个人用户</span>
 						<span class="col-md-6 col-md-offset-1"><font style="font-size:16px">已有账号，</font><a href="#" style="font-size:18px"><font>直接登录</font></a></span>
 					</div>
 					<div class="form-group">
@@ -45,7 +45,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<botton type="botton" class="col-md-8 col-md-offset-2 btn btn-register" name="register">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+						<button type="button" class="col-md-8 col-md-offset-2 btn btn-register" name="register">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
 					</div>
 				</form>
 			</div>
@@ -57,7 +57,6 @@
 						<span>copyright&copy;2015&nbsp;&nbsp;&nbsp;软件1112&nbsp;成兴玲&nbsp;&nbsp;&nbsp;版权所有</span>
 					</div>
 				</div>
-				
 			</div>
 		</div>
 	</div>
