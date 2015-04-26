@@ -5,27 +5,23 @@ import java.text.ParseException;
 import java.util.Locale;
 import java.util.Properties;
 
+import javax.annotation.Resource;
+
 import org.springframework.format.Formatter;
 
 import com.myjob.entity.values.ResumeStatus;
 
 public class ResumeStatusFormatter implements Formatter<ResumeStatus> {
 
+	@Resource
+	private ReadEntityValuesProperties readEntityValuesProperties;
 	@Override
 	public String print(ResumeStatus object, Locale arg1) {
-		Properties pro = new Properties();
 		try {
-			pro.load(AccountTypeFormatter.class.getResourceAsStream("/com/myjob/model/converter/EntityValues.properties"));
-			if(object.toString()=="inactive"){
-				return pro.getProperty("inactive");
-			}else if(object.toString()=="active"){
-				return  pro.getProperty("active");
-			}else if(object.toString()=="deleted"){
-				return  pro.getProperty("deleted");
-			}
+			return readEntityValuesProperties.readEnityValuesProperties("ResumeStatus."+object.toString());
 			
 		} catch (IOException e) {
-			System.err.println("Cannot load properties file");
+			System.out.println("Cannot format ResumeStatus");
 			e.printStackTrace();
 		}
 		

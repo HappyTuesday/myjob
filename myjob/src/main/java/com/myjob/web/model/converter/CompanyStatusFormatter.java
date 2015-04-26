@@ -5,28 +5,26 @@ import java.text.ParseException;
 import java.util.Locale;
 import java.util.Properties;
 
+import javax.annotation.Resource;
+
 import org.springframework.format.Formatter;
 
 import com.myjob.entity.values.CompanyStatus;
 
 public class CompanyStatusFormatter implements Formatter<CompanyStatus>{
 
+	@Resource
+	private ReadEntityValuesProperties readEntityValuesProperties;
+	
 	@Override
-	public String print(CompanyStatus arg0, Locale arg1) {
+	public String print(CompanyStatus object, Locale arg1) {
 		Properties pro = new Properties();
 		try {
-			pro.load(AccountTypeFormatter.class.getResourceAsStream("/com/myjob/model/converter/EntityValues.properties"));
-			if(arg0.toString()=="active"){
-				return pro.getProperty("active");
-			}else if(arg0.toString()=="deleted"){
-				return  pro.getProperty("deleted");
-			}
-			
+			return readEntityValuesProperties.readEnityValuesProperties("CompanyStatus."+object.toString());
 		} catch (IOException e) {
-			System.err.println("Cannot load properties file");
+			System.out.println("Cannot format CompanyStatus");
 			e.printStackTrace();
-		}
-		
+		}	
 		return null;
 	}
 
