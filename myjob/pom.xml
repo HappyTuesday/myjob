@@ -45,5 +45,10 @@
   		<artifactId>tiles-extras</artifactId>
   		<version>3.0.0</version>
   	</dependency>
+  	<dependency>
+  		<groupId>org.codehaus.jackson</groupId>
+  		<artifactId>jackson-mapper-asl</artifactId>
+  		<version>1.9.7</version>
+  	</dependency>
   </dependencies>
 </project>

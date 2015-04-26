@@ -13,8 +13,8 @@
 	<div class="container">
 		<div class="div_nav">
 			<div class="div_logo">
-				<a href="/main.html">
-					<img src="xxx.jpg" alt="logo" width="170" height="60">
+				<a class="logo" href="/">
+					<img src="/images/logo.png" alt="logo">
 				</a>
 				<font style="font-size:25px;margin-left:20px">欢迎注册</font>
 			</div>	

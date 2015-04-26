@@ -22,7 +22,7 @@ public class ResumeService {
 		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
 		criteria.setStatus(ResumeStatus.active);
 		
-		List<Resume> activedResumes = resumeDao.query(criteria).getData();
+		List<Resume> activedResumes = resumeDao.query(criteria).getRecords();
 		for(Resume activedResume : activedResumes){
 			activedResume.setStatus(ResumeStatus.inactive);
 			resumeDao.update(activedResume);

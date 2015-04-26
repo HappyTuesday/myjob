@@ -3,44 +3,23 @@ package com.myjob.common;
 import java.util.List;
 
 public class QueryResult<T> {
-	private long count;
+	private long totalCount;
 	
-	private List<T> data;
-	
-	private int pageIndex;
-	
-	private int pageSize;
+	private List<T> records;
 
-	public long getCount() {
-		return count;
+	public long getTotalCount() {
+		return totalCount;
 	}
 
-	public void setCount(long count) {
-		this.count = count;
+	public void setTotalCount(long count) {
+		this.totalCount = count;
 	}
 
-	public List<T> getData() {
-		return data;
+	public List<T> getRecords() {
+		return records;
 	}
 
-	public void setData(List<T> data) {
-		this.data = data;
+	public void setRecords(List<T> data) {
+		this.records = data;
 	}
-
-	public int getPageIndex() {
-		return pageIndex;
-	}
-
-	public void setPageIndex(int pageIndex) {
-		this.pageIndex = pageIndex;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-	
 }

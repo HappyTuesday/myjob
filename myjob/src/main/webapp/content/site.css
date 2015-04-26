@@ -1,0 +1,12 @@
+header{
+	text-align: right;
+}
+
+footer{
+	text-align: center;
+}
+
+a.logo{
+	position:relative;
+	bottom:2em;
+}

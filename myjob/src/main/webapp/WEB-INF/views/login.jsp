@@ -13,8 +13,8 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				<a href="#">
-					<img src="./image/logo.png" alt="logo" width="175" height="108">
+				<a class="logo" href="/">
+					<img src="/images/logo.png" alt="logo">
 				</a>
 				<span class="title1">欢迎登录</span>
 			</div>
