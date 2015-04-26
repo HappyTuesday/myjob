@@ -5,29 +5,25 @@ import java.text.ParseException;
 import java.util.Locale;
 import java.util.Properties;
 
+import javax.annotation.Resource;
+
 import org.springframework.format.Formatter;
 
 import com.myjob.entity.values.AccountType;
 
 public class AccountTypeFormatter implements Formatter<AccountType>{
 	
-
+	@Resource
+	private ReadEntityValuesProperties readEntityValuesProperties;
+	
 	@Override
 	public String print(AccountType object, Locale arg1) {
-		Properties pro = new Properties();
 		try {
-			pro.load(AccountTypeFormatter.class.getResourceAsStream("/com/myjob/model/converter/EntityValues.properties"));
-			if(object.toString()=="user"){
-				return pro.getProperty("user");
-			}else if(object.toString()=="company"){
-				return  pro.getProperty("company");
-			}
-			
+			return readEntityValuesProperties.readEnityValuesProperties("AccountType."+object.toString());
 		} catch (IOException e) {
-			System.err.println("Cannot load properties file");
+			System.out.println("Cannot format AccountType");
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 

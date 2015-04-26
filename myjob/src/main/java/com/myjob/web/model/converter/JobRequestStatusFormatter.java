@@ -5,32 +5,27 @@ import java.text.ParseException;
 import java.util.Locale;
 import java.util.Properties;
 
+import javax.annotation.Resource;
+
 import org.springframework.format.Formatter;
 
 import com.myjob.entity.values.JobRequestStatus;
 
 public class JobRequestStatusFormatter implements Formatter<JobRequestStatus> {
 
+
+	@Resource
+	private ReadEntityValuesProperties readEntityValuesProperties;
+	
 	@Override
-	public String print(JobRequestStatus arg0, Locale arg1) {
-		Properties pro = new Properties();
+	public String print(JobRequestStatus object, Locale arg1) {
 		try {
-			pro.load(AccountTypeFormatter.class.getResourceAsStream("/com/myjob/model/converter/EntityValues.properties"));
-			if(arg0.toString()=="requested"){
-				return pro.getProperty("requested");
-			}else if(arg0.toString()=="canceled"){
-				return  pro.getProperty("canceled");
-			}else if(arg0.toString()=="rejected"){
-				return  pro.getProperty("rejected");
-			}else if(arg0.toString()=="approved"){
-				return  pro.getProperty("approved");
-			}
+			return readEntityValuesProperties.readEnityValuesProperties("JobRequestStatus."+object.toString());
 			
 		} catch (IOException e) {
-			System.err.println("Cannot load properties file");
+			System.out.println("Cannot format JobRequestStatus");
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 
