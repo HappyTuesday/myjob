@@ -1,0 +1,51 @@
+body{
+	font-family: "Microsoft YaHei","Î¢ÈíÑÅºÚ",Helvetica,"ºÚÌå",Arial,Tahoma;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+.title1{
+	font-size:25px;
+	margin-left:20px;
+}
+.title2{
+	font-size: 23px;
+}
+
+.login-body{
+	background-color:#57ACE8;
+	padding:4em 0;
+}
+
+.login-content{
+	background-color: #FFFFFF;
+	padding:3em 1em;
+}
+
+.btn-login{
+	background-color: #E4393C;
+	border-color: #FFF;
+	border-radius: 3px;
+	color: #FFF;
+	font-size:18px;
+}
+.btn-register{
+	background-color: #E4393C;
+	border-color: #FFF;
+	border-radius: 3px;
+	color: #FFF;
+	font-size:18px;
+}
+.btn:hover{
+	border-color: #FFF;
+	background-color: #F5292C;
+	color: #FFF;
+}
+
+.register{
+	font-size: 18px;
+}
+
+.bottom{
+	padding-top: 2em;
+}

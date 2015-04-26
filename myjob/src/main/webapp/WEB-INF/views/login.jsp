@@ -6,41 +6,59 @@
 	<title>登录</title>
 	<meta name="viewport" content="width=device-width">
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/content/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/content/login_user.css">
+	<link rel="stylesheet" type="text/css" href="./content/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./content/login.css">
 </head>
 <body>
-	<div class="div_nav">
-		<div class="div_logo">
-			<a href="/main.html">
-				<img src="xxx.jpg" alt="logo" width="170" height="60">
-			</a>
-			<font style="font-size:25px;margin-left:20px">欢迎登录</font>
-		</div>	
-	</div>
-	<div class="div_body">
-		<div class="div_login">
-			<form class="form_login" method="post" action="/login">
-				<div class="div_title">
-					<font style="font-size:23px">个人用户</font>
-					<a href="/register/user" style="margin-left:200px;font-size:20px;"><i class="glyphicon glyphicon-chevron-right" style="font-size:18px"></i><font>立即注册</font></a>
-				</div>
-				<div class="div_name">
-					<i class="glyphicon glyphicon-user" style="float:left;margin-left:12px;margin-right:12px;color:#B2BBCD;font-size:20px;text-align:center;line-height:38px"></i>
-					<input type="text" name="loginName" placeholder="邮箱/手机号/用户名" style="float:left;border:0px;width:354px;height:38px;padding-left:10px;font-size:15px;border-left:1px solid silver"/>
-				</div>
-				<div class="div_pwd">
-					<i class="glyphicon glyphicon-lock" style="float:left;margin-left:12px;margin-right:12px;color:#B2BBCD;font-size:20px;text-align:center;line-height:38px"></i>
-					<input type="password" name="password" placeholder="密码" style="float:left;border:0px;width:354px;height:38px;padding-left:10px;font-size:15px;border-left:1px solid silver"/>
-				</div>
-				<div class="div_button">
-					<input type="submit" name="login" value="登&nbsp;&nbsp;&nbsp;&nbsp;录" style="width: 400px;height:40px;background-color: #E4393C;font-size: 21px;color: white;">
-				</div>
-			</form>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<a href="#">
+					<img src="./image/logo.png" alt="logo" width="175" height="108">
+				</a>
+				<span class="title1">欢迎登录</span>
+			</div>
 		</div>
-	</div>
-	<div class="div_bottom">
-		<font>copyright&copy;2015&nbsp;&nbsp;&nbsp;软件1112&nbsp;成兴玲&nbsp;&nbsp;&nbsp;版权所有</font>
+		<div class="row login-body">
+			<div class="col-md-4 col-md-offset-4 login-content">
+				<form role="form" class="form-horizontal" method="post" action="/login">
+					<div class="form-group">
+						<span class="col-md-10 title2">用户登录</span>
+					</div>
+					<div class="form-group">
+						<!-- <span class="col-md-2 glyphicon glyphicon-user input-group-addon icon" aria-hidden="true"></span> -->
+						<label for="user_name" class="col-md-2 control-label">用户名</label>
+						<div class="col-md-8">
+							<input class="form-control" type="text" name="loginName" placeholder="邮箱/手机号/用户名" aria-describedby="basic-addon1" required/>
+						</div>
+					</div>
+					<div class="form-group">
+						<!-- <span class="col-md-2 glyphicon glyphicon-lock input-group-addon icon" aria-hidden="true"></span> -->
+						<label for="user_password" class="col-md-2 control-label">密码</label>
+						<div class="col-md-8">
+							<input class="form-control" type="password" name="password" placeholder="密码" aria-describedby="basic-addon2" required/>
+						</div>
+					</div>
+					<div class="form-group">
+						<button class="col-md-8 col-md-offset-2 btn btn-login" type="button" name="login">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+					</div>
+					<div class="form-group register">
+						<a href="/register/user" class="col-md-offset-5"><span class="glyphicon glyphicon-chevron-right"></span><font>个人注册</font></a>&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="/register/company">公司注册</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row bottom">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-4">
+						<span>copyright&copy;2015&nbsp;&nbsp;&nbsp;软件1112&nbsp;成兴玲&nbsp;&nbsp;&nbsp;版权所有</span>
+					</div>
+				</div>
+				
+			</div>
+		</div>
 	</div>
 	<script src="/scripts/lib/jquery-2.1.3.js"></script>
 	<script src="/scripts/lib/bootstrap.min.js"></script>
