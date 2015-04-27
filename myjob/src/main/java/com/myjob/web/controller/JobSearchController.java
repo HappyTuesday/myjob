@@ -32,6 +32,7 @@ public class JobSearchController extends ControllerBase {
 	}
 	
 	@RequestMapping("/data")
+	@ResponseBody
 	public Object searchData(@ModelAttribute JobQueryCriteria criteria){
 		return convertQueryResult(jobService.search(criteria), JobModel.class);
 	}

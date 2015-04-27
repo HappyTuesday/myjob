@@ -15,8 +15,11 @@
 	<script src="/scripts/lib/jquery-2.1.3.js"></script>
 	<script src="/scripts/lib/bootstrap.min.js"></script>
 	<script src="/scripts/lib/knockout-3.3.0.js"></script>
+	<script src="/scripts/site.js"></script>
 </head>
 <body>
+	<script src="/scripts/prepare-view-model.js"></script>
+	
 	<header>
 		<p class="container">
 			<a href="/login">您好，请登录</a>
@@ -33,9 +36,9 @@
 				</a>
 			</div>
 			<div class="col-md-9 input-group">
-				<input type="text" class="form-control" data-bind="value: key" placeholder="请输入关键字">
+				<input type="text" class="form-control" data-bind="value: query.criteria.key" placeholder="请输入关键字">
 				<span class="input-group-btn">
-					<button class="btn btn-default js-search-start">搜索</button>
+					<button class="btn btn-default" data-bind="click: query.execute">搜索</button>
 				</span>
 			</div>
 		</div>
@@ -52,5 +55,7 @@
 	<footer>
 		<p>copyright&copy;2015&nbsp;&nbsp;&nbsp;软件1112&nbsp;成兴玲&nbsp;&nbsp;&nbsp;版权所有</p>
 	</footer>
+	
+	<script src="/scripts/apply-view-model.js"></script>
 </body>
 </html>
