@@ -10,9 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="/content/login.css">
 </head>
 <body>
-	<div class="container">
-		<div class="div_nav">
-			<div class="div_logo">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
 				<a class="logo" href="/">
 					<img src="/images/logo.png" alt="logo">
 				</a>
