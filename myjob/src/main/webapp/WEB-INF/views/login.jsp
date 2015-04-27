@@ -6,8 +6,8 @@
 	<title>登录</title>
 	<meta name="viewport" content="width=device-width">
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="./content/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="./content/login.css">
+	<link rel="stylesheet" type="text/css" href="/content/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/content/login.css">
 </head>
 <body>
 	<div class="container-fluid">
@@ -40,7 +40,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<button class="col-md-8 col-md-offset-2 btn btn-login" type="button" name="login">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+						<button class="col-md-8 col-md-offset-2 btn btn-login" type="submit" name="login">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
 					</div>
 					<div class="form-group register">
 						<a href="/register/user" class="col-md-offset-5"><span class="glyphicon glyphicon-chevron-right"></span><font>个人注册</font></a>&nbsp;&nbsp;&nbsp;&nbsp;

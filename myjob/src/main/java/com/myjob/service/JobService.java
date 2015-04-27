@@ -27,6 +27,12 @@ public class JobService {
 		jobDao.update(job);
 	}
 	
+	public void refresh(long jobSid){
+		Job job=jobDao.get(jobSid);
+		job.setUpdateTime(new Date());
+		jobDao.update(job);
+	}
+	
 	public void update(Job job){
 		job.setUpdateTime(new Date());
 		job.setStatus(JobStatus.active);
@@ -45,6 +51,7 @@ public class JobService {
 	
 	public QueryResult<Job> queryMyPublishedJobs(JobQueryCriteria criteria,long companySid){
 		criteria.setCompanySid(companySid);
+		criteria.setCompanyName(new String[]{"IBM"});
 		
 		return jobDao.query(criteria);
 	}

@@ -29,11 +29,19 @@ public class JobController extends ControllerBase {
 		return "job.detail";
 	}
 	
-	@RequestMapping(value="/delete/{job_sid}",method=RequestMethod.POST)
+	@RequestMapping(value="/unshelve/{job_sid}",method=RequestMethod.POST)
 	@Allow({AccountType.company})
 	@ResponseBody
-	public Object delete(@PathVariable long job_sid){
-		// TODO: call service to delete the job with the given job sid.
+	public Object unshelve(@PathVariable long job_sid){
+		jobService.disable(job_sid);
+		return true;
+	}
+	
+	@RequestMapping(value="/refresh/{job_sid}",method=RequestMethod.POST)
+	@Allow({AccountType.company})
+	@ResponseBody
+	public Object refresh(@PathVariable long job_sid){
+		jobService.refresh(job_sid);
 		return true;
 	}
 }

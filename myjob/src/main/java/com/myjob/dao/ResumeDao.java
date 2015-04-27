@@ -10,8 +10,6 @@ import com.myjob.entity.Resume;
 @Repository
 public class ResumeDao extends BaseDao {
 	
-	private String[] searchedProperties = "user.name,school,qualification,profession,introduction,content".split(",");
-	
 	public Resume get(long sid){
 		return template.get(Resume.class, sid);
 	}
@@ -33,7 +31,8 @@ public class ResumeDao extends BaseDao {
 		in(criteria, "school", qc.getSchool());
 		in(criteria, "profession", qc.getProfession());
 		in(criteria, "workingYears", qc.getWorkingYears());
-		search(criteria, searchedProperties, qc);
+
+		search(criteria,qc,"user.name","school","profession","introduction","content");
 		
 		return executeQuery(criteria, qc);
 	}

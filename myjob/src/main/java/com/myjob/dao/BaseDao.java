@@ -46,11 +46,11 @@ public class BaseDao {
 		return result;
 	}
 	
-	protected void search(DetachedCriteria criteria,String[] searchedProperties,QueryCriteria qc) {
+	protected void search(DetachedCriteria criteria,QueryCriteria qc,String... searchedProperties) {
 		if(qc.getKey()!=null && !qc.getKey().trim().isEmpty() && searchedProperties !=null && searchedProperties.length > 0){
 			Disjunction keyRestrictions = Restrictions.disjunction();
 			for (String property : searchedProperties) {
-				keyRestrictions.add(Restrictions.ilike(property, qc.getKey()));
+				keyRestrictions.add(Restrictions.ilike(property, "%" + qc.getKey() + "%"));
 			}
 			criteria.add(keyRestrictions);
 		}

@@ -10,17 +10,13 @@
 	<div class="row">
 		<div class="col-md-10">
 			<label>排序</label>
-			<div class="btn-group">
-				<button class="btn btn-default" data-bind="click: orderby.bind('updateTime')">更新时间</button>
-				<button class="btn btn-default" data-bind="click: orderby.bind('name')">职位名称</button>
-				<button class="btn btn-default" data-bind="click: orderby.bind('qualification')">最低学历</button>
-				<button class="btn btn-default" data-bind="click: orderby.bind('workingYears')">最低工作年限</button>
-				<button class="btn btn-default" data-bind="click: orderby.bind('amount')">招聘人数</button>
+			<div class="btn-group" data-bind="foreach: orderbyFields">
+				<button class="btn btn-default" data-bind="text: title, click: $parent.setOrderby"></button>
 			</div>
 		</div>
 		<div class="col-md-2 btn-group">
-			<button class="btn btn-default" data-bind="click: previousPage">上一页</button>
-			<button class="btn btn-default" data-bind="click: nextPage">下一页</button>
+			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">上一页</button>
+			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">下一页</button>
 		</div>
 	</div>
 	
@@ -50,8 +46,8 @@
 				<td data-bind="text: updateTime"></td>
 				<td class="btn-group">
 					<a class="btn btn-default" data-bind="attr: {href: '/job/edit/' + sid}">修改</a>
-					<button class="btn btn-default" data-bind="click: $parent.refresh">刷新</button>
-					<button class="btn btn-default" data-bind="click: $parent.unshelve">下架</button>
+					<button class="btn btn-default" data-bind="click: $parent.refreshJob">刷新</button>
+					<button class="btn btn-default" data-bind="click: $parent.unshelveJob">下架</button>
 				</td>
 			</tr>
 		</tbody>
@@ -60,7 +56,7 @@
 	<nav>
 		<ul class="pagination">
 			<li>
-				<button data-bind="click: previousPage">
+				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">
 					<span aria-hidden="true">&laquo;</span>
 				</button>
 			</li>
@@ -68,7 +64,7 @@
 			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
 			<!-- /ko -->
 			<li>
-				<button data-bind="click: nextPage">
+				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">
 					<span aria-hidden="true">&raquo;</span>
 				</button>
 			</li>
@@ -81,15 +77,27 @@
 <script>
 	query.url = "/job/search/my/data";
 	
-	query.refresh = function(job){
-		post("/job/refresh/" + job.sid, "");
+	query.orderbyFields = [
+		{name: 'updateTime', title: '更新时间'},
+		{name: 'name', title: '职位名称'},
+		{name: 'qualification', title: '最低学历'},
+		{name: 'workingYears', title: '最低工作年限'},
+		{name: 'amount', title: '招聘人数'}
+	];
+	
+	query.refreshJob = function(job){
+		post("/job/refresh/" + job.sid, "",function(){
+			query.execute();
+		});
 	}
 	
-	query.unshelve = function(job){
-		post("/job/unshelve/" + job.sid, "");
+	query.unshelveJob = function(job){
+		post("/job/unshelve/" + job.sid, "",function(){
+			query.execute();
+		});
 	}
 	
 	$(function(){
-		query.refresh();
+		query.execute();
 	});
 </script>

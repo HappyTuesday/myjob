@@ -1,4 +1,5 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 <!doctype html>
@@ -21,11 +22,22 @@
 	<script src="/scripts/prepare-view-model.js"></script>
 	
 	<header>
-		<p class="container">
-			<a href="/login">您好，请登录</a>
-			<a href="/register/user">免费注册</a>
-			<!--<a href="#">退出</a>-->
-		</p>
+		<nav class="navbar navbar-default">
+		  	<div class="container">
+		  		<form class="navbar-form navbar-right" action="/logout" method="post">
+					<c:choose>
+						<c:when test="${loginAccount!=null}">
+							欢迎：<span>${loginAccount.loginName}</span>
+							<button class="btn btn-default" type="submit">退出</button>
+						</c:when>
+						<c:otherwise>
+							<a href="/login">您好，请登录</a>
+							<a href="/register/user">免费注册</a>
+						</c:otherwise>
+					</c:choose>
+				</form>
+		  	</div>
+	  	</nav>
 	</header>
 	
 	<div class="container">

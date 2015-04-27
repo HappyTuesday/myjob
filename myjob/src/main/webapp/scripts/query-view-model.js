@@ -41,18 +41,26 @@ query.setPageIndex = function(pageIndex){
 }
 
 query.nextPage = function(){
-	query.setPageIndex(query.pageIndex() + 1);
+	query.setPageIndex(query.criteria.pageIndex() + 1);
 }
 
 query.previousPage = function(){
-	query.setPageIndex(query.pageIndex() - 1);
+	query.setPageIndex(query.criteria.pageIndex() - 1);
 }
 
-query.orderby = function(fieldName){
-	if(query.orderby() == fieldName){
-		query.desc(!query.desc());
+query.isNextPageDisabled = function(){
+	return query.criteria.pageIndex() >= query.totalPageCount() - 1;
+}
+
+query.isPreviousPageDisabled = function(){
+	return query.criteria.pageIndex() <= 0;
+}
+
+query.setOrderby = function(field){
+	if(query.criteria.orderby() == field.name){
+		query.criteria.desc(!query.criteria.desc());
 	}else{
-		query.orderby(fieldName);
+		query.criteria.orderby(field.name);
 	}
 	
 	query.execute();
