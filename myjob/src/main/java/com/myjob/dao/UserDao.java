@@ -12,6 +12,8 @@ public class UserDao extends BaseDao {
 	}
 	
 	public void create(User user) {
+		template.save(user.getAccount());
+		user.setSid(user.getAccount().getSid());
 		template.save(user);
 	}
 }

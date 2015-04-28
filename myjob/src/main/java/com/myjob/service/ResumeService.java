@@ -59,6 +59,7 @@ public class ResumeService {
 	
 	public void create(Resume resume){
 		resume.setUpdateTime(new Date());
+		resume.setStatus(ResumeStatus.active);
 		resumeDao.create(resume);
 	}
 	

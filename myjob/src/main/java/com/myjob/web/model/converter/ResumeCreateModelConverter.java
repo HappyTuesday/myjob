@@ -6,16 +6,16 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import com.myjob.entity.Resume;
-import com.myjob.web.model.ResumeModel;
+import com.myjob.web.model.ResumeCreateModel;
 
 @Component
-public class ResumeConverter implements Converter<Resume, ResumeModel>{
+public class ResumeCreateModelConverter implements Converter<ResumeCreateModel, Resume>{
 	
 	@Resource
 	private UserConverter userConverter;
 	@Override
-	public ResumeModel convert(Resume source) {
-		ResumeModel target = new ResumeModel();
+	public Resume convert(ResumeCreateModel source) {
+		Resume target = new Resume();
 		
 		target.setName(source.getName());
 		target.setBirthday(source.getBirthday());
@@ -27,10 +27,6 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 		target.setProfession(source.getProfession());
 		target.setQualification(source.getQualification());
 		target.setSchool(source.getSchool());
-		target.setSid(source.getSid());
-		target.setStatus(source.getStatus());
-		target.setUpdateTime(source.getUpdateTime());
-		target.setUser(userConverter.convert(source.getUser()));
 		target.setWorkingYears(source.getWorkingYears());
 		target.setRecruitment(source.getRecruitment());
 		target.setLiveCity(source.getLiveCity());
@@ -45,4 +41,5 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 
 		return target;
 	}
+	
 }

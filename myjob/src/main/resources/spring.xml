@@ -33,11 +33,14 @@
 				<ref bean="jobEditModelConverter"/>
 				<ref bean="jobConverter"/>
 				<ref bean="userRegisterModelConverter"/>
+				<ref bean="resumeCreateModelConverter"/>
+				<ref bean="resumeConverter"/>
 			</set>
 		</property>
 		<property name="formatters">
 			<set>
 				<ref bean="qualificationFormatter"/>
+				<ref bean="dateFormatter"/>
 			</set>
 		</property>
 	</bean>

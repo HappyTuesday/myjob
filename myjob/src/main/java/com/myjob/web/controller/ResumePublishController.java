@@ -1,5 +1,7 @@
 package com.myjob.web.controller;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -35,6 +37,8 @@ public class ResumePublishController extends ControllerBase {
 		}
 		Resume resume = convert(model, Resume.class);
 		resume.setUser(loginUser());
+		resume.setBirthday(new Date());
+		resume.setGraduatedDate(new Date());
 		resumeService.create(resume);
 		return "redirect:/resume/search/my";
 	}

@@ -6,6 +6,12 @@
 		<div id="generalInfo">
 			<span><strong>个人信息</strong></span>
 			<hr>
+		  	<div class="form-group">
+		    	<label for="inputName" class="col-md-2 control-label">简历名称</label>
+		    	<div class="col-md-4">
+					<input type="text" class="form-control" id="inputName" name="name">
+		    	</div>
+		  	</div>
 			<div class="form-group">
 				<label for="inputSex" class="col-md-2 control-label">性别</label>
 				<div class="col-md-4">
@@ -130,7 +136,7 @@
 			<div class="form-group">
 				<label for="inputEvaluation" class="col-md-2 control-label">内容</label>
 				<div class="col-md-4">
-					<textarea class="form-control" row="3" name="introduction"></textarea>
+					<textarea class="form-control" rows="3" name="introduction"></textarea>
 				</div>
 			</div>
 		</div>
@@ -175,7 +181,7 @@
 		    	<label for="inputCertificate1" class="col-md-2 control-label">证书名称</label>
 		    	<div class="col-md-10">
 					<label class="checkbox-inline">
-					  <input type="checkbox" id="inlineCheckbox4" value="大学英语六级" name=" name="qualification"> 大学英语六级
+					  <input type="checkbox" id="inlineCheckbox4" value="大学英语六级" name="qualification"> 大学英语六级
 					</label>
 					<label class="checkbox-inline">
 					  <input type="checkbox" id="inlineCheckbox5" value="大学英语四级" name="qualification"> 大学英语四级
@@ -240,7 +246,7 @@
 			<div class="form-group">
 				<label for="other" class="col-md-2 control-label">内容</label>
 				<div class="col-md-4">
-					<textarea class="form-control" row="10" name="content"></textarea>
+					<textarea class="form-control" rows="10" name="content"></textarea>
 				</div>
 			</div>
 		</div>
