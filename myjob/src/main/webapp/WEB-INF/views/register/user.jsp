@@ -29,19 +29,25 @@
 					<div class="form-group">
 						<label for="user_name" class="col-md-2 control-label">用户名</label>
 						<div class="col-md-8">
-							<input class="form-control" type="text" name="user.loginName" value="${model.account.loginName }"/>
+							<input class="form-control" type="text" name="account.loginName" value="${model.account.loginName }"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="user_password" class="col-md-2 control-label">密码</label>
 						<div class="col-md-8">
-							<input class="form-control" type="password" name="user.password" value="${model.account.password }"/>
+							<input class="form-control" type="password" name="account.password" value="${model.account.password }"/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="user_email" class="col-md-2 control-label">邮箱</label>
 						<div class="col-md-8">
-							<input class="form-control" type="email" name="user.email" value="${model.account.email }"/>
+							<input class="form-control" type="email" name="account.email" value="${model.account.email }"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="user_name" class="col-md-2 control-label">姓名</label>
+						<div class="col-md-8">
+							<input class="form-control" type="text" name="name" value="${model.name }"/>
 						</div>
 					</div>
 					<div class="form-group">

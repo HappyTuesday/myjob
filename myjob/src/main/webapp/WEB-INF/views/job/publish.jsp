@@ -55,6 +55,12 @@
 		</div>
 	</div>
 	<div class="form-group">
+		<label class="col-md-2 control-label" for="salary">月薪</label>
+		<div class="col-md-10">
+			<input class="form-control" id="salary" type="number" name="salary" value="${model.salary }">
+		</div>
+	</div>
+	<div class="form-group">
 		<label class="col-md-2 control-label" for="description">详细信息</label>
 		<div class="col-md-10">
 			<textarea class="form-control" id="description" name="description" rows="15">${model.description}</textarea>

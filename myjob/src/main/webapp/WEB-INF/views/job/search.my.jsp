@@ -29,6 +29,7 @@
 				<th>最低工作年限</th>
 				<th>工作地点</th>
 				<th>招聘人数</th>
+				<th>薪水</th>
 				<th>状态</th>
 				<th>更新时间</th>
 				<th></th>
@@ -42,6 +43,7 @@
 				<td data-bind="text: workingYears"></td>
 				<td data-bind="text: workingLocation.city"></td>
 				<td data-bind="text: amount"></td>
+				<td data-bind="text: salary"></td>
 				<td data-bind="text: status"></td>
 				<td data-bind="text: updateTime"></td>
 				<td class="btn-group">
@@ -82,7 +84,8 @@
 		{name: 'name', title: '职位名称'},
 		{name: 'qualification', title: '最低学历'},
 		{name: 'workingYears', title: '最低工作年限'},
-		{name: 'amount', title: '招聘人数'}
+		{name: 'amount', title: '招聘人数'},
+		{name: 'salary', title: '月薪'}
 	];
 	
 	query.refreshJob = function(job){

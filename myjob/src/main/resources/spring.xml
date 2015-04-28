@@ -32,7 +32,7 @@
 				<ref bean="job2EditModelConverter"/>
 				<ref bean="jobEditModelConverter"/>
 				<ref bean="jobConverter"/>
-				<ref bean="UserRegisterModelConverter"/>
+				<ref bean="userRegisterModelConverter"/>
 			</set>
 		</property>
 		<property name="formatters">

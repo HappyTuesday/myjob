@@ -21,6 +21,13 @@ public class JobRequestController extends ControllerBase {
 	@Resource
 	private JobRequestService jobRequestService;
 	
+	@RequestMapping(value="/post")
+	@Allow(AccountType.user)
+	@ResponseBody
+	public Object postJobRequest(@ModelAttribute JobRequestModel model){
+		return true;
+	}
+	
 	@RequestMapping(value="/sent")
 	@Allow({AccountType.user})
 	public String sentRequests(@ModelAttribute JobRequestQueryCriteria criteria){
