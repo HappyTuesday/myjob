@@ -7,6 +7,9 @@ import com.myjob.entity.values.MaritalStatus;
 import com.myjob.entity.values.Qualification;
 
 public class ResumeCreateModel {
+	
+	private String name;
+	
 	private String school;
 	
 	private String profession;
@@ -205,5 +208,13 @@ public class ResumeCreateModel {
 
 	public void setCertifications(String certifications) {
 		this.certifications = certifications;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

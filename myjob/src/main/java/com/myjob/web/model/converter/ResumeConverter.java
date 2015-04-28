@@ -17,6 +17,7 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 	public ResumeModel convert(Resume source) {
 		ResumeModel target = new ResumeModel();
 		
+		target.setName(source.getName());
 		target.setBirthday(source.getBirthday());
 		target.setContent(source.getContent());
 		target.setGender(source.getGender());

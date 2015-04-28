@@ -10,6 +10,8 @@ import com.myjob.entity.values.ResumeStatus;
 public class ResumeModel {
 	private long sid;
 	
+	private String name;
+	
 	private String school;
 	
 	private String profession;
@@ -246,5 +248,13 @@ public class ResumeModel {
 
 	public void setCertifications(String certifications) {
 		this.certifications = certifications;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

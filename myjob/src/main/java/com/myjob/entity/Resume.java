@@ -22,10 +22,14 @@ import com.myjob.entity.values.ResumeStatus;
 @Entity
 @Table(name="resume")
 public class Resume {
+	
 	@Id
 	@Column(name="sid",updatable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long sid;
+	
+	@Column(name="name")
+	private String name;
 	
 	@Column(name="user_sid",insertable=false,updatable=false)
 	private long userSid;
@@ -110,6 +114,14 @@ public class Resume {
 
 	public void setSid(long sid) {
 		this.sid = sid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public long getUserSid() {

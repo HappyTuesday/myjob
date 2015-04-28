@@ -1,1 +1,7 @@
-var viewModel = {}
+var viewModel = {
+	query: {
+		criteria: {
+			key: ''
+		}
+	}
+}

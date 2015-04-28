@@ -8,7 +8,10 @@ import com.myjob.entity.values.Qualification;
 import com.myjob.entity.values.ResumeStatus;
 
 public class ResumeEditModel {
+	
 	private long sid;
+	
+	private String name;
 	
 	private String school;
 	
@@ -226,5 +229,13 @@ public class ResumeEditModel {
 
 	public void setCertifications(String certifications) {
 		this.certifications = certifications;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }
