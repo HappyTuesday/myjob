@@ -19,18 +19,19 @@ public class JobConverter implements Converter<Job, JobModel> {
 	
 	@Override
 	public JobModel convert(Job source) {
-		JobModel jobModel = new JobModel();
-		jobModel.setAmount(source.getAmount());
-		jobModel.setCompany(companyConverter.convert(source.getCompany()));
-		jobModel.setDescription(source.getDescription());
-		jobModel.setName(source.getName());
-		jobModel.setProfession(source.getProfession());
-		jobModel.setQualification(source.getQualification());
-		jobModel.setSid(source.getSid());
-		jobModel.setStatus(source.getStatus());
-		jobModel.setUpdateTime(source.getUpdateTime());
-		jobModel.setWorkingLocation(geographicSiteConverter.convert(source.getWorkingLocation()));
-		jobModel.setWorkingYears(source.getWorkingYears());
-		return jobModel;
+		JobModel target = new JobModel();
+		target.setAmount(source.getAmount());
+		target.setSalary(source.getSalary());
+		target.setCompany(companyConverter.convert(source.getCompany()));
+		target.setDescription(source.getDescription());
+		target.setName(source.getName());
+		target.setProfession(source.getProfession());
+		target.setQualification(source.getQualification());
+		target.setSid(source.getSid());
+		target.setStatus(source.getStatus());
+		target.setUpdateTime(source.getUpdateTime());
+		target.setWorkingLocation(geographicSiteConverter.convert(source.getWorkingLocation()));
+		target.setWorkingYears(source.getWorkingYears());
+		return target;
 	}
 }

@@ -20,7 +20,9 @@ public class JobEditModelConverter implements Converter<JobEditModel, Job> {
 	@Override
 	public Job convert(JobEditModel source) {
 		Job target = new Job();
+		
 		target.setAmount(source.getAmount());
+		target.setSalary(source.getSalary());
 		target.setDescription(source.getDescription());
 		target.setName(source.getName());
 		target.setProfession(source.getProfession());
@@ -28,6 +30,7 @@ public class JobEditModelConverter implements Converter<JobEditModel, Job> {
 		target.setSid(source.getSid());
 		target.setWorkingLocation(geographicSiteModelConverter.convert(source.getWorkingLocation()));
 		target.setWorkingYears(source.getWorkingYears());
+		
 		return target;
 	}
 }

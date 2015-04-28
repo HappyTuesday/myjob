@@ -15,22 +15,33 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 	private UserConverter userConverter;
 	@Override
 	public ResumeModel convert(Resume source) {
-		ResumeModel resumeModel = new ResumeModel();
-		resumeModel.setBirthday(source.getBirthday());
-		resumeModel.setContent(source.getContent());
-		resumeModel.setGender(source.getGender());
-		resumeModel.setGraduatedDate(source.getGraduatedDate());
-		resumeModel.setIdCard(source.getIdCard());
-		resumeModel.setIntroduction(source.getIntroduction());
-		resumeModel.setProfession(source.getProfession());
-		resumeModel.setQualification(source.getQualification());
-		resumeModel.setSchool(source.getSchool());
-		resumeModel.setSid(source.getSid());
-		resumeModel.setStatus(source.getStatus());
-		resumeModel.setUpdateTime(source.getUpdateTime());
-		resumeModel.setUser(userConverter.convert(source.getUser()));
-		resumeModel.setWorkingYears(source.getWorkingYears());
-		// TODO Auto-generated method stub
+		ResumeModel target = new ResumeModel();
+		
+		target.setBirthday(source.getBirthday());
+		target.setContent(source.getContent());
+		target.setGender(source.getGender());
+		target.setGraduatedDate(source.getGraduatedDate());
+		target.setIdCard(source.getIdCard());
+		target.setIntroduction(source.getIntroduction());
+		target.setProfession(source.getProfession());
+		target.setQualification(source.getQualification());
+		target.setSchool(source.getSchool());
+		target.setSid(source.getSid());
+		target.setStatus(source.getStatus());
+		target.setUpdateTime(source.getUpdateTime());
+		target.setUser(userConverter.convert(source.getUser()));
+		target.setWorkingYears(source.getWorkingYears());
+		target.setRecruitment(source.getRecruitment());
+		target.setLiveCity(source.getLiveCity());
+		target.setMaritalStatus(source.getMaritalStatus());
+		target.setPolitialAffiliation(source.getPolitialAffiliation());
+		target.setPhone(source.getPhone());
+		target.setExpectedJobProfession(source.getExpectedJobProfession());
+		target.setExpectedJobCity(source.getExpectedJobCity());
+		target.setExpectedSalary(source.getExpectedSalary());
+		target.setCurrentWorkingStatus(source.getCurrentWorkingStatus());
+		target.setCertifications(source.getCertifications());
+
 		return null;
 	}
 	

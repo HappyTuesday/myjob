@@ -16,15 +16,17 @@ public class JobCreateModelConverter implements Converter<JobCreateModel,Job>{
 	
 	@Override
 	public Job convert(JobCreateModel source) {
-		Job job = new Job();
-		job.setAmount(source.getAmount());
-		job.setDescription(source.getDescription());
-		job.setName(source.getName());
-		job.setProfession(source.getProfession());
-		job.setWorkingLocation(geographicSiteModelConverter.convert(source.getWorkingLocation()));
-		job.setQualification(source.getQualification());
+		Job target = new Job();
 		
-		job.setWorkingYears(source.getWorkingYears());
-		return job;
+		target.setAmount(source.getAmount());
+		target.setSalary(source.getSalary());
+		target.setDescription(source.getDescription());
+		target.setName(source.getName());
+		target.setProfession(source.getProfession());
+		target.setWorkingLocation(geographicSiteModelConverter.convert(source.getWorkingLocation()));
+		target.setQualification(source.getQualification());
+		target.setWorkingYears(source.getWorkingYears());
+		
+		return target;
 	}
 }

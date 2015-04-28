@@ -21,6 +21,7 @@ public class Job2EditModelConverter implements Converter<Job, JobEditModel> {
 	public JobEditModel convert(Job source) {
 		JobEditModel target = new JobEditModel();
 		target.setAmount(source.getAmount());
+		target.setSalary(source.getSalary());
 		target.setDescription(source.getDescription());
 		target.setName(source.getName());
 		target.setProfession(source.getProfession());
