@@ -23,6 +23,8 @@ public class JobModel {
 	
 	private Integer amount;
 	
+	private Double salary;
+	
 	private JobStatus status;
 	
 	private CompanyModel company;
@@ -115,5 +117,13 @@ public class JobModel {
 
 	public void setWorkingLocation(GeographicSiteModel workingLocation) {
 		this.workingLocation = workingLocation;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 }

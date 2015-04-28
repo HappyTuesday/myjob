@@ -3,7 +3,6 @@ package com.myjob.web.model.converter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Locale;
-import java.util.Properties;
 
 import javax.annotation.Resource;
 

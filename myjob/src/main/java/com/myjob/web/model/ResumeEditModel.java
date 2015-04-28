@@ -3,6 +3,7 @@ package com.myjob.web.model;
 import java.util.Date;
 
 import com.myjob.entity.values.Gender;
+import com.myjob.entity.values.MaritalStatus;
 import com.myjob.entity.values.Qualification;
 import com.myjob.entity.values.ResumeStatus;
 
@@ -21,13 +22,33 @@ public class ResumeEditModel {
 	
 	private Gender gender;
 	
+	private String recruitment;
+	
+	private String liveCity;
+	
+	private MaritalStatus maritalStatus;
+	
+	private String politialAffiliation;
+	
 	private Qualification qualification;
+	
+	private String phone;
+	
+	private String expectedJobProfession;
+	
+	private String expectedJobCity;
+	
+	private Double expectedSalary;
+	
+	private String currentWorkingStatus;
 	
 	private Double workingYears;
 	
+	private String certifications;
+	
 	private String introduction;
 	
-	private String content;	
+	private String content;
 	
 	private ResumeStatus status;
 
@@ -125,5 +146,85 @@ public class ResumeEditModel {
 
 	public void setStatus(ResumeStatus status) {
 		this.status = status;
+	}
+
+	public String getRecruitment() {
+		return recruitment;
+	}
+
+	public void setRecruitment(String recruitment) {
+		this.recruitment = recruitment;
+	}
+
+	public String getLiveCity() {
+		return liveCity;
+	}
+
+	public void setLiveCity(String liveCity) {
+		this.liveCity = liveCity;
+	}
+
+	public MaritalStatus getMaritalStatus() {
+		return maritalStatus;
+	}
+
+	public void setMaritalStatus(MaritalStatus maritalStatus) {
+		this.maritalStatus = maritalStatus;
+	}
+
+	public String getPolitialAffiliation() {
+		return politialAffiliation;
+	}
+
+	public void setPolitialAffiliation(String politialAffiliation) {
+		this.politialAffiliation = politialAffiliation;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getExpectedJobProfession() {
+		return expectedJobProfession;
+	}
+
+	public void setExpectedJobProfession(String expectedJobProfession) {
+		this.expectedJobProfession = expectedJobProfession;
+	}
+
+	public String getExpectedJobCity() {
+		return expectedJobCity;
+	}
+
+	public void setExpectedJobCity(String expectedJobCity) {
+		this.expectedJobCity = expectedJobCity;
+	}
+
+	public Double getExpectedSalary() {
+		return expectedSalary;
+	}
+
+	public void setExpectedSalary(Double expectedSalary) {
+		this.expectedSalary = expectedSalary;
+	}
+
+	public String getCurrentWorkingStatus() {
+		return currentWorkingStatus;
+	}
+
+	public void setCurrentWorkingStatus(String currentWorkingStatus) {
+		this.currentWorkingStatus = currentWorkingStatus;
+	}
+
+	public String getCertifications() {
+		return certifications;
+	}
+
+	public void setCertifications(String certifications) {
+		this.certifications = certifications;
 	}
 }

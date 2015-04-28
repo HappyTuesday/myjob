@@ -45,7 +45,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<button type="button" class="col-md-8 col-md-offset-2 btn btn-register" name="register">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+						<button type="submit" class="col-md-8 col-md-offset-2 btn btn-register" name="register">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
 					</div>
 				</form>
 			</div>

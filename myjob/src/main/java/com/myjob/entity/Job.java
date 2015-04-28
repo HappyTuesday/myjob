@@ -47,6 +47,9 @@ public class Job {
 	@Column(name="working_years")
 	private Double workingYears;
 	
+	@Column(name="salary")
+	private Double salary;
+	
 	@Column(name="description")
 	private String description;
 	
@@ -77,8 +80,8 @@ public class Job {
 		return companySid;
 	}
 
-	public void setCompanySid(long company_sid) {
-		this.companySid = company_sid;
+	public void setCompanySid(long companySid) {
+		this.companySid = companySid;
 	}
 
 	public String getName() {
@@ -127,6 +130,14 @@ public class Job {
 
 	public void setWorkingYears(Double workingYears) {
 		this.workingYears = workingYears;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 
 	public String getDescription() {

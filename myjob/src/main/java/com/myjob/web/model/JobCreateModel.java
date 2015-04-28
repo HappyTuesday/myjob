@@ -13,6 +13,8 @@ public class JobCreateModel {
 	
 	private double workingYears;
 	
+	private Double salary;
+	
 	private String description;
 	
 	private int amount;
@@ -71,5 +73,13 @@ public class JobCreateModel {
 
 	public void setWorkingLocation(GeographicSiteModel workingLocation) {
 		this.workingLocation = workingLocation;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 }

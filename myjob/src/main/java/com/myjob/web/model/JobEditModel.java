@@ -14,6 +14,8 @@ public class JobEditModel {
 	
 	private int amount;
 	
+	private Double salary;
+	
 	private GeographicSiteModel workingLocation;
 	
 	private Double workingYears;
@@ -82,5 +84,13 @@ public class JobEditModel {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
 	}
 }
