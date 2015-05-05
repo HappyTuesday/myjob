@@ -30,11 +30,11 @@ public class ResumeCreateModel {
 	
 	private String liveCity;
 	
-	private String maritalStatus;
+	private MaritalStatus maritalStatus;
 	
 	private String politialAffiliation;
 	
-	private String qualification;
+	private Qualification qualification;
 	
 	private String phone;
 	
@@ -144,19 +144,19 @@ public class ResumeCreateModel {
 	}
 	
 
-	public String getMaritalStatus() {
+	public MaritalStatus getMaritalStatus() {
 		return maritalStatus;
 	}
 
-	public void setMaritalStatus(String maritalStatus) {
+	public void setMaritalStatus(MaritalStatus maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
 
-	public String getQualification() {
+	public Qualification getQualification() {
 		return qualification;
 	}
 
-	public void setQualification(String qualification) {
+	public void setQualification(Qualification qualification) {
 		this.qualification = qualification;
 	}
 

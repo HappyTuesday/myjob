@@ -13,9 +13,12 @@ import org.springframework.core.convert.converter.Converter;
 
 
 
+import org.springframework.stereotype.Component;
+
 import com.myjob.entity.User;
 import com.myjob.web.model.UserModel;
 
+@Component
 public class UserModelConverter implements Converter<UserModel, User>{
 	@Resource
 	private AccountModelConverter accountModelConverter;

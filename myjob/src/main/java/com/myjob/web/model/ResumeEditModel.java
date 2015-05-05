@@ -27,17 +27,17 @@ public class ResumeEditModel {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthday;
 	
-	private String gender;
+	private Gender gender;
 	
 	private String recruitment;
 	
 	private String liveCity;
 	
-	private String maritalStatus;
+	private MaritalStatus maritalStatus;
 	
 	private String politialAffiliation;
 	
-	private String qualification;
+	private Qualification qualification;
 	
 	private String phone;
 	
@@ -57,7 +57,7 @@ public class ResumeEditModel {
 	
 	private String content;
 	
-	private String resumeStatus;
+	private ResumeStatus resumeStatus;
 
 	public long getSid() {
 		return sid;
@@ -151,35 +151,35 @@ public class ResumeEditModel {
 
 
 
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 
-	public String getMaritalStatus() {
+	public MaritalStatus getMaritalStatus() {
 		return maritalStatus;
 	}
 
-	public void setMaritalStatus(String maritalStatus) {
+	public void setMaritalStatus(MaritalStatus maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
 
-	public String getQualification() {
+	public Qualification getQualification() {
 		return qualification;
 	}
 
-	public void setQualification(String qualification) {
+	public void setQualification(Qualification qualification) {
 		this.qualification = qualification;
 	}
 
-	public String getResumeStatus() {
+	public ResumeStatus getResumeStatus() {
 		return resumeStatus;
 	}
 
-	public void setResumeStatus(String resumeStatus) {
+	public void setResumeStatus(ResumeStatus resumeStatus) {
 		this.resumeStatus = resumeStatus;
 	}
 

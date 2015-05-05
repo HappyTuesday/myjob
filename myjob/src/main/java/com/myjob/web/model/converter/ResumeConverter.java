@@ -13,6 +13,19 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 	
 	@Resource
 	private UserConverter userConverter;
+	
+	@Resource
+	private GenderFormatter genderFormatter;
+	
+	@Resource
+	private QualificationFormatter qualificationFormatter;
+	
+	@Resource
+	private MaritalStatusFormatter maritalStatusFormatter;
+	
+	@Resource
+	private ResumeStatusFormatter resumeStatusFormatter;
+	
 	@Override
 	public ResumeModel convert(Resume source) {
 		ResumeModel target = new ResumeModel();
@@ -20,15 +33,15 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 		target.setName(source.getName());
 		target.setBirthday(source.getBirthday());
 		target.setContent(source.getContent());
-		target.setGender(source.getGender().toString());
+		target.setGender(genderFormatter.print(source.getGender(),null));
 		target.setGraduatedDate(source.getGraduatedDate());
 		target.setIdCard(source.getIdCard());
 		target.setIntroduction(source.getIntroduction());
 		target.setProfession(source.getProfession());
-		target.setQualification(source.getQualification().toString());
+		target.setQualification(qualificationFormatter.print(source.getQualification(),null));
 		target.setSchool(source.getSchool());
 		target.setSid(source.getSid());
-		target.setMaritalStatus(source.getStatus().toString());
+		target.setMaritalStatus(maritalStatusFormatter.print(source.getMaritalStatus(),null));
 		target.setUpdateTime(source.getUpdateTime());
 		target.setUser(userConverter.convert(source.getUser()));
 		target.setWorkingYears(source.getWorkingYears());
@@ -42,6 +55,7 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 		target.setExpectedSalary(source.getExpectedSalary());
 		target.setCurrentWorkingStatus(source.getCurrentWorkingStatus());
 		target.setCertifications( source.getCertifications() != null ? source.getCertifications().split(",") : new String[]{});
+		target.setResumeStatus(resumeStatusFormatter.print(source.getStatus(), null));
 
 		return target;
 	}

@@ -1,9 +1,7 @@
 package com.myjob.web.model.converter;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.Locale;
-import java.util.Properties;
 
 import javax.annotation.Resource;
 
@@ -19,15 +17,7 @@ public class QualificationFormatter implements Formatter<Qualification> {
 	private ReadEntityValuesProperties readEntityValuesProperties;
 	@Override
 	public String print(Qualification object, Locale locale) {
-		try {
-			return readEntityValuesProperties.readEnityValuesProperties("Qualification."+object.toString());
-			
-		} catch (IOException e) {
-			System.out.println("Cannot format Qualification");
-			e.printStackTrace();
-		}
-		
-		return null;
+		return readEntityValuesProperties.readEnityValuesProperties("Qualification."+object.toString());
 	}
 
 	@Override

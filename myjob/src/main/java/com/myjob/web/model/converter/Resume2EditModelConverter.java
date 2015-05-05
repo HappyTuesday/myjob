@@ -13,6 +13,7 @@ public class Resume2EditModelConverter implements Converter<Resume, ResumeEditMo
 	
 	@Resource
 	private UserConverter userConverter;
+	
 	@Override
 	public ResumeEditModel convert(Resume source) {
 		ResumeEditModel target = new ResumeEditModel();

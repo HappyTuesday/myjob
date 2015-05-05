@@ -1,31 +1,23 @@
 package com.myjob.web.model.converter;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.Locale;
-import java.util.Properties;
 
 import javax.annotation.Resource;
 
 import org.springframework.format.Formatter;
+import org.springframework.stereotype.Component;
 
 import com.myjob.entity.values.ResumeStatus;
 
+@Component
 public class ResumeStatusFormatter implements Formatter<ResumeStatus> {
 
 	@Resource
 	private ReadEntityValuesProperties readEntityValuesProperties;
 	@Override
 	public String print(ResumeStatus object, Locale arg1) {
-		try {
-			return readEntityValuesProperties.readEnityValuesProperties("ResumeStatus."+object.toString());
-			
-		} catch (IOException e) {
-			System.out.println("Cannot format ResumeStatus");
-			e.printStackTrace();
-		}
-		
-		return null;
+		return readEntityValuesProperties.readEnityValuesProperties("ResumeStatus."+object.toString());
 	}
 
 	@Override

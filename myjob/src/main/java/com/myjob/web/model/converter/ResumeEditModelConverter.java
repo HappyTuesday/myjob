@@ -13,10 +13,16 @@ public class ResumeEditModelConverter implements Converter<ResumeEditModel, Resu
 	
 	@Resource
 	private UserConverter userConverter;
+	@Resource
+	private GenderFormatter genderFormatter;
+	@Resource
+	private QualificationFormatter qualificationFormatter;
+	@Resource
+	MaritalStatusFormatter maritalStatusFormatter;
 	@Override
 	public Resume convert(ResumeEditModel source) {
 		Resume target = new Resume();
-		
+
 		target.setSid(source.getSid());
 		target.setName(source.getName());
 		target.setBirthday(source.getBirthday());
