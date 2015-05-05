@@ -6,17 +6,18 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import com.myjob.entity.Resume;
-import com.myjob.web.model.ResumeCreateModel;
+import com.myjob.web.model.ResumeEditModel;
 
 @Component
-public class ResumeCreateModelConverter implements Converter<ResumeCreateModel, Resume>{
+public class ResumeEditModelConverter implements Converter<ResumeEditModel, Resume>{
 	
 	@Resource
 	private UserConverter userConverter;
 	@Override
-	public Resume convert(ResumeCreateModel source) {
+	public Resume convert(ResumeEditModel source) {
 		Resume target = new Resume();
 		
+		target.setSid(source.getSid());
 		target.setName(source.getName());
 		target.setBirthday(source.getBirthday());
 		target.setContent(source.getContent());

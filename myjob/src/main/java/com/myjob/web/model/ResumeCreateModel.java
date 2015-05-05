@@ -2,6 +2,8 @@ package com.myjob.web.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.myjob.entity.values.Gender;
 import com.myjob.entity.values.MaritalStatus;
 import com.myjob.entity.values.Qualification;
@@ -13,11 +15,13 @@ public class ResumeCreateModel {
 	private String school;
 	
 	private String profession;
-	
+
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date graduatedDate;
 	
 	private String idCard;
 	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthday;
 	
 	private Gender gender;
@@ -44,7 +48,7 @@ public class ResumeCreateModel {
 	
 	private Double workingYears;
 	
-	private String certifications;
+	private String[] certifications;
 	
 	private String introduction;
 	
@@ -202,11 +206,11 @@ public class ResumeCreateModel {
 		this.currentWorkingStatus = currentWorkingStatus;
 	}
 
-	public String getCertifications() {
+	public String[] getCertifications() {
 		return certifications;
 	}
 
-	public void setCertifications(String certifications) {
+	public void setCertifications(String[] certifications) {
 		this.certifications = certifications;
 	}
 

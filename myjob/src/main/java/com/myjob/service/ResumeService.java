@@ -50,9 +50,8 @@ public class ResumeService {
 	}
 	
 	public void update(Resume resume){
-		Resume resumep=resumeDao.get(resume.getSid());
-		
-		resume.setStatus(resumep.getStatus());
+		resume.setUpdateTime(new Date());
+		resume.setStatus(ResumeStatus.active);
 		
 		resumeDao.update(resume);
 	}

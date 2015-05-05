@@ -105,7 +105,7 @@ public class Resume {
 	private ResumeStatus status;
 	
 	@ManyToOne(cascade=CascadeType.REFRESH)
-	@JoinColumn(name="user_sid",nullable=false)
+	@JoinColumn(name="user_sid",nullable=false,updatable=false)
 	private User user;
 
 	public long getSid() {

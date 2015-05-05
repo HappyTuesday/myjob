@@ -3,6 +3,7 @@ package com.myjob.web.controller;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +28,11 @@ public class JobPublishController extends ControllerBase {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String submit(@ModelAttribute JobCreateModel model){
+	public String submit(@ModelAttribute JobCreateModel model,BindingResult result){
+		if(result.hasErrors()){
+			return "job.publish";
+		}
+		
 		Job job = convert(model, Job.class);
 		job.setCompany(loginCompany());
 		jobService.create(job);

@@ -24,6 +24,7 @@ public class ResumeDao extends BaseDao {
 	
 	public QueryResult<Resume> query(ResumeQueryCriteria qc) {
 		DetachedCriteria criteria = DetachedCriteria.forClass(Resume.class);
+		criteria.createAlias("user","user");
 		
 		eq(criteria, "user.sid", qc.getUserSid());
 		eq(criteria, "status", qc.getStatus());

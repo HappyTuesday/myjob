@@ -41,7 +41,7 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 		target.setExpectedJobCity(source.getExpectedJobCity());
 		target.setExpectedSalary(source.getExpectedSalary());
 		target.setCurrentWorkingStatus(source.getCurrentWorkingStatus());
-		target.setCertifications(source.getCertifications());
+		target.setCertifications( source.getCertifications() != null ? source.getCertifications().split(",") : new String[]{});
 
 		return target;
 	}

@@ -2,6 +2,8 @@ package com.myjob.web.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.myjob.entity.values.JobStatus;
 import com.myjob.entity.values.Qualification;
 
@@ -11,6 +13,7 @@ public class JobModel {
 
 	private String name;
 
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updateTime;
 
 	private String profession;

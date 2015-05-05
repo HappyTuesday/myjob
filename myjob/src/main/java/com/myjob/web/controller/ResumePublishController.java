@@ -1,12 +1,9 @@
 package com.myjob.web.controller;
 
-import java.util.Date;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,13 +29,12 @@ public class ResumePublishController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submit(@ModelAttribute ResumeCreateModel model,BindingResult result){
-		for(ObjectError s:result.getAllErrors()){
-			System.out.println(s);
+		if(result.hasErrors()){
+			return "resume.publish";
 		}
+		
 		Resume resume = convert(model, Resume.class);
 		resume.setUser(loginUser());
-		resume.setBirthday(new Date());
-		resume.setGraduatedDate(new Date());
 		resumeService.create(resume);
 		return "redirect:/resume/search/my";
 	}
