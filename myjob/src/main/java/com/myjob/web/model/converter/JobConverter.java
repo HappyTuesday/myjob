@@ -26,9 +26,9 @@ public class JobConverter implements Converter<Job, JobModel> {
 		target.setDescription(source.getDescription());
 		target.setName(source.getName());
 		target.setProfession(source.getProfession());
-		target.setQualification(source.getQualification());
+		target.setQualification(source.getQualification().toString());
 		target.setSid(source.getSid());
-		target.setStatus(source.getStatus());
+		target.setjobStatus(source.getStatus().toString());
 		target.setUpdateTime(source.getUpdateTime());
 		target.setWorkingLocation(geographicSiteConverter.convert(source.getWorkingLocation()));
 		target.setWorkingYears(source.getWorkingYears());

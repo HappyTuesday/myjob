@@ -25,7 +25,7 @@ public class Job2EditModelConverter implements Converter<Job, JobEditModel> {
 		target.setDescription(source.getDescription());
 		target.setName(source.getName());
 		target.setProfession(source.getProfession());
-		target.setQualification(source.getQualification());
+		target.setQualification(source.getQualification().toString());
 		target.setSid(source.getSid());
 		target.setWorkingLocation(geographicSiteConverter.convert(source.getWorkingLocation()));
 		target.setWorkingYears(source.getWorkingYears());

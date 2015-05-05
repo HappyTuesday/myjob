@@ -23,7 +23,7 @@ public class CompanyConverter implements Converter<Company, CompanyModel> {
 		companyModel.setLocation(geographicSiteConverter.convert(source.getLocation()));
 		companyModel.setName(source.getName());
 		companyModel.setSid(source.getSid());
-		companyModel.setStatus(source.getStatus());
+		companyModel.setCompanyStatus(source.getStatus().toString());
 		return companyModel;
 		
 	}

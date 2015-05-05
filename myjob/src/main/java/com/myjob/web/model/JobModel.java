@@ -15,7 +15,7 @@ public class JobModel {
 
 	private String profession;
 
-	private Qualification qualification;
+	private String qualification;
 
 	private Double workingYears;
 	
@@ -25,7 +25,7 @@ public class JobModel {
 	
 	private Double salary;
 	
-	private JobStatus status;
+	private String jobStatus;
 	
 	private CompanyModel company;
 	
@@ -63,14 +63,6 @@ public class JobModel {
 		this.profession = profession;
 	}
 
-	public Qualification getQualification() {
-		return qualification;
-	}
-
-	public void setQualification(Qualification qualification) {
-		this.qualification = qualification;
-	}
-
 	public Double getWorkingYears() {
 		return workingYears;
 	}
@@ -94,13 +86,21 @@ public class JobModel {
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-
-	public JobStatus getStatus() {
-		return status;
+	
+	public String getQualification() {
+		return qualification;
 	}
 
-	public void setStatus(JobStatus status) {
-		this.status = status;
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	public String getjobStatus() {
+		return jobStatus;
+	}
+
+	public void setjobStatus(String jobStatus) {
+		this.jobStatus = jobStatus;
 	}
 
 	public CompanyModel getCompany() {

@@ -26,11 +26,11 @@ public class ResumeCreateModel {
 	
 	private String liveCity;
 	
-	private MaritalStatus maritalStatus;
+	private String maritalStatus;
 	
 	private String politialAffiliation;
 	
-	private Qualification qualification;
+	private String qualification;
 	
 	private String phone;
 	
@@ -98,13 +98,6 @@ public class ResumeCreateModel {
 		this.gender = gender;
 	}
 
-	public Qualification getQualification() {
-		return qualification;
-	}
-
-	public void setQualification(Qualification qualification) {
-		this.qualification = qualification;
-	}
 
 	public Double getWorkingYears() {
 		return workingYears;
@@ -145,13 +138,22 @@ public class ResumeCreateModel {
 	public void setLiveCity(String liveCity) {
 		this.liveCity = liveCity;
 	}
+	
 
-	public MaritalStatus getMaritalStatus() {
+	public String getMaritalStatus() {
 		return maritalStatus;
 	}
 
-	public void setMaritalStatus(MaritalStatus maritalStatus) {
+	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
+	}
+
+	public String getQualification() {
+		return qualification;
+	}
+
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
 	}
 
 	public String getPolitialAffiliation() {
