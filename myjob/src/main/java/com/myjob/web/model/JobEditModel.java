@@ -10,7 +10,7 @@ public class JobEditModel {
 	
 	private String profession;
 	
-	private Qualification qualification;
+	private String qualification;
 	
 	private int amount;
 	
@@ -46,11 +46,13 @@ public class JobEditModel {
 		this.profession = profession;
 	}
 
-	public Qualification getQualification() {
+
+
+	public String getQualification() {
 		return qualification;
 	}
 
-	public void setQualification(Qualification qualification) {
+	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
 

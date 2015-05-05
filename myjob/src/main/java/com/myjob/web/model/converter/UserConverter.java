@@ -21,7 +21,7 @@ public class UserConverter implements Converter<User,UserModel> {
 		userModel.setCreateDate(source.getCreateDate());
 		userModel.setName(source.getName());
 		userModel.setSid(source.getSid());
-		userModel.setStatus(source.getStatus());		
+		userModel.setUserStatus(source.getStatus().toString());		
 		return userModel;
 	}
 

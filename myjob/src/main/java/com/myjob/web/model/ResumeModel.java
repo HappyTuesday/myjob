@@ -24,17 +24,17 @@ public class ResumeModel {
 	
 	private Date birthday;
 	
-	private Gender gender;
+	private String gender;
 	
 	private String recruitment;
 	
 	private String liveCity;
 	
-	private MaritalStatus maritalStatus;
+	private String maritalStatus;
 	
 	private String politialAffiliation;
 	
-	private Qualification qualification;
+	private String qualification;
 	
 	private String phone;
 	
@@ -54,7 +54,7 @@ public class ResumeModel {
 	
 	private String content;
 	
-	private ResumeStatus status;
+	private String resumeStatus;
 	
 	private UserModel user;
 
@@ -114,22 +114,6 @@ public class ResumeModel {
 		this.birthday = birthday;
 	}
 
-	public Gender getGender() {
-		return gender;
-	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-
-	public Qualification getQualification() {
-		return qualification;
-	}
-
-	public void setQualification(Qualification qualification) {
-		this.qualification = qualification;
-	}
-
 	public Double getWorkingYears() {
 		return workingYears;
 	}
@@ -154,13 +138,6 @@ public class ResumeModel {
 		this.content = content;
 	}
 
-	public ResumeStatus getStatus() {
-		return status;
-	}
-
-	public void setStatus(ResumeStatus status) {
-		this.status = status;
-	}
 
 	public UserModel getUser() {
 		return user;
@@ -186,12 +163,36 @@ public class ResumeModel {
 		this.liveCity = liveCity;
 	}
 
-	public MaritalStatus getMaritalStatus() {
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getMaritalStatus() {
 		return maritalStatus;
 	}
 
-	public void setMaritalStatus(MaritalStatus maritalStatus) {
+	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
+	}
+
+	public String getQualification() {
+		return qualification;
+	}
+
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	public String getResumeStatus() {
+		return resumeStatus;
+	}
+
+	public void setResumeStatus(String resumeStatus) {
+		this.resumeStatus = resumeStatus;
 	}
 
 	public String getPolitialAffiliation() {

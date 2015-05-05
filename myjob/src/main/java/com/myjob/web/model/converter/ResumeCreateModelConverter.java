@@ -1,5 +1,8 @@
 package com.myjob.web.model.converter;
 
+import java.text.ParseException;
+import java.util.Locale;
+
 import javax.annotation.Resource;
 
 import org.springframework.core.convert.converter.Converter;
@@ -13,6 +16,10 @@ public class ResumeCreateModelConverter implements Converter<ResumeCreateModel, 
 	
 	@Resource
 	private UserConverter userConverter;
+	@Resource
+	private QualificationFormatter qualificationFormatter;
+	@Resource
+	MaritalStatusFormatter maritalStatusFormatter;
 	@Override
 	public Resume convert(ResumeCreateModel source) {
 		Resume target = new Resume();
@@ -25,12 +32,22 @@ public class ResumeCreateModelConverter implements Converter<ResumeCreateModel, 
 		target.setIdCard(source.getIdCard());
 		target.setIntroduction(source.getIntroduction());
 		target.setProfession(source.getProfession());
-		target.setQualification(source.getQualification());
+		try {
+			target.setQualification(qualificationFormatter.parse(source.getQualification(),Locale.ENGLISH));
+		} catch (ParseException e) {
+			System.out.println("Cannot set qualification field because cannot formattered qualification to enum type.");
+			e.printStackTrace();
+		}
 		target.setSchool(source.getSchool());
 		target.setWorkingYears(source.getWorkingYears());
 		target.setRecruitment(source.getRecruitment());
 		target.setLiveCity(source.getLiveCity());
-		target.setMaritalStatus(source.getMaritalStatus());
+		try {
+			target.setMaritalStatus(maritalStatusFormatter.parse(source.getMaritalStatus(),Locale.ENGLISH));
+		} catch (ParseException e) {
+			System.out.println("Cannot set maritalStatus field because cannot formattered maritalStatus to enum type.");
+			e.printStackTrace();
+		}
 		target.setPolitialAffiliation(source.getPolitialAffiliation());
 		target.setPhone(source.getPhone());
 		target.setExpectedJobProfession(source.getExpectedJobProfession());

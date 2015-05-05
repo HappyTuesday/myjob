@@ -13,7 +13,7 @@ public class UserModel {
 	
 	private Date createDate;
 	
-	private UserStatus status;
+	private String userStatus;
 
 	public long getSid() {
 		return sid;
@@ -47,11 +47,12 @@ public class UserModel {
 		this.createDate = createDate;
 	}
 
-	public UserStatus getStatus() {
-		return status;
+	public String getUserStatus() {
+		return userStatus;
 	}
 
-	public void setStatus(UserStatus status) {
-		this.status = status;
+	public void setUserStatus(String userStatus) {
+		this.userStatus = userStatus;
 	}
+	
 }

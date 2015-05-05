@@ -5,7 +5,7 @@ import com.myjob.entity.values.CompanyStatus;
 public class CompanyModel {
 	private long sid;
 	
-	private CompanyStatus status;
+	private String CompanyStatus;
 	
 	private String name;
 	
@@ -25,12 +25,12 @@ public class CompanyModel {
 		this.sid = sid;
 	}
 
-	public CompanyStatus getStatus() {
-		return status;
+	public String getCompanyStatus() {
+		return CompanyStatus;
 	}
 
-	public void setStatus(CompanyStatus status) {
-		this.status = status;
+	public void setCompanyStatus(String companyStatus) {
+		CompanyStatus = companyStatus;
 	}
 
 	public String getName() {

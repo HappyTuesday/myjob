@@ -7,7 +7,7 @@ public class JobCreateModel {
 	
 	private String profession;
 	
-	private Qualification qualification;
+	private String qualification;
 	
 	private GeographicSiteModel workingLocation;
 	
@@ -34,12 +34,12 @@ public class JobCreateModel {
 	public void setProfession(String profession) {
 		this.profession = profession;
 	}
-
-	public Qualification getQualification() {
+	
+	public String getQualification() {
 		return qualification;
 	}
 
-	public void setQualification(Qualification qualification) {
+	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
 

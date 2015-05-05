@@ -7,7 +7,7 @@ import com.myjob.entity.values.JobRequestStatus;
 public class JobRequestModel {
 	private String hrRemark;
 	
-	private JobRequestStatus status;
+	private String jobRequestStatus;
 	
 	private JobModel job;
 	
@@ -24,13 +24,14 @@ public class JobRequestModel {
 	public void setHrRemark(String hrRemark) {
 		this.hrRemark = hrRemark;
 	}
+	
 
-	public JobRequestStatus getStatus() {
-		return status;
+	public String getJobRequestStatus() {
+		return jobRequestStatus;
 	}
 
-	public void setStatus(JobRequestStatus status) {
-		this.status = status;
+	public void setJobRequestStatus(String jobRequestStatus) {
+		this.jobRequestStatus = jobRequestStatus;
 	}
 
 	public JobModel getJob() {
