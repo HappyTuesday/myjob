@@ -14,7 +14,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import com.myjob.common.QueryResult;
 import com.myjob.criteria.QueryCriteria;
 
-public class BaseDao {
+public abstract class BaseDao {
 	
 	@Resource HibernateTemplate template;
 	

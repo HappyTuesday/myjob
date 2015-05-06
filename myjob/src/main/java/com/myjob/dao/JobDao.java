@@ -10,6 +10,10 @@ import com.myjob.entity.Job;
 @Repository
 public class JobDao extends BaseDao {
 	
+	public Job load(long sid){
+		return template.load(Job.class, sid);
+	}
+	
 	public Job get(long sid){
 		return template.get(Job.class, sid);
 	}

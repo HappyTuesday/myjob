@@ -10,6 +10,10 @@ import com.myjob.entity.JobRequest;
 @Repository
 public class JobRequestDao extends BaseDao {
 	
+	public JobRequest load(long sid){
+		return template.load(JobRequest.class, sid);
+	}
+	
 	public JobRequest get(long sid){
 		return template.get(JobRequest.class, sid);
 	}
@@ -24,7 +28,9 @@ public class JobRequestDao extends BaseDao {
 	
 	public QueryResult<JobRequest> query(JobRequestQueryCriteria qc){
 		DetachedCriteria criteria = DetachedCriteria.forClass(JobRequest.class);
-
+		criteria.createAlias("job", "job");
+		criteria.createAlias("resume", "resume");
+		
 		eq(criteria, "job.company.sid", qc.getCompanySid());
 		eq(criteria, "resume.user.sid", qc.getUserSid());
 		eq(criteria, "resume.sid",qc.getResumeSid());

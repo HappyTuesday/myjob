@@ -11,7 +11,7 @@ import com.myjob.criteria.JobRequestQueryCriteria;
 import com.myjob.entity.values.AccountType;
 import com.myjob.service.JobResponseService;
 import com.myjob.web.auth.Allow;
-import com.myjob.web.model.JobResponseModel;
+import com.myjob.web.model.JobRequestModel;
 
 @Controller
 @RequestMapping("/job/response")
@@ -24,26 +24,26 @@ public class JobResponseController extends ControllerBase {
 	@RequestMapping("/received")
 	@Allow({AccountType.user})
 	public String receivedResponse(@ModelAttribute JobRequestQueryCriteria criteria){
-		return "job.responses";
+		return "job.responses.received";
 	}
 	
 	@RequestMapping("/sent")
 	@Allow({AccountType.company})
 	public String sentResponse(@ModelAttribute JobRequestQueryCriteria criteria){
-		return "job.responses";
+		return "job.responses.sent";
 	}
 	
 	@RequestMapping("/received/data")
 	@Allow({AccountType.user})
 	@ResponseBody
 	public Object receivedResponseData(@ModelAttribute JobRequestQueryCriteria criteria){
-		return convertQueryResult(jobResponseService.queryReceivedResponses(criteria, loginAccountSid()),JobResponseModel.class);
+		return convertQueryResult(jobResponseService.queryReceivedResponses(criteria, loginAccountSid()),JobRequestModel.class);
 	}
 	
 	@RequestMapping("/sent/data")
 	@Allow({AccountType.company})
 	@ResponseBody
 	public Object sentResponseData(@ModelAttribute JobRequestQueryCriteria criteria){
-		return convertQueryResult(jobResponseService.querySentResponses(criteria, loginAccountSid()),JobResponseModel.class);
+		return convertQueryResult(jobResponseService.querySentResponses(criteria, loginAccountSid()),JobRequestModel.class);
 	}
 }

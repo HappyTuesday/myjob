@@ -46,6 +46,8 @@
 				<ref bean="resumeEditModelConverter"/>
 				<ref bean="resume2EditModelConverter"/>
 				<ref bean="resumeConverter"/>
+				<ref bean="jobRequestCreateModelConverter"/>
+				<ref bean="jobRequestConverter"/>
 			</set>
 		</property>
 		<property name="formatters">

@@ -2,12 +2,13 @@ package com.myjob.web.model;
 
 import java.util.Date;
 
-import com.myjob.entity.values.JobRequestStatus;
-
 public class JobRequestModel {
+	
+	private long sid;
+	
 	private String hrRemark;
 	
-	private String jobRequestStatus;
+	private String status;
 	
 	private JobModel job;
 	
@@ -23,15 +24,6 @@ public class JobRequestModel {
 
 	public void setHrRemark(String hrRemark) {
 		this.hrRemark = hrRemark;
-	}
-	
-
-	public String getJobRequestStatus() {
-		return jobRequestStatus;
-	}
-
-	public void setJobRequestStatus(String jobRequestStatus) {
-		this.jobRequestStatus = jobRequestStatus;
 	}
 
 	public JobModel getJob() {
@@ -64,6 +56,22 @@ public class JobRequestModel {
 
 	public void setRequestComment(String requestComment) {
 		this.requestComment = requestComment;
+	}
+
+	public long getSid() {
+		return sid;
+	}
+
+	public void setSid(long sid) {
+		this.sid = sid;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

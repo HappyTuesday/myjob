@@ -31,6 +31,10 @@ query.paginationItems = ko.computed(function(){
 
 query.execute = function(){
 	post(query.url,query.criteria,function(rs){
+		if(query.preprocessQueryResult){
+			query.preprocessQueryResult(rs);
+		}
+		
 		query.totalCount(rs.totalCount).records(rs.records);
 	});
 }

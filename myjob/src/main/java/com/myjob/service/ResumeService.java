@@ -12,23 +12,41 @@ import com.myjob.criteria.ResumeQueryCriteria;
 import com.myjob.dao.ResumeDao;
 import com.myjob.entity.Resume;
 import com.myjob.entity.values.ResumeStatus;
+import com.myjob.service.exception.ServiceException;
+import com.myjob.service.exception.ServiceInternalException;
+import com.myjob.service.exception.ServiceLogicException;
 
 @Service
 public class ResumeService {
 	@Resource
 	private ResumeDao resumeDao;
 	
-	public void active(long resumeSid){
+	public Resume getActiveResume(long userSid) throws ServiceException{
 		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
 		criteria.setStatus(ResumeStatus.active);
 		
+		List<Resume> resumes = resumeDao.query(criteria).getRecords();
+		if(resumes.size() == 0){
+			throw new ServiceLogicException(getClass(),"No active resume found");
+		}else if(resumes.size() > 1){
+			throw new ServiceInternalException(getClass(),"More than one active resume found");
+		}
+		
+		return resumes.get(0);
+	}
+	
+	public void active(long resumeSid){
+		Resume resume = resumeDao.get(resumeSid);
+		
+		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
+		criteria.setUserSid(resume.getUserSid());
+		criteria.setStatus(ResumeStatus.active);
 		List<Resume> activedResumes = resumeDao.query(criteria).getRecords();
 		for(Resume activedResume : activedResumes){
 			activedResume.setStatus(ResumeStatus.inactive);
 			resumeDao.update(activedResume);
 		}
 		
-		Resume resume = resumeDao.get(resumeSid);
 		resume.setStatus(ResumeStatus.active);
 		resumeDao.update(resume);
 	}

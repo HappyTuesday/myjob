@@ -8,9 +8,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.myjob.entity.values.JobRequestStatus;
@@ -20,12 +22,15 @@ import com.myjob.entity.values.JobRequestStatus;
 public class JobRequest implements Serializable {
 	
 	private static final long serialVersionUID = 6800535403816564306L;
-
+	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="sid")
+	private long sid;
+
 	@Column(name="job_sid",insertable=false,updatable=false)
 	private long jobSid;
 	
-	@Id
 	@Column(name="resume_sid",insertable=false,updatable=false)
 	private long resumeSid;
 	
@@ -46,12 +51,20 @@ public class JobRequest implements Serializable {
 	private JobRequestStatus status;
 	
 	@ManyToOne(cascade=CascadeType.REFRESH)
-	@PrimaryKeyJoinColumn(name="job_sid")
+	@JoinColumn(name="job_sid",nullable=false,updatable=false)
 	private Job job;
 	
 	@ManyToOne(cascade=CascadeType.REFRESH)
-	@PrimaryKeyJoinColumn(name="resume_sid")
+	@JoinColumn(name="resume_sid",nullable=false,updatable=false)
 	private Resume resume;
+
+	public long getSid() {
+		return sid;
+	}
+
+	public void setSid(long sid) {
+		this.sid = sid;
+	}
 
 	public long getJobSid() {
 		return jobSid;

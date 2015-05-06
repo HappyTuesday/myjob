@@ -17,6 +17,10 @@ public class JobService {
 	@Resource
 	private JobDao jobDao;
 	
+	public Job load(long jobSid){
+		return jobDao.load(jobSid);
+	}
+	
 	public Job detail(long jobSid){
 		return jobDao.get(jobSid);
 	}

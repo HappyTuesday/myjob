@@ -212,6 +212,10 @@
 				<span><label>更新时间：</label><span data-bind="text: updateTime"></span></span>
 			</p>
 			<p>
+				<label>捎句话：</label>
+				<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
+			</p>
+			<p>
 				<button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button>
 			</p>
 		</li>
@@ -250,10 +254,25 @@
 		{name: 'salary', title: '月薪'}
 	];
 	
+	query.preprocessQueryResult = function(queryResult){
+		for(var i in queryResult.records){
+			var record = queryResult.records[i];
+			record.jobRequest = {
+				expanded: ko.observable(false),
+				requestComment: ko.observable('')
+			}
+		}
+	}
+	
 	query.postJobRequest = function(job){
-		post("/job/request/post", {
-			jobSid: job.sid
-		},function(){
+		if(!job.jobRequest.expanded()){
+			job.jobRequest.expanded(true);
+			return;
+		}
+		
+		job.jobRequest.jobSid = job.sid;
+		
+		post("/job/request/post", job.jobRequest, function(){
 			alert("投递成功");
 		});
 	}
