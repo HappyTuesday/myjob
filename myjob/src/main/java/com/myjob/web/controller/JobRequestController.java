@@ -45,13 +45,13 @@ public class JobRequestController extends ControllerBase {
 	@RequestMapping(value="/sent")
 	@Allow({AccountType.user})
 	public String sentRequests(@ModelAttribute JobRequestQueryCriteria criteria){
-		return "job.requests.sent";
+		return "job/request/sent.list";
 	}
 	
 	@RequestMapping(value="/received")
 	@Allow({AccountType.company})
 	public String receivedRequests(@ModelAttribute JobRequestQueryCriteria criteria){
-		return "job.requests.received";
+		return "job/request/received.list";
 	}
 	
 	@RequestMapping(value="/sent/data")

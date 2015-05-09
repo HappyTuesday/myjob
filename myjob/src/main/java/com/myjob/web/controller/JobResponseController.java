@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.myjob.criteria.JobRequestQueryCriteria;
 import com.myjob.entity.values.AccountType;
 import com.myjob.service.JobResponseService;
+import com.myjob.service.exception.ServiceException;
 import com.myjob.web.auth.Allow;
 import com.myjob.web.model.JobRequestModel;
+import com.myjob.web.model.JobResponseCreateModel;
 
 @Controller
 @RequestMapping("/job/response")
@@ -21,16 +23,32 @@ public class JobResponseController extends ControllerBase {
 	@Resource
 	private JobResponseService jobResponseService;
 	
+	@RequestMapping("/rejectRequest")
+	@Allow(AccountType.company)
+	@ResponseBody
+	public boolean rejectRequest(@ModelAttribute JobResponseCreateModel model) throws ServiceException{
+		jobResponseService.rejectRequest(model.getJobRequestSid(), model.getHrRemark());
+		return true;
+	}
+	
+	@RequestMapping("/acceptRequest")
+	@Allow(AccountType.company)
+	@ResponseBody
+	public boolean acceptRequest(@ModelAttribute JobResponseCreateModel model) throws ServiceException{
+		jobResponseService.acceptRequest(model.getJobRequestSid(), model.getHrRemark());
+		return true;
+	}
+	
 	@RequestMapping("/received")
 	@Allow({AccountType.user})
 	public String receivedResponse(@ModelAttribute JobRequestQueryCriteria criteria){
-		return "job.responses.received";
+		return "job/response/received.list";
 	}
 	
 	@RequestMapping("/sent")
 	@Allow({AccountType.company})
 	public String sentResponse(@ModelAttribute JobRequestQueryCriteria criteria){
-		return "job.responses.sent";
+		return "job/response/sent.list";
 	}
 	
 	@RequestMapping("/received/data")

@@ -36,7 +36,7 @@ public class ResumeService {
 	}
 	
 	public void active(long resumeSid){
-		Resume resume = resumeDao.get(resumeSid);
+		Resume resume = resumeDao.load(resumeSid);
 		
 		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
 		criteria.setUserSid(resume.getUserSid());
@@ -52,7 +52,7 @@ public class ResumeService {
 	}
 	
 	public void delete(long resumeSid) {
-		Resume resume = resumeDao.get(resumeSid);
+		Resume resume = resumeDao.load(resumeSid);
 		resume.setStatus(ResumeStatus.deleted);
 		resumeDao.update(resume);
 	}
@@ -62,7 +62,7 @@ public class ResumeService {
 	}
 	
 	public void refresh(long resumeSid){
-		Resume resume = resumeDao.get(resumeSid);
+		Resume resume = resumeDao.load(resumeSid);
 		resume.setUpdateTime(new Date());
 		resumeDao.update(resume);
 	}

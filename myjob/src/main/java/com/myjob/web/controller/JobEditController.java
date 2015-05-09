@@ -27,7 +27,7 @@ public class JobEditController extends ControllerBase {
 	public String edit(@PathVariable long job_sid,Model models){
 		JobEditModel model = convert(jobService.detail(job_sid), JobEditModel.class);
 		models.addAttribute("model",model);
-		return "job.edit";
+		return "job/edit";
 	}
 	
 	@RequestMapping(value="/{job_sid}",method=RequestMethod.POST)

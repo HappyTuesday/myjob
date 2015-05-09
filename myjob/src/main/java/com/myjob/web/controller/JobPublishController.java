@@ -24,13 +24,13 @@ public class JobPublishController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String publish(@ModelAttribute JobCreateModel model){
-		return "job.publish";
+		return "job/publish";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submit(@ModelAttribute JobCreateModel model,BindingResult result){
 		if(result.hasErrors()){
-			return "job.publish";
+			return "job/publish";
 		}
 		
 		Job job = convert(model, Job.class);

@@ -28,13 +28,13 @@ public class ResumeEditController extends ControllerBase {
 	public String edit(@PathVariable long resume_sid,Model models){
 		ResumeEditModel model = convert(resumeService.detail(resume_sid), ResumeEditModel.class);
 		models.addAttribute(model);
-		return "resume.edit";
+		return "resume/edit";
 	}
 	
 	@RequestMapping(value="/{resume_sid}",method=RequestMethod.POST)
 	public String update(@PathVariable long resume_sid,@ModelAttribute ResumeEditModel model,BindingResult result){
 		if(result.hasErrors()){
-			return "resume.edit";
+			return "resume/edit";
 		}
 		
 		Resume resume = convert(model, Resume.class);

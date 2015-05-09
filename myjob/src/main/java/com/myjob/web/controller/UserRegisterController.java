@@ -21,7 +21,7 @@ public class UserRegisterController extends ControllerBase {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String register(@ModelAttribute UserRegisterModel model){
-		return "register.user";
+		return "register/user";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
@@ -30,7 +30,7 @@ public class UserRegisterController extends ControllerBase {
 			userService.create(convert(model,User.class));
 			return "redirect:/home/user";
 		} catch (ServiceLogicException e) {
-			return "register.user";
+			return "register/user";
 		}
 	}
 }

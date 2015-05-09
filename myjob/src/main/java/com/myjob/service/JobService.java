@@ -26,13 +26,13 @@ public class JobService {
 	}
 	
 	public void disable(long jobSid){
-		Job job=jobDao.get(jobSid);
+		Job job=jobDao.load(jobSid);
 		job.setStatus(JobStatus.disabled);
 		jobDao.update(job);
 	}
 	
 	public void refresh(long jobSid){
-		Job job=jobDao.get(jobSid);
+		Job job=jobDao.load(jobSid);
 		job.setUpdateTime(new Date());
 		jobDao.update(job);
 	}

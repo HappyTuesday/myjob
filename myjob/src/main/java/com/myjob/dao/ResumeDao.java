@@ -10,6 +10,10 @@ import com.myjob.entity.Resume;
 @Repository
 public class ResumeDao extends BaseDao {
 	
+	public Resume load(long sid){
+		return template.load(Resume.class, sid);
+	}
+	
 	public Resume get(long sid){
 		return template.get(Resume.class, sid);
 	}

@@ -30,7 +30,7 @@ public class CompanyRegisterController extends ControllerBase {
 			companyService.create(convert(model, Company.class));
 			return "redirect:/home/company";
 		} catch (ServiceLogicException e) {
-			return "register.company";
+			return "register/company";
 		}
 	}
 }

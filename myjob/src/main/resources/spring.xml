@@ -6,6 +6,7 @@
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -14,7 +15,9 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/jdbc
-		http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+		http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
 		
 	<context:property-placeholder location="classpath:system.properties"/>
 	
@@ -27,6 +30,25 @@
 	</bean>
 	
 	<import resource="classpath:spring-hibernate.xml"/>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="query*" read-only="true"/>
+			<tx:method name="detail" read-only="true"/>
+			<tx:method name="load" read-only="true"/>
+			<tx:method name="search" read-only="true"/>
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut id="serviceOperation" expression="execution(* com.myjob.service.*Service.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
+	</aop:config>
 	
 	<context:component-scan base-package="com.myjob"/>
 	

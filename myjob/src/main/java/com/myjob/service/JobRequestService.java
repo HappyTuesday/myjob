@@ -55,11 +55,13 @@ public class JobRequestService {
 	
 	public QueryResult<JobRequest> querySentRequests(JobRequestQueryCriteria criteria,long userSid){
 		criteria.setUserSid(userSid);
+		criteria.setRequestStatus(new JobRequestStatus[]{JobRequestStatus.requested});
 		return jobRequestDao.query(criteria);
 	}
 	
 	public QueryResult<JobRequest> queryReceivedRequests(JobRequestQueryCriteria criteria,long companySid){
 		criteria.setCompanySid(companySid);
+		criteria.setRequestStatus(new JobRequestStatus[]{JobRequestStatus.requested});
 		return jobRequestDao.query(criteria);
 	}
 }

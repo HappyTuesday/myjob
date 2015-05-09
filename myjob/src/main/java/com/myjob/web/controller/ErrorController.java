@@ -9,6 +9,6 @@ public class ErrorController {
 	
 	@RequestMapping({"/denied"})
 	public String denied(){
-		return "error.401.4";
+		return "error/401.4";
 	}
 }

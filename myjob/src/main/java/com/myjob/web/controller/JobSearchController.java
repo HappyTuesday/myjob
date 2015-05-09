@@ -22,13 +22,13 @@ public class JobSearchController extends ControllerBase {
 	
 	@RequestMapping
 	public String search(@ModelAttribute JobQueryCriteria criteria){
-		return "job.search";
+		return "job/search";
 	}
 	
 	@RequestMapping("/my")
 	@Allow(AccountType.company)
 	public String searchMy(@ModelAttribute JobQueryCriteria criteria){
-		return "job.search.my";
+		return "job/search.my";
 	}
 	
 	@RequestMapping("/data")

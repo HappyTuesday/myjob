@@ -211,7 +211,7 @@
 				<span><label>薪水：</label><span data-bind="text: salary"></span></span>
 				<span><label>更新时间：</label><span data-bind="text: updateTime"></span></span>
 			</p>
-			<p>
+			<p data-bind="visible: jobRequest.expanded">
 				<label>捎句话：</label>
 				<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
 			</p>

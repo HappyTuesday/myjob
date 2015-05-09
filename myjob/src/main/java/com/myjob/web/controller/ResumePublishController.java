@@ -24,13 +24,13 @@ public class ResumePublishController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String publish(@ModelAttribute ResumeCreateModel model){
-		return "resume.publish";
+		return "resume/publish";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submit(@ModelAttribute ResumeCreateModel model,BindingResult result){
 		if(result.hasErrors()){
-			return "resume.publish";
+			return "resume/publish";
 		}
 		
 		Resume resume = convert(model, Resume.class);
