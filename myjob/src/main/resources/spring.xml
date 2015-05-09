@@ -18,7 +18,7 @@
 		
 	<context:property-placeholder location="classpath:system.properties"/>
 	
-	<bean id="entityValuesProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	<bean id="entityValuesProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean" p:fileEncoding="UTF-8">
 		<property name="locations">
 			<list>
 				<value>classpath:EntityValues.properties</value>
