@@ -30,13 +30,11 @@
 				<span><label>毕业时间：</label><span data-bind="text: graduatedDate"></span></span>
 			</p>
 			<p>
-				<span><label>身份中号码：</label><span data-bind="text: idCard"></span></span>
+				<span><label>身份中号码：</label><span data-bind="text: idCard"></span></span> |
+				<span><label>出生年月：</label><span data-bind="text: birthday"></span></span> |
+				<span><label>性别：</label><span data-bind="text: gender"></span></span> |
+				<span><label>祖籍：</label><span data-bind="text: recruitment"></span></span> |
 				<span><label>手机号：</label><span data-bind="text: phone"></span></span>
-			</p>
-			<p>
-				<span><label>出生年月：</label><span data-bind="text: birthday"></span></span>
-				<span><label>性别：</label><span data-bind="text: gender"></span></span>
-				<span><label>祖籍：</label><span data-bind="text: recruitment"></span></span>
 			</p>
 			<p>
 				<span><label>生活城市：</label><span data-bind="text: liveCity"></span></span>
@@ -54,6 +52,10 @@
 				<span><label>工作年限：</label><span data-bind="text: workingYears"></span></span>
 				<span><label>证书：</label><span data-bind="text: certifications"></span></span>
 			</p>
+			<h4>自我评价：</h4>
+			<p data-bind="text: introduction"></p>
+			<h4>详细信息：</h4>
+			<p data-bind="text: content"></p>
 			<p class="btn-group">
 				<button class="btn btn-default" data-bind="click: $parent.refreshResume">刷新</button>
 				<a class="btn btn-default" data-bind="attr: {href: '/resume/edit/' + sid}">修改</a>

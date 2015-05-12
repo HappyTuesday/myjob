@@ -197,29 +197,44 @@
 		</div>
 	</div>
 	
-	<ul class="list-unstyled" data-bind="foreach: records">
-		<li>
-			<h3 data-bind="text: name"></h3>
-			<p>
-				<span><label>行业：</label><span data-bind="text: profession"></span></span>
-				<span><label>最低学历：</label><span data-bind="text: qualification"></span></span>
-				<span><label>最低工作年限：</label><span data-bind="text: workingYears"></span></span>
-			</p>
-			<p>
-				<span><label>工作地点：</label><span data-bind="text: workingLocation.city"></span></span>
-				<span><label>招聘人数：</label><span data-bind="text: amount"></span></span>
-				<span><label>薪水：</label><span data-bind="text: salary"></span></span>
-				<span><label>更新时间：</label><span data-bind="text: updateTime"></span></span>
-			</p>
-			<p data-bind="visible: jobRequest.expanded">
-				<label>捎句话：</label>
-				<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
-			</p>
-			<p>
-				<button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button>
-			</p>
-		</li>
-	</ul>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>职位名称</th>
+				<th>行业</th>
+				<th>最低学历</th>
+				<th>最低工作年限</th>
+				<th>工作地点</th>
+				<th>招聘人数</th>
+				<th>薪水</th>
+				<th>状态</th>
+				<th>更新时间</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody data-bind="foreach: records">
+			<tr>
+				<td data-bind="text: name"></td>
+				<td data-bind="text: profession"></td>
+				<td data-bind="text: qualification"></td>
+				<td data-bind="text: workingYears"></td>
+				<td data-bind="text: workingLocation.city"></td>
+				<td data-bind="text: amount"></td>
+				<td data-bind="text: salary"></td>
+				<td data-bind="text: status"></td>
+				<td data-bind="text: updateTime"></td>
+				<td class="btn-group">
+					<button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button>
+				</td>
+			</tr>
+			<tr data-bind="visible: jobRequest.expanded">
+				<td colspan="10">
+					<label>留言：</label>
+					<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
+				</td>
+			</tr>
+		</tbody>
+	</table>
 	
 	<nav>
 		<ul class="pagination">

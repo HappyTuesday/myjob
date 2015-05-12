@@ -81,6 +81,7 @@ public class ResumeService {
 	}
 	
 	public QueryResult<Resume> query(ResumeQueryCriteria criteria){
+		criteria.setStatus(ResumeStatus.active);
 		return resumeDao.query(criteria);
 	}
 	

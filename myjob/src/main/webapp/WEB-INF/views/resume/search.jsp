@@ -1,56 +1,89 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<h2>搜索简历</h2>
+<h2>简历搜索</h2>
 
-<div class="">
-	<div class="tab-pane" id="tab2">
-		<div id="createResume">
-			<button type="submit" class="btn btn-primary" id="btn1">创建简历</button>
-		</div>
-		<div id="resume">
-			<button type="submit" class="btn btn-primary" id="btn2">创建简历</button>
-			<div id="resumeList">
-				<table class="table">
-					<tbody>
-						<tr>
-							<td>更新时间</td>
-							<td>简历名称</td>
-							<td>刷新</td>
-							<td>修改</td>
-							<td>预览</td>
-							<td>设置默认简历</td>
-							<td>删除</td>
-						</tr>
-						<tr>
-							<td>2015-04-14</td>
-							<td><span>期望从事软件测试</span>&nbsp;&nbsp;&nbsp;<span>计算机软件行业</span><br><span>在上海工作</span><br><span>月薪4001-6000元/月</span>&nbsp;&nbsp;&nbsp;<span>实习</span></td>
-							<td><a href="#"><i class="glyphicon glyphicon-refresh"></i></a></td>
-							<td><a href="#"><i class="glyphicon glyphicon-pencil"></i></a></td>
-							<td><a href="#"><i class="glyphicon glyphicon-eye-open"></i></a></td>
-							<td><button class="btn btn-default">设为默认</button></td>
-							<td><a href="#"><i class="glyphicon glyphicon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>2015-04-15</td>
-							<td><span>期望从事网页设计/制作/美工</span>&nbsp;&nbsp;&nbsp;<span>计算机软件行业</span><br><span>在苏州工作</span><br><span>月薪4001-6000元/月</span>&nbsp;&nbsp;&nbsp;<span>实习</span></td>
-							<td><a href="#"><i class="glyphicon glyphicon-refresh"></i></a></td>
-							<td><a href="#"><i class="glyphicon glyphicon-pencil"></i></a></td>
-							<td><a href="#"><i class="glyphicon glyphicon-eye-open"></i></a></td>
-							<td><button class="btn btn-default">设为默认</button></td>
-							<td><a href="#"><i class="glyphicon glyphicon-remove"></i></a></td>
-						</tr>
-						<tr>
-							<td>2015-04-16</td>
-							<td><span>期望从事人力资源</span>&nbsp;&nbsp;&nbsp;<span>专业服务/咨询行业</span><br><span>在苏州工作</span><br><span>月薪2001-4000元/月</span>&nbsp;&nbsp;&nbsp;<span>实习</span></td>
-							<td><a href="#"><i class="glyphicon glyphicon-refresh"></i></a></td>
-							<td><a href="#"><i class="glyphicon glyphicon-pencil"></i></a></td>
-							<td><a href="#"><i class="glyphicon glyphicon-eye-open"></i></a></td>
-							<td><button class="btn btn-default">设为默认</button></td>
-							<td><a href="#"><i class="glyphicon glyphicon-remove"></i></a></td>
-						</tr>
-					</tbody>
-				</table>
+<div data-bind="with: query">
+	<div class="row">
+		<div class="col-md-10">
+			<label>排序</label>
+			<div class="btn-group" data-bind="foreach: orderbyFields">
+				<button class="btn btn-default" data-bind="text: title, click: $parent.setOrderby"></button>
 			</div>
 		</div>
+		<div class="col-md-2 btn-group">
+			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">上一页</button>
+			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">下一页</button>
+		</div>
 	</div>
+	
+	<ul class="list-unstyled" data-bind="foreach: records">
+		<li>
+			<h3 data-bind="text: user.name"></h3>
+			<small data-bind="text: updateTime"></small>
+			<p>
+				<span><label>学校：</label><span data-bind="text: school"></span></span>
+				<span><label>专业：</label><span data-bind="text: profession"></span></span>
+				<span><label>毕业时间：</label><span data-bind="text: graduatedDate"></span></span>
+			</p>
+			<p>
+				<span><label>身份中号码：</label><span data-bind="text: idCard"></span></span> |
+				<span><label>出生年月：</label><span data-bind="text: birthday"></span></span> |
+				<span><label>性别：</label><span data-bind="text: gender"></span></span> |
+				<span><label>祖籍：</label><span data-bind="text: recruitment"></span></span> |
+				<span><label>手机号：</label><span data-bind="text: phone"></span></span>
+			</p>
+			<p>
+				<span><label>生活城市：</label><span data-bind="text: liveCity"></span></span>
+				<span><label>婚姻状况：</label><span data-bind="text: maritalStatus"></span></span>
+				<span><label>政治信仰：</label><span data-bind="text: politialAffiliation"></span></span>
+				<span><label>学历：</label><span data-bind="text: qualification"></span></span>
+			</p>
+			<p>
+				<span><label>期望从事的行业：</label><span data-bind="text: expectedJobProfession"></span></span>
+				<span><label>期望工作城市：</label><span data-bind="text: expectedJobCity"></span></span>
+				<span><label>期望月薪：</label><span data-bind="text: expectedSalary"></span></span>
+				<span><label>当前工作状态：</label><span data-bind="text: currentWorkingStatus"></span></span>
+			</p>
+			<h4>自我评价：</h4>
+			<p data-bind="text: introduction"></p>
+			<h4>详细信息：</h4>
+			<p data-bind="text: content"></p>
+			<p>
+				<span><label>工作年限：</label><span data-bind="text: workingYears"></span></span>
+				<span><label>证书：</label><span data-bind="text: certifications"></span></span>
+			</p>
+		</li>
+	</ul>
+	
+	<nav>
+		<ul class="pagination">
+			<li>
+				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">
+					<span aria-hidden="true">&laquo;</span>
+				</button>
+			</li>
+			<!-- ko foreach: paginationItems -->
+			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
+			<!-- /ko -->
+			<li>
+				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">
+					<span aria-hidden="true">&raquo;</span>
+				</button>
+			</li>
+		</ul>
+	</nav>
 </div>
+
+<script src="/scripts/query-view-model.js"></script>
+
+<script>
+	query.url = "/resume/search/data";
+	
+	query.orderbyFields = [
+		{name: 'updateTime', title: '更新时间'},
+	];
+	
+	$(function(){
+		query.execute();
+	});
+</script>
