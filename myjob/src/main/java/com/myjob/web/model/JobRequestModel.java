@@ -2,6 +2,10 @@ package com.myjob.web.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class JobRequestModel {
 	
 	private long sid;
@@ -13,7 +17,9 @@ public class JobRequestModel {
 	private JobModel job;
 	
 	private ResumeModel resume;
-	
+
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date requestTime;	
 	
 	private String requestComment;

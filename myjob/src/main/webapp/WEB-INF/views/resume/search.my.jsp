@@ -21,8 +21,8 @@
 	</div>
 	
 	<ul class="list-unstyled" data-bind="foreach: records">
-		<li>
-			<h3 data-bind="text: name"></h3>
+		<li class="resume">
+			<h3 data-bind="text: name, css: {active: active}"></h3>
 			<small data-bind="text: updateTime"></small>
 			<p>
 				<span><label>学校：</label><span data-bind="text: school"></span></span>
@@ -30,10 +30,10 @@
 				<span><label>毕业时间：</label><span data-bind="text: graduatedDate"></span></span>
 			</p>
 			<p>
-				<span><label>身份中号码：</label><span data-bind="text: idCard"></span></span> |
-				<span><label>出生年月：</label><span data-bind="text: birthday"></span></span> |
-				<span><label>性别：</label><span data-bind="text: gender"></span></span> |
-				<span><label>祖籍：</label><span data-bind="text: recruitment"></span></span> |
+				<span><label>身份中号码：</label><span data-bind="text: idCard"></span></span>
+				<span><label>出生年月：</label><span data-bind="text: birthday"></span></span>
+				<span><label>性别：</label><span data-bind="text: gender"></span></span>
+				<span><label>祖籍：</label><span data-bind="text: recruitment"></span></span>
 				<span><label>手机号：</label><span data-bind="text: phone"></span></span>
 			</p>
 			<p>

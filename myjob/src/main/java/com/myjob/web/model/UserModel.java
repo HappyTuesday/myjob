@@ -2,6 +2,9 @@ package com.myjob.web.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.myjob.entity.values.UserStatus;
 
 public class UserModel {
@@ -10,7 +13,9 @@ public class UserModel {
 	private String name;
 	
 	private AccountModel account;
-	
+
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createDate;
 	
 	private String userStatus;

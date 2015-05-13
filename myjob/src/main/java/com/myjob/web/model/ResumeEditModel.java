@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.myjob.entity.values.Gender;
 import com.myjob.entity.values.MaritalStatus;
 import com.myjob.entity.values.Qualification;

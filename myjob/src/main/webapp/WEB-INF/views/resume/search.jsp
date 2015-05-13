@@ -17,7 +17,7 @@
 	</div>
 	
 	<ul class="list-unstyled" data-bind="foreach: records">
-		<li>
+		<li class="resume">
 			<h3 data-bind="text: user.name"></h3>
 			<small data-bind="text: updateTime"></small>
 			<p>

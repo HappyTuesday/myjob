@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.myjob.entity.values.JobStatus;
 import com.myjob.entity.values.Qualification;
 
@@ -13,6 +14,7 @@ public class JobModel {
 
 	private String name;
 
+	@JsonFormat(pattern="yyyy-MM-dd")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updateTime;
 

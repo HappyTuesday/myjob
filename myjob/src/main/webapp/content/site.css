@@ -10,3 +10,30 @@ a.logo{
 	position:relative;
 	bottom:2em;
 }
+
+h3.active{
+	font-weight: bold;
+}
+
+h3.active:after{
+	content: '活动';
+	font-size: 0.5em;
+	margin-left: 0.5em;
+}
+
+li.resume{
+	border: 1px solid rgb(205,205,205);
+	border-radius: 0.5em;
+	box-shadow: 0 3px 1px rgb(255,234,234);
+	margin: 0.5em 0;
+	padding: 0.5em;
+}
+
+li.resume p>span{
+	margin-right: 1em;
+}
+
+li.resume p label{
+	font-weight: normal;
+	color: gray;
+}

@@ -2,6 +2,9 @@ package com.myjob.web.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.myjob.entity.values.Gender;
 import com.myjob.entity.values.MaritalStatus;
 import com.myjob.entity.values.Qualification;
@@ -15,13 +18,19 @@ public class ResumeModel {
 	private String school;
 	
 	private String profession;
-	
+
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date graduatedDate;
-	
+
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updateTime;
 	
 	private String idCard;
-	
+
+	@JsonFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birthday;
 	
 	private String gender;
@@ -55,6 +64,8 @@ public class ResumeModel {
 	private String content;
 	
 	private String resumeStatus;
+	
+	private boolean isActive;
 	
 	private UserModel user;
 
@@ -257,5 +268,13 @@ public class ResumeModel {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 }

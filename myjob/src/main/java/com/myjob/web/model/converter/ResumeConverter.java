@@ -6,6 +6,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import com.myjob.entity.Resume;
+import com.myjob.entity.values.ResumeStatus;
 import com.myjob.web.model.ResumeModel;
 
 @Component
@@ -56,6 +57,7 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 		target.setCurrentWorkingStatus(source.getCurrentWorkingStatus());
 		target.setCertifications( source.getCertifications() != null ? source.getCertifications().split(",") : new String[]{});
 		target.setResumeStatus(resumeStatusFormatter.print(source.getStatus(), null));
+		target.setActive(source.getStatus() == ResumeStatus.active);
 
 		return target;
 	}
