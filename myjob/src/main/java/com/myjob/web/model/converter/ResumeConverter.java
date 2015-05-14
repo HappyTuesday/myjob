@@ -48,7 +48,6 @@ public class ResumeConverter implements Converter<Resume, ResumeModel>{
 		target.setWorkingYears(source.getWorkingYears());
 		target.setRecruitment(source.getRecruitment());
 		target.setLiveCity(source.getLiveCity());
-		target.setMaritalStatus(source.getMaritalStatus().toString());
 		target.setPolitialAffiliation(source.getPolitialAffiliation());
 		target.setPhone(source.getPhone());
 		target.setExpectedJobProfession(source.getExpectedJobProfession());
