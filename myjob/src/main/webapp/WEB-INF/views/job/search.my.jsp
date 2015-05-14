@@ -15,12 +15,12 @@
 			</div>
 		</div>
 		<div class="col-md-2 btn-group">
-			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">上一页</button>
-			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">下一页</button>
+			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">上一页</button>
+			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">下一页</button>
 		</div>
 	</div>
 	
-	<table class="table table-striped">
+	<table class="table">
 		<thead>
 			<tr>
 				<th>职位名称</th>
@@ -46,10 +46,12 @@
 				<td data-bind="text: salary"></td>
 				<td data-bind="text: status"></td>
 				<td data-bind="text: updateTime"></td>
-				<td class="btn-group">
-					<a class="btn btn-default" data-bind="attr: {href: '/job/edit/' + sid}">修改</a>
-					<button class="btn btn-default" data-bind="click: $parent.refreshJob">刷新</button>
-					<button class="btn btn-default" data-bind="click: $parent.unshelveJob">下架</button>
+				<td>
+					<div class="btn-group">
+						<a class="btn btn-default" data-bind="attr: {href: '/job/edit/' + sid}">修改</a>
+						<button class="btn btn-default" data-bind="click: $parent.refreshJob">刷新</button>
+						<button class="btn btn-default" data-bind="click: $parent.unshelveJob">下架</button>
+					</div>
 				</td>
 			</tr>
 		</tbody>
@@ -58,7 +60,7 @@
 	<nav>
 		<ul class="pagination">
 			<li>
-				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">
+				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">
 					<span aria-hidden="true">&laquo;</span>
 				</button>
 			</li>
@@ -66,7 +68,7 @@
 			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
 			<!-- /ko -->
 			<li>
-				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">
+				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">
 					<span aria-hidden="true">&raquo;</span>
 				</button>
 			</li>

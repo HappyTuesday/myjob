@@ -37,3 +37,19 @@ li.resume p label{
 	font-weight: normal;
 	color: gray;
 }
+
+button.toggle{
+	border-width: 0;
+	width:16px;
+	height:16px;
+	background-image: url(/images/toggle.png);
+	background-position: -5px 0px;
+}
+
+button.toggle::focus{
+	border-width:0;
+}
+
+button.toggle.expanded{
+	background-position: -29px 0px;
+}

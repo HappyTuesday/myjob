@@ -15,8 +15,8 @@
 			</div>
 		</div>
 		<div class="col-md-2 btn-group">
-			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">上一页</button>
-			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">下一页</button>
+			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">上一页</button>
+			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">下一页</button>
 		</div>
 	</div>
 	
@@ -67,7 +67,7 @@
 	<nav>
 		<ul class="pagination">
 			<li>
-				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">
+				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">
 					<span aria-hidden="true">&laquo;</span>
 				</button>
 			</li>
@@ -75,7 +75,7 @@
 			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
 			<!-- /ko -->
 			<li>
-				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">
+				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">
 					<span aria-hidden="true">&raquo;</span>
 				</button>
 			</li>

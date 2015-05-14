@@ -11,12 +11,12 @@
 			</div>
 		</div>
 		<div class="col-md-2 btn-group">
-			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">上一页</button>
-			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">下一页</button>
+			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">上一页</button>
+			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">下一页</button>
 		</div>
 	</div>
 	
-	<table class="table table-striped">
+	<table class="table">
 		<thead>
 			<tr>
 				<th>职位名称</th>
@@ -46,15 +46,20 @@
 				<td data-bind="text: status"></td>
 				<td data-bind="text: requestTime"></td>
 				<td data-bind="text: requestComment"></td>
-				<td class="btn-group">
-					<button class="btn btn-default" data-bind="click: $parent.acceptRequest">接受</button>
-					<button class="btn btn-default" data-bind="click: $parent.rejectRequest">拒绝</button>
+				<td>
+					<button class="toggle" data-bind="click: $parent.toggleExpand, css: {expanded: expanded}"></button>
 				</td>
 			</tr>
-			<tr data-bind="visible: jobResponse.expanded">
-				<td colspan="12">
-					<label>留言</label>
-					<input type="text" class="form-control" data-bind="value: jobResponse.hrRemark">
+			<tr data-bind="visible: expanded">
+				<td colspan="12" class="row">
+					<div class="input-group col-md-6 col-md-offset-6">
+						<span class="input-group-addon">留言：</span>
+						<input type="text" class="form-control" data-bind="value: jobResponse.hrRemark">
+						<span class="input-group-btn">
+							<button class="btn btn-default" data-bind="click: $parent.acceptRequest">接受</button>
+							<button class="btn btn-default" data-bind="click: $parent.rejectRequest">拒绝</button>
+						</span>
+					</div>
 				</td>
 			</tr>
 		</tbody>
@@ -63,7 +68,7 @@
 	<nav>
 		<ul class="pagination">
 			<li>
-				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">
+				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">
 					<span aria-hidden="true">&laquo;</span>
 				</button>
 			</li>
@@ -71,7 +76,7 @@
 			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
 			<!-- /ko -->
 			<li>
-				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">
+				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">
 					<span aria-hidden="true">&raquo;</span>
 				</button>
 			</li>
@@ -97,22 +102,22 @@
 	query.preprocessQueryResult = function(queryResult){
 		for(var i in queryResult.records){
 			var record = queryResult.records[i];
+			record.expanded = ko.observable(false);
 			record.jobResponse = {
-				expanded: ko.observable(false),
 				hrRemark: ko.observable('')
 			}
 		}
 	}
 	
+	query.toggleExpand = function(record){
+		record.expanded(!record.expanded());
+	}
+	
 	function acceptOrRejectRequest(command,jobRequest){
-		if(!jobRequest.jobResponse.expanded()){
-			jobRequest.jobResponse.expanded(true);
-			return;
-		}
-		
 		jobRequest.jobResponse.jobRequestSid = jobRequest.sid;
 		post("/job/response/" + command, jobRequest.jobResponse, function(){
 			query.execute();
+			jobRequest.expanded(false);
 		});
 	}
 	

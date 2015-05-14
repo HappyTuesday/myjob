@@ -192,8 +192,8 @@
 			</div>
 		</div>
 		<div class="col-md-2 btn-group">
-			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">上一页</button>
-			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">下一页</button>
+			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">上一页</button>
+			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">下一页</button>
 		</div>
 	</div>
 	
@@ -201,6 +201,7 @@
 		<thead>
 			<tr>
 				<th>职位名称</th>
+				<th>公司名称</th>
 				<th>行业</th>
 				<th>最低学历</th>
 				<th>最低工作年限</th>
@@ -215,6 +216,7 @@
 		<tbody data-bind="foreach: records">
 			<tr>
 				<td data-bind="text: name"></td>
+				<td data-bind="text: company.name"></td>
 				<td data-bind="text: profession"></td>
 				<td data-bind="text: qualification"></td>
 				<td data-bind="text: workingYears"></td>
@@ -223,14 +225,31 @@
 				<td data-bind="text: salary"></td>
 				<td data-bind="text: status"></td>
 				<td data-bind="text: updateTime"></td>
-				<td class="btn-group">
-					<button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button>
+				<td>
+					<button class="toggle" data-bind="click: $parent.toggleExpand, css: {expanded: expanded}"></button>
 				</td>
 			</tr>
-			<tr data-bind="visible: jobRequest.expanded">
-				<td colspan="10">
-					<label>留言：</label>
-					<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
+			<tr data-bind="visible: expanded">
+				<td colspan="11">
+					<div>
+						<div>
+							<h4>公司简介：</h4>
+							<pre data-bind="text: company.descripton"></pre>
+						</div>
+						<div>
+							<h4>详细信息：</h4>
+							<pre data-bind="text: description"></pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-group col-md-12">
+							<span class="input-group-addon">留言：</span>
+							<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
+							<span class="input-group-btn">
+								<button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button>
+							</span>
+						</div>
+					</div>
 				</td>
 			</tr>
 		</tbody>
@@ -239,7 +258,7 @@
 	<nav>
 		<ul class="pagination">
 			<li>
-				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled}">
+				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">
 					<span aria-hidden="true">&laquo;</span>
 				</button>
 			</li>
@@ -247,7 +266,7 @@
 			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
 			<!-- /ko -->
 			<li>
-				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled}">
+				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">
 					<span aria-hidden="true">&raquo;</span>
 				</button>
 			</li>
@@ -272,23 +291,23 @@
 	query.preprocessQueryResult = function(queryResult){
 		for(var i in queryResult.records){
 			var record = queryResult.records[i];
+			record.expanded = ko.observable(false);
 			record.jobRequest = {
-				expanded: ko.observable(false),
 				requestComment: ko.observable('')
 			}
 		}
 	}
 	
+	query.toggleExpand = function(record){
+		record.expanded(!record.expanded());
+	}
+	
 	query.postJobRequest = function(job){
-		if(!job.jobRequest.expanded()){
-			job.jobRequest.expanded(true);
-			return;
-		}
-		
 		job.jobRequest.jobSid = job.sid;
 		
 		post("/job/request/post", job.jobRequest, function(){
 			alert("投递成功");
+			job.expanded(false);
 		});
 	}
 	

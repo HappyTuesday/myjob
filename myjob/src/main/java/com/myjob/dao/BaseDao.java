@@ -36,7 +36,7 @@ public abstract class BaseDao {
 		}else{
 			data = template.findByCriteria(criteria,qc.firstResult(),qc.maxResults());
 			criteria.setProjection(Projections.rowCount());
-			count = (long) template.findByCriteria(criteria).get(0);
+			count = (long) template.findByCriteria(criteria,0,1).get(0);
 		}
 
 		QueryResult<T> result = new QueryResult<T>();
