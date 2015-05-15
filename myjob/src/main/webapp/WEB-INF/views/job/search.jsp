@@ -215,7 +215,9 @@
 		</thead>
 		<tbody data-bind="foreach: records">
 			<tr>
-				<td data-bind="text: name"></td>
+				<td>
+					<a data-bind="text: name, attr: {href: '/job/'+sid}"></a>
+				</td>
 				<td data-bind="text: company.name"></td>
 				<td data-bind="text: profession"></td>
 				<td data-bind="text: qualification"></td>

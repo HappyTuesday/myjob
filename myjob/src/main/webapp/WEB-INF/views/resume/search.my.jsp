@@ -22,7 +22,9 @@
 	
 	<ul class="list-unstyled" data-bind="foreach: records">
 		<li class="resume">
-			<h3 data-bind="text: name, css: {active: active}"></h3>
+			<h3 data-bind="css: {active: active}">
+				<a data-bind="text: name, attr: {href: '/resume/'+sid}"></a>
+			</h3>
 			<small data-bind="text: updateTime"></small>
 			<p>
 				<span><label>学校：</label><span data-bind="text: school"></span></span>

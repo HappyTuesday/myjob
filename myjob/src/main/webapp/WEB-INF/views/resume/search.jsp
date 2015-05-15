@@ -18,7 +18,9 @@
 	
 	<ul class="list-unstyled" data-bind="foreach: records">
 		<li class="resume">
-			<h3 data-bind="text: user.name"></h3>
+			<h3>
+				<a data-bind="text: user.name, attr: {href: '/resume/'+sid}"></a>
+			</h3>
 			<small data-bind="text: updateTime"></small>
 			<p>
 				<span><label>学校：</label><span data-bind="text: school"></span></span>

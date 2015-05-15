@@ -36,14 +36,18 @@
 		</thead>
 		<tbody data-bind="foreach: records">
 			<tr>
-				<td data-bind="text: job.name"></td>
+				<td>
+					<a data-bind="text: job.name, attr: {href: '/job/'+job.sid}"></a>
+				</td>
 				<td data-bind="text: job.profession"></td>
 				<td data-bind="text: job.qualification"></td>
 				<td data-bind="text: job.workingYears"></td>
 				<td data-bind="text: job.workingLocation.city"></td>
 				<td data-bind="text: job.amount"></td>
 				<td data-bind="text: job.salary"></td>
-				<th data-bind="text: resume.name"></th>
+				<td>
+					<a data-bind="text: resume.name, attr: {href: '/resume/'+resume.sid}"></a>
+				</td>
 				<td data-bind="text: status"></td>
 				<td data-bind="text: requestTime"></td>
 				<td data-bind="text: requestComment"></td>

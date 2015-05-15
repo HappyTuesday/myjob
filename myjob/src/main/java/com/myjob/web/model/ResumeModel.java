@@ -57,7 +57,7 @@ public class ResumeModel {
 	
 	private Double workingYears;
 	
-	private String[] certifications;
+	private String certifications;
 	
 	private String introduction;
 	
@@ -254,11 +254,11 @@ public class ResumeModel {
 		this.currentWorkingStatus = currentWorkingStatus;
 	}
 
-	public String[] getCertifications() {
+	public String getCertifications() {
 		return certifications;
 	}
 
-	public void setCertifications(String[] certifications) {
+	public void setCertifications(String certifications) {
 		this.certifications = certifications;
 	}
 

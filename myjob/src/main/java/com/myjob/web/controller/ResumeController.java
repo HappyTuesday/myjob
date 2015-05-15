@@ -25,7 +25,7 @@ public class ResumeController extends ControllerBase {
 	@RequestMapping(value="/{resume_sid}")
 	public String detail(@PathVariable long resume_sid,Model models){
 		ResumeModel model = convert(resumeService.detail(resume_sid), ResumeModel.class);
-		models.addAttribute(model);
+		models.addAttribute("resume",model);
 		return "resume/detail";
 	}
 	

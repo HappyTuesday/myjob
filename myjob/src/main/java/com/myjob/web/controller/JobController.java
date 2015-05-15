@@ -25,7 +25,7 @@ public class JobController extends ControllerBase {
 	@RequestMapping(value="/{job_sid}")
 	public String detail(@PathVariable long job_sid,Model models){
 		JobModel model = convert(jobService.detail(job_sid), JobModel.class);
-		models.addAttribute(model);
+		models.addAttribute("job",model);
 		return "job/detail";
 	}
 	
