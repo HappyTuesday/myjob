@@ -10,10 +10,12 @@
 				<button class="btn btn-default" data-bind="text: title, click: $parent.setOrderby"></button>
 			</div>
 		</div>
-		<div class="col-md-2 btn-group">
-			<button class="btn btn-default" data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">上一页</button>
-			<button class="btn btn-default" data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">下一页</button>
-		</div>
+		<nav class="col-md-2">
+			<ul class="pager">
+				<li data-bind="css: {disabled:isPreviousPageDisabled()}"><a data-bind="click: previousPage">上一页</a></li>
+				<li data-bind="css: {disabled:isNextPageDisabled()}"><a data-bind="click: nextPage">下一页</a></li>
+			</ul>
+		</nav>
 	</div>
 	
 	<table class="table">
@@ -59,19 +61,11 @@
 	
 	<nav>
 		<ul class="pagination">
-			<li>
-				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">
-					<span aria-hidden="true">&laquo;</span>
-				</button>
-			</li>
+			<li data-bind="css: {disabled:isPreviousPageDisabled()}"><a data-bind="click: previousPage"><span aria-hidden="true">&laquo;</span></a></li>
 			<!-- ko foreach: paginationItems -->
-			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
+			<li data-bind="css: {active:$parent.isCurrentPage($data)}"><a data-bind="text: $data + 1, click: $parent.setPageIndex"></a></li>
 			<!-- /ko -->
-			<li>
-				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">
-					<span aria-hidden="true">&raquo;</span>
-				</button>
-			</li>
+			<li data-bind="css: {disabled:isNextPageDisabled()}"><a data-bind="click: nextPage"><span aria-hidden="true">&raquo;</span></a></li>
 		</ul>
 	</nav>
 </div>

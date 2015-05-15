@@ -60,3 +60,10 @@ button.toggle::focus{
 button.toggle.expanded{
 	background-position: -29px 0px;
 }
+nav .pager{
+	margin:0;
+}
+
+.pagination>li>a,.pager a{
+	cursor: pointer;
+}
