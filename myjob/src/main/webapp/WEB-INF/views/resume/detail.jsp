@@ -42,6 +42,10 @@
 				${resume.certifications }
 			</p>
 		</dd>
+		<dt><h5><strong>更多</strong></h5></dt>
+		<dd>
+			<pre>${resume.content }</pre>
+		</dd>
 	</div>
 </div>
 

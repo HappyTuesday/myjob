@@ -6,7 +6,7 @@ footer{
 	text-align: center;
 }
 
-a.logo{
+.logo{
 	position:relative;
 	bottom:2em;
 }
@@ -21,21 +21,28 @@ h3.active:after{
 	margin-left: 0.5em;
 }
 
-li.resume{
+.resume{
 	border: 1px solid rgb(205,205,205);
 	border-radius: 0.5em;
 	box-shadow: 0 3px 1px rgb(255,234,234);
 	margin: 0.5em 0;
 	padding: 0.5em;
+	position:relative;
 }
 
-li.resume p>span{
+.resume p>span{
 	margin-right: 1em;
 }
 
-li.resume p label{
+.resume p label{
 	font-weight: normal;
 	color: gray;
+}
+
+.resume>.cmd{
+	position:absolute;
+	top:1.2em;
+	right:1em;
 }
 
 button.toggle{
