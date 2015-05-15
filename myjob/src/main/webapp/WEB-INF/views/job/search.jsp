@@ -231,18 +231,9 @@
 			</tr>
 			<tr data-bind="visible: expanded">
 				<td colspan="10">
-					<div>
-						<div>
-							<h4>公司简介：</h4>
-							<pre data-bind="text: company.descripton"></pre>
-						</div>
-						<div>
-							<h4>详细信息：</h4>
-							<pre data-bind="text: description"></pre>
-						</div>
-					</div>
+					<pre data-bind="text: description"></pre>
 					<div class="row">
-						<div class="input-group col-md-12">
+						<div class="input-group col-md-6 col-md-offset-6">
 							<span class="input-group-addon">留言：</span>
 							<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
 							<span class="input-group-btn">
