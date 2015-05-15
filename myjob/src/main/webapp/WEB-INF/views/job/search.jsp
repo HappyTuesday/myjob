@@ -208,7 +208,6 @@
 				<th>工作地点</th>
 				<th>招聘人数</th>
 				<th>薪水</th>
-				<th>状态</th>
 				<th>更新时间</th>
 				<th></th>
 			</tr>
@@ -225,14 +224,13 @@
 				<td data-bind="text: workingLocation.city"></td>
 				<td data-bind="text: amount"></td>
 				<td data-bind="text: salary"></td>
-				<td data-bind="text: status"></td>
 				<td data-bind="text: updateTime"></td>
 				<td>
 					<button class="toggle" data-bind="click: $parent.toggleExpand, css: {expanded: expanded}"></button>
 				</td>
 			</tr>
 			<tr data-bind="visible: expanded">
-				<td colspan="11">
+				<td colspan="10">
 					<div>
 						<div>
 							<h4>公司简介：</h4>
@@ -280,6 +278,7 @@
 
 <script>
 	query.url = "/job/search/data";
+	query.criteria.orderby('updateTime');
 	
 	query.orderbyFields = [
 		{name: 'updateTime', title: '更新时间'},

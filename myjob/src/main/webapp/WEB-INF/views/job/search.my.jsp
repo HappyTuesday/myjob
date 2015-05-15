@@ -30,7 +30,6 @@
 				<th>工作地点</th>
 				<th>招聘人数</th>
 				<th>薪水</th>
-				<th>状态</th>
 				<th>更新时间</th>
 				<th></th>
 			</tr>
@@ -44,7 +43,6 @@
 				<td data-bind="text: workingLocation.city"></td>
 				<td data-bind="text: amount"></td>
 				<td data-bind="text: salary"></td>
-				<td data-bind="text: status"></td>
 				<td data-bind="text: updateTime"></td>
 				<td>
 					<div class="btn-group">
@@ -80,6 +78,7 @@
 
 <script>
 	query.url = "/job/search/my/data";
+	query.criteria.orderby('updateTime');
 	
 	query.orderbyFields = [
 		{name: 'updateTime', title: '更新时间'},

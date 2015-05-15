@@ -79,10 +79,11 @@
 
 <script>
 	query.url = "/job/response/sent/data";
+	query.criteria.orderby('responseTime');
 	
 	query.orderbyFields = [
-		{name: 'requestTime', title: '投递时间'},
 		{name: 'responseTime', title: '回复时间'},
+		{name: 'requestTime', title: '投递时间'},
 		{name: 'job.name', title: '职位名称'},
 		{name: 'job.qualification', title: '最低学历'},
 		{name: 'job.workingYears', title: '最低工作年限'},

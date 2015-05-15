@@ -71,9 +71,13 @@
 
 <script>
 	query.url = "/resume/search/data";
+	query.criteria.orderby('updateTime');
 	
 	query.orderbyFields = [
-		{name: 'updateTime', title: '更新时间'},
+   		{name: 'updateTime', title: '更新时间'},
+		{name: 'graduatedDate', title: '毕业时间'},
+		{name: 'birthday', title: '出生年月'},
+		{name: 'qualification', title: '学历'},
 	];
 	
 	$(function(){

@@ -80,6 +80,7 @@
 
 <script>
 	query.url = "/job/request/sent/data";
+	query.criteria.orderby('requestTime');
 	
 	query.orderbyFields = [
 		{name: 'requestTime', title: '投递时间'},
