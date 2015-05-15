@@ -248,19 +248,11 @@
 	
 	<nav>
 		<ul class="pagination">
-			<li>
-				<button data-bind="click: previousPage, attr: {disabled:isPreviousPageDisabled()}">
-					<span aria-hidden="true">&laquo;</span>
-				</button>
-			</li>
+			<li data-bind="css: {disabled:isPreviousPageDisabled()}"><a data-bind="click: previousPage"><span aria-hidden="true">&laquo;</span></a></li>
 			<!-- ko foreach: paginationItems -->
-			<li><button data-bind="text: $data + 1, click: $parent.setPageIndex"></button></li>
+			<li data-bind="css: {active:$parent.isCurrentPage()}"><a data-bind="text: $data + 1, click: $parent.setPageIndex"></a></li>
 			<!-- /ko -->
-			<li>
-				<button data-bind="click: nextPage, attr: {disabled:isNextPageDisabled()}">
-					<span aria-hidden="true">&raquo;</span>
-				</button>
-			</li>
+			<li data-bind="css: {disabled:isNextPageDisabled()}"><a data-bind="click: nextPage"><span aria-hidden="true">&raquo;</span></a></li>
 		</ul>
 	</nav>
 </div>

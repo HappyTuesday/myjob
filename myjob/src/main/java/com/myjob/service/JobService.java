@@ -55,7 +55,6 @@ public class JobService {
 	
 	public QueryResult<Job> queryMyPublishedJobs(JobQueryCriteria criteria,long companySid){
 		criteria.setCompanySid(companySid);
-		criteria.setCompanyName(new String[]{"IBM"});
 		
 		return jobDao.query(criteria);
 	}

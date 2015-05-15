@@ -60,6 +60,10 @@ query.isPreviousPageDisabled = function(){
 	return query.criteria.pageIndex() <= 0;
 }
 
+query.isCurrentPage = function(pageIndex){
+	return pageIndex == query.criteria.pageIndex();
+}
+
 query.setOrderby = function(field){
 	if(query.criteria.orderby() == field.name){
 		query.criteria.desc(!query.criteria.desc());
