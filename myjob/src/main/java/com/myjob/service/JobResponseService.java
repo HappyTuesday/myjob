@@ -6,11 +6,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.myjob.common.QueryResult;
-import com.myjob.criteria.JobRequestQueryCriteria;
 import com.myjob.dao.JobRequestDao;
 import com.myjob.entity.JobRequest;
 import com.myjob.entity.values.JobRequestStatus;
+import com.myjob.query.QueryResult;
+import com.myjob.query.criteria.JobRequestQueryCriteria;
 import com.myjob.service.exception.ServiceException;
 import com.myjob.service.exception.ServiceLogicException;
 

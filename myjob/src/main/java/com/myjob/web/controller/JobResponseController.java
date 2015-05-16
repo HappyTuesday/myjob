@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.myjob.criteria.JobRequestQueryCriteria;
 import com.myjob.entity.values.AccountType;
+import com.myjob.query.criteria.JobRequestQueryCriteria;
 import com.myjob.service.JobResponseService;
 import com.myjob.service.exception.ServiceException;
 import com.myjob.web.auth.Allow;

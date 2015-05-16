@@ -70,11 +70,7 @@
 				<ref bean="resumeConverter"/>
 				<ref bean="jobRequestCreateModelConverter"/>
 				<ref bean="jobRequestConverter"/>
-			</set>
-		</property>
-		<property name="formatters">
-			<set>
-				<ref bean="qualificationFormatter"/>
+				<ref bean="jobFilterConverter"/>
 			</set>
 		</property>
 	</bean>

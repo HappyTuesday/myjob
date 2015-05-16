@@ -1,4 +1,4 @@
-package com.myjob.criteria;
+package com.myjob.query.criteria;
 
 import java.util.Date;
 

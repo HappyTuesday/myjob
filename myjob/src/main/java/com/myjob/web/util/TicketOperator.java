@@ -6,10 +6,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.myjob.infrastructure.Operator;
+import org.springframework.stereotype.Component;
+
 import com.myjob.web.auth.Ticket;
 
-@Operator
+@Component
 public class TicketOperator {
 	@Resource
 	private TicketEncoder ticketEncoder;

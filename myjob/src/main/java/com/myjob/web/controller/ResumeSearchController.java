@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.myjob.criteria.ResumeQueryCriteria;
 import com.myjob.entity.values.AccountType;
+import com.myjob.query.criteria.ResumeQueryCriteria;
 import com.myjob.service.ResumeService;
 import com.myjob.web.auth.Allow;
 import com.myjob.web.model.ResumeModel;

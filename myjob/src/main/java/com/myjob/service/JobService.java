@@ -6,11 +6,12 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.myjob.common.QueryResult;
-import com.myjob.criteria.JobQueryCriteria;
 import com.myjob.dao.JobDao;
 import com.myjob.entity.Job;
 import com.myjob.entity.values.JobStatus;
+import com.myjob.query.QueryResult;
+import com.myjob.query.criteria.JobQueryCriteria;
+import com.myjob.query.filter.JobFilter;
 
 @Service
 public class JobService {
@@ -51,6 +52,10 @@ public class JobService {
 	
 	public QueryResult<Job> search(JobQueryCriteria criteria){
 		return jobDao.query(criteria);
+	}
+	
+	public JobFilter getJobFilter(String key){
+		return jobDao.generateFilter(key);
 	}
 	
 	public QueryResult<Job> queryMyPublishedJobs(JobQueryCriteria criteria,long companySid){

@@ -11,8 +11,8 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.myjob.common.QueryResult;
-import com.myjob.criteria.QueryCriteria;
+import com.myjob.query.QueryResult;
+import com.myjob.query.criteria.QueryCriteria;
 
 public abstract class BaseDao {
 	
@@ -46,11 +46,11 @@ public abstract class BaseDao {
 		return result;
 	}
 	
-	protected void search(DetachedCriteria criteria,QueryCriteria qc,String... searchedProperties) {
-		if(qc.getKey()!=null && !qc.getKey().trim().isEmpty() && searchedProperties !=null && searchedProperties.length > 0){
+	protected void search(DetachedCriteria criteria,String key,String... searchedProperties) {
+		if(key != null && !key.trim().isEmpty() && searchedProperties !=null && searchedProperties.length > 0){
 			Disjunction keyRestrictions = Restrictions.disjunction();
 			for (String property : searchedProperties) {
-				keyRestrictions.add(Restrictions.ilike(property, "%" + qc.getKey() + "%"));
+				keyRestrictions.add(Restrictions.ilike(property, "%" + key + "%"));
 			}
 			criteria.add(keyRestrictions);
 		}

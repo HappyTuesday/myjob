@@ -3,9 +3,9 @@ package com.myjob.dao;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.stereotype.Repository;
 
-import com.myjob.common.QueryResult;
-import com.myjob.criteria.ResumeQueryCriteria;
 import com.myjob.entity.Resume;
+import com.myjob.query.QueryResult;
+import com.myjob.query.criteria.ResumeQueryCriteria;
 
 @Repository
 public class ResumeDao extends BaseDao {
@@ -37,7 +37,7 @@ public class ResumeDao extends BaseDao {
 		in(criteria, "profession", qc.getProfession());
 		in(criteria, "workingYears", qc.getWorkingYears());
 
-		search(criteria,qc,"user.name","school","profession","introduction","content");
+		search(criteria,qc.getKey(),"user.name","school","profession","introduction","content");
 		
 		return executeQuery(criteria, qc);
 	}

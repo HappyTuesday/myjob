@@ -39,6 +39,11 @@ query.execute = function(){
 	});
 }
 
+// default implement for global-search button on the layout page.
+query.globalSearch = function(){
+	query.execute();
+}
+
 query.setPageIndex = function(pageIndex){
 	query.criteria.pageIndex(pageIndex);
 	query.execute();

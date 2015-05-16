@@ -1,4 +1,4 @@
-package com.myjob.common;
+package com.myjob.query;
 
 import java.util.List;
 

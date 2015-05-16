@@ -4,9 +4,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.myjob.infrastructure.Operator;
+import org.springframework.stereotype.Component;
 
-@Operator
+@Component
 public class CookieOperator {
 	public void setCookieValue(HttpServletResponse response,String cookieName,String cookieValue){
 		Cookie cookie = new Cookie(cookieName, cookieValue);

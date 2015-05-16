@@ -1,4 +1,4 @@
-package com.myjob.criteria;
+package com.myjob.query.criteria;
 
 public class QueryCriteria {
 

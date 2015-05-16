@@ -2,261 +2,125 @@
 
 <h2>搜索职位</h2>
 
-<form class="search">
-	<div class="title">
-		<h3>职位筛选：</h3>
-	</div>
-	<div class="allOptions">
+<div data-bind="with: query">
+	<h3>职位筛选：</h3>
+	<div data-bind="click: filterChange">
 		<ul class="list-unstyled">
-			<li class="condition1">
-				<div class="col-md-1 option1">
+			<li class="row">
+				<div class="col-md-1">
 					地区:
 				</div>
-				<ul class="col-md-11 list-inline value1">
+				<ul class="col-md-11 list-inline filter-options" data-bind="foreach: filter.city, css:{empty: !criteria.city().length}">
 					<li>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 上海
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 苏州
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox3" value="option3"> 南京
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox4" value="option4"> 北京
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox5" value="option5"> 广州
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox6" value="option6"> 深圳
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox7" value="option7"> 武汉
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox8" value="option8"> 成都
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox9" value="option9"> 宁波
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox10" value="option10"> 杭州
+						  <input type="checkbox" data-bind="value: value, checked: $parent.criteria.city"><span data-bind="text: display"></span>
 						</label>
 					</li>
 				</ul>
 			</li>
-			<li class="condition2">
-				<div class="col-md-1 option2">
-					职业:
+			<li class="row">
+				<div class="col-md-1">
+					最低学历:
 				</div>
-				<ul class="col-md-11 list-inline value2">
+				<ul class="col-md-11 list-inline filter-options" data-bind="foreach: filter.qualification, css:{empty: !criteria.qualification().length}">
 					<li>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox11" value="option11"> 软件工程师
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox12" value="option12"> 数据库开发工程师
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox13" value="option13"> 系统分析师
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox14" value="option14"> 系统架构设计师
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox15" value="option15"> 游戏开发
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox16" value="option16"> 网页设计/制作/美工
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox17" value="option17"> WEB前端开发
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox18" value="option18"> 软件测试
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox19" value="option19"> 用户体验设计
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox20" value="option20"> 网络工程师
+						  <input type="checkbox" data-bind="value: value, checked: $parent.criteria.qualification"><span data-bind="text: display"></span>
 						</label>
 					</li>
 				</ul>
 			</li>
-			<li class="condition3">
-				<div class="col-md-1 option3">
+			<li class="row">
+				<div class="col-md-1">
 					行业:
 				</div>
-				<ul class="col-md-11 list-inline value3">
+				<ul class="col-md-11 list-inline filter-options" data-bind="foreach: filter.profession, css:{empty: !criteria.profession().length}">
 					<li>
 						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox21" value="option21"> 计算机软件
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox22" value="option22"> 计算机硬件
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox23" value="option23"> 互联网/电子商务
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox24" value="option24"> 通信/电信/网络设备
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox25" value="option25"> 外包服务
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox26" value="option26"> IT服务（系统/数据/维护）
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox27" value="option27"> 网络游戏
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox28" value="option28"> 电子技术/半导体/集成电路
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox29" value="option29"> 保险
-						</label>
-					</li>
-					<li>
-						<label class="checkbox-inline">
-						  <input type="checkbox" id="inlineCheckbox30" value="option30"> 银行
+						  <input type="checkbox" data-bind="value: value, checked: $parent.criteria.profession"><span data-bind="text: display"></span>
 						</label>
 					</li>
 				</ul>
 			</li>
 		</ul>
 	</div>
-</form>
-
-<div data-bind="with: query">
-	<div class="row">
-		<div class="col-md-10">
-			<label>排序</label>
-			<div class="btn-group" data-bind="foreach: orderbyFields">
-				<button class="btn btn-default" data-bind="text: title, click: $parent.setOrderby"></button>
+	
+	<h3>职位搜索结果：</h3>
+	<div>
+		<div class="row">
+			<div class="col-md-10">
+				<label>排序</label>
+				<div class="btn-group" data-bind="foreach: orderbyFields">
+					<button class="btn btn-default" data-bind="text: title, click: $parent.setOrderby"></button>
+				</div>
 			</div>
+			<nav class="col-md-2">
+				<ul class="pager">
+					<li data-bind="css: {disabled:isPreviousPageDisabled()}"><a data-bind="click: previousPage">上一页</a></li>
+					<li data-bind="css: {disabled:isNextPageDisabled()}"><a data-bind="click: nextPage">下一页</a></li>
+				</ul>
+			</nav>
 		</div>
-		<nav class="col-md-2">
-			<ul class="pager">
-				<li data-bind="css: {disabled:isPreviousPageDisabled()}"><a data-bind="click: previousPage">上一页</a></li>
-				<li data-bind="css: {disabled:isNextPageDisabled()}"><a data-bind="click: nextPage">下一页</a></li>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>职位名称</th>
+					<th>公司名称</th>
+					<th>行业</th>
+					<th>最低学历</th>
+					<th>最低工作年限</th>
+					<th>工作地点</th>
+					<th>招聘人数</th>
+					<th>薪水</th>
+					<th>更新时间</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: records">
+				<tr>
+					<td>
+						<a data-bind="text: name, attr: {href: '/job/'+sid}"></a>
+					</td>
+					<td data-bind="text: company.name"></td>
+					<td data-bind="text: profession"></td>
+					<td data-bind="text: qualification"></td>
+					<td data-bind="text: workingYears"></td>
+					<td data-bind="text: workingLocation.city"></td>
+					<td data-bind="text: amount"></td>
+					<td data-bind="text: salary"></td>
+					<td data-bind="text: updateTime"></td>
+					<td>
+						<button class="toggle" data-bind="click: $parent.toggleExpand, css: {expanded: expanded}"></button>
+					</td>
+				</tr>
+				<tr data-bind="visible: expanded">
+					<td colspan="10">
+						<pre data-bind="text: description"></pre>
+						<div class="row">
+							<div class="input-group col-md-6 col-md-offset-6">
+								<span class="input-group-addon">留言：</span>
+								<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
+								<span class="input-group-btn">
+									<button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button>
+								</span>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<nav>
+			<ul class="pagination">
+				<li data-bind="css: {disabled:isPreviousPageDisabled()}"><a data-bind="click: previousPage"><span aria-hidden="true">&laquo;</span></a></li>
+				<!-- ko foreach: paginationItems -->
+				<li data-bind="css: {active:$parent.isCurrentPage($data)}"><a data-bind="text: $data + 1, click: $parent.setPageIndex"></a></li>
+				<!-- /ko -->
+				<li data-bind="css: {disabled:isNextPageDisabled()}"><a data-bind="click: nextPage"><span aria-hidden="true">&raquo;</span></a></li>
 			</ul>
 		</nav>
 	</div>
-	
-	<table class="table">
-		<thead>
-			<tr>
-				<th>职位名称</th>
-				<th>公司名称</th>
-				<th>行业</th>
-				<th>最低学历</th>
-				<th>最低工作年限</th>
-				<th>工作地点</th>
-				<th>招聘人数</th>
-				<th>薪水</th>
-				<th>更新时间</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody data-bind="foreach: records">
-			<tr>
-				<td>
-					<a data-bind="text: name, attr: {href: '/job/'+sid}"></a>
-				</td>
-				<td data-bind="text: company.name"></td>
-				<td data-bind="text: profession"></td>
-				<td data-bind="text: qualification"></td>
-				<td data-bind="text: workingYears"></td>
-				<td data-bind="text: workingLocation.city"></td>
-				<td data-bind="text: amount"></td>
-				<td data-bind="text: salary"></td>
-				<td data-bind="text: updateTime"></td>
-				<td>
-					<button class="toggle" data-bind="click: $parent.toggleExpand, css: {expanded: expanded}"></button>
-				</td>
-			</tr>
-			<tr data-bind="visible: expanded">
-				<td colspan="10">
-					<pre data-bind="text: description"></pre>
-					<div class="row">
-						<div class="input-group col-md-6 col-md-offset-6">
-							<span class="input-group-addon">留言：</span>
-							<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
-							<span class="input-group-btn">
-								<button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button>
-							</span>
-						</div>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	
-	<nav>
-		<ul class="pagination">
-			<li data-bind="css: {disabled:isPreviousPageDisabled()}"><a data-bind="click: previousPage"><span aria-hidden="true">&laquo;</span></a></li>
-			<!-- ko foreach: paginationItems -->
-			<li data-bind="css: {active:$parent.isCurrentPage($data)}"><a data-bind="text: $data + 1, click: $parent.setPageIndex"></a></li>
-			<!-- /ko -->
-			<li data-bind="css: {disabled:isNextPageDisabled()}"><a data-bind="click: nextPage"><span aria-hidden="true">&raquo;</span></a></li>
-		</ul>
-	</nav>
 </div>
 
 <script src="/scripts/query-view-model.js"></script>
@@ -264,6 +128,16 @@
 <script>
 	query.url = "/job/search/data";
 	query.criteria.orderby('updateTime');
+	
+	query.filter = {
+		city: ko.observable([]),
+		profession: ko.observable([]),
+		qualification: ko.observable([])
+	}
+	
+	query.criteria.city = ko.observableArray([]);
+	query.criteria.profession = ko.observableArray([]);
+	query.criteria.qualification = ko.observableArray([]);
 	
 	query.orderbyFields = [
 		{name: 'updateTime', title: '更新时间'},
@@ -297,7 +171,25 @@
 		});
 	}
 	
+	query.globalSearch = function(){
+		post("/job/search/filter/data",{
+			key: query.criteria.key()
+		},function(filter){
+			for(var p in query.filter){
+				query.filter[p](filter[p]);
+			}
+			query.execute();
+		})
+	}
+	
+	query.filterChange = function(data,event){
+		if(event.target.nodeName == 'INPUT'){
+			query.execute();
+		}
+		return true;
+	}
+	
 	$(function(){
-		query.execute();
+		query.globalSearch();
 	});
 </script>

@@ -7,11 +7,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.myjob.common.QueryResult;
-import com.myjob.criteria.ResumeQueryCriteria;
 import com.myjob.dao.ResumeDao;
 import com.myjob.entity.Resume;
 import com.myjob.entity.values.ResumeStatus;
+import com.myjob.query.QueryResult;
+import com.myjob.query.criteria.ResumeQueryCriteria;
 import com.myjob.service.exception.ServiceException;
 import com.myjob.service.exception.ServiceInternalException;
 import com.myjob.service.exception.ServiceLogicException;
