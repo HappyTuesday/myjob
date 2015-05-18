@@ -21,7 +21,7 @@ public class CompanyRegisterController extends ControllerBase {
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public String register(@ModelAttribute CompanyRegisterModel model){
-		return "register.company";
+		return "register/company";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
