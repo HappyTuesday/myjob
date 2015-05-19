@@ -24,7 +24,7 @@
 				<form role="form" class="form-horizontal" method="post" action="/register/user">
 					<div class="form-group">
 						<span class="col-md-4 title2">个人用户</span>
-						<span class="col-md-6 col-md-offset-1"><font style="font-size:16px">已有账号，</font><a href="#" style="font-size:18px"><font>直接登录</font></a></span>
+						<span class="col-md-6 col-md-offset-1"><font style="font-size:16px">已有账号，</font><a href="/login" style="font-size:18px"><font>直接登录</font></a></span>
 					</div>
 					<div class="form-group">
 						<label for="user_name" class="col-md-2 control-label">用户名</label>

@@ -24,7 +24,7 @@
 				<form method="post" action="/register/company" role="form" class="form-horizontal">
 					<div class="form-group">
 						<span class="col-md-4 title2">公司用户</span>
-						<span class="col-md-5 col-md-offset-3"><font style="font-size:16px">已有账号，</font><a href="#" style="font-size:18px"><font>直接登录</font></a></span>
+						<span class="col-md-5 col-md-offset-3"><font style="font-size:16px">已有账号，</font><a href="/login" style="font-size:18px"><font>直接登录</font></a></span>
 					</div>
 					<div class="form-group">
 						<h4 class="col-md-12">账户信息</h4>
