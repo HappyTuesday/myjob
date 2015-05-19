@@ -17,6 +17,11 @@ footer{
 	bottom:2em;
 }
 
+.navbar-default{
+	font-size:15px;
+	/* font-weight:bold; */
+}
+
 h3.active{
 	font-weight: bold;
 }

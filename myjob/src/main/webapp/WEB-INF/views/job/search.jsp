@@ -74,6 +74,7 @@
 					<th>招聘人数</th>
 					<th>薪水</th>
 					<th>更新时间</th>
+					<th>投递</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -90,6 +91,7 @@
 					<td data-bind="text: amount"></td>
 					<td data-bind="text: salary"></td>
 					<td data-bind="text: updateTime"></td>
+					<td><button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button></td>
 					<td>
 						<button class="toggle" data-bind="click: $parent.toggleExpand, css: {expanded: expanded}"></button>
 					</td>
@@ -98,12 +100,12 @@
 					<td colspan="10">
 						<pre data-bind="text: description"></pre>
 						<div class="row">
-							<div class="input-group col-md-6 col-md-offset-6">
+							<div class="input-group col-md-12">
 								<span class="input-group-addon">留言：</span>
 								<input type="text" class="form-control" data-bind="value: jobRequest.requestComment">
-								<span class="input-group-btn">
+								<!-- <span class="input-group-btn">
 									<button class="btn btn-default" data-bind="click: $parent.postJobRequest">投递</button>
-								</span>
+								</span> -->
 							</div>
 						</div>
 					</td>

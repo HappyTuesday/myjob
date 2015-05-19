@@ -47,7 +47,7 @@
 					<img src="/images/logo.png" alt="logo">
 				</a>
 			</div>
-			<div class="col-md-9 input-group">
+			<div class="col-md-6 input-group">
 				<input type="text" class="form-control" data-bind="value: query.criteria.key" placeholder="请输入关键字">
 				<span class="input-group-btn">
 					<button class="btn btn-default" data-bind="click: query.globalSearch">搜索</button>
