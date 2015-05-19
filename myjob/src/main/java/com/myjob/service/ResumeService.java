@@ -23,6 +23,7 @@ public class ResumeService {
 	
 	public Resume getActiveResume(long userSid) throws ServiceException{
 		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
+		criteria.setUserSid(userSid);
 		criteria.setStatus(ResumeStatus.active);
 		
 		List<Resume> resumes = resumeDao.query(criteria).getRecords();
