@@ -19,18 +19,15 @@ public class ResumeModel {
 	
 	private String profession;
 
-	@JsonFormat(pattern="yyyy-MM-dd")
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	private Date graduatedDate;
 
-	@JsonFormat(pattern="yyyy-MM-dd")
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	private Date updateTime;
 	
 	private String idCard;
 
-	@JsonFormat(pattern="yyyy-MM-dd")
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	private Date birthday;
 	
 	private String gender;

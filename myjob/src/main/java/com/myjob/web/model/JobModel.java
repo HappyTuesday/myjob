@@ -14,8 +14,7 @@ public class JobModel {
 
 	private String name;
 
-	@JsonFormat(pattern="yyyy-MM-dd")
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="yyyy-MM-dd",timezone="GMT+8")
 	private Date updateTime;
 
 	private String profession;
