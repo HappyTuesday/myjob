@@ -1,5 +1,5 @@
 body{font-family:"Microsoft YaHei","微软雅黑",Helvetica,"黑体",Arial,Tahoma;font-size:14px;display:block;border:1px solid silver;}body .top{border:1px solid silver;width:1349px;height:31px;padding-left:1000px;margin-left:-106px;line-height:31px;}
-body .logo{border:1px solid silver;height:70px;}body .logo .image{width:250px;display:inline;float:left;margin-right:50px;}
+body .logo .image{width:250px;display:inline;float:left;margin-right:50px;}
 body .logo .input-group{padding-top:18px;}
 body .logo .word{width:450px;}
 body .search{margin-top:10px;border:1px solid #ddd;}body .search .title{height:30px;margin-left:10px;line-height:30px;background:#F7F7F7;}
@@ -16,6 +16,6 @@ body #createResume{margin-top:10px;}
 body #resume{margin-top:10px;}body #resume #btn2{float:right;margin-bottom:10px;}
 body #resumeInfo{margin-top:10px;padding:0 10px;}body #resumeInfo #btn3{width:175px;}
 body #viewResume .summary{padding-left:15px;}body #viewResume .summary .ver-line{padding:0 5px;}
-body #viewResume .details dt{background:url('../image/viewResumebg.JPG') no-repeat;}body #viewResume .details dt h5{height:26px;line-height:26px;color:#315AAA;text-indent:20px;}
+body #viewResume .details dt{background:url('../images/viewResumebg.png') no-repeat;}body #viewResume .details dt h5{height:26px;line-height:26px;color:#315AAA;text-indent:16px;}
 body #viewResume .details dd{padding-left:15px;}body #viewResume .details dd .ver-line{padding:0 5px;}
 body .bottom{width:990px;height:70px;margin:0 auto;border:1px solid silver;text-align:center;line-height:70px;}

@@ -242,7 +242,7 @@
 	  	</div>
 	</div>
 	<div class="group row">
-		<h3>简历内容</h3>
+		<h3>更多信息</h3>
 		<div class="form-group row">
 			<div class="col-md-11">
 				<form:textarea path="content" class="form-control" rows="10"/>

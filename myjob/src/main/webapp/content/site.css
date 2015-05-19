@@ -3,6 +3,8 @@ header{
 }
 
 body{
+	font-family: "Microsoft YaHei","微软雅黑",Helvetica,"黑体",Arial,Tahoma;
+	font-size: 14px;
 	background-color: rgb(252,252,252);
 }
 
