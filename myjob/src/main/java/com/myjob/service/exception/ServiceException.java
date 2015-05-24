@@ -1,6 +1,6 @@
 package com.myjob.service.exception;
 
-public class ServiceException extends Exception {
+public class ServiceException extends RuntimeException {
 	private static final long serialVersionUID = -7459586354360630180L;
 	
 	private Class<?> serviceClass;

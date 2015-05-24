@@ -22,18 +22,12 @@ public class ResumeService {
 	private ResumeDao resumeDao;
 	
 	public Resume getActiveResume(long userSid) throws ServiceException{
-		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
-		criteria.setUserSid(userSid);
-		criteria.setStatus(ResumeStatus.active);
-		
-		List<Resume> resumes = resumeDao.query(criteria).getRecords();
-		if(resumes.size() == 0){
+		Resume resume = getActiveResumeNullable(userSid);
+		if(resume == null){
 			throw new ServiceLogicException(getClass(),"No active resume found");
-		}else if(resumes.size() > 1){
-			throw new ServiceInternalException(getClass(),"More than one active resume found");
 		}
 		
-		return resumes.get(0);
+		return resume;
 	}
 	
 	public void active(long resumeSid){
@@ -70,13 +64,20 @@ public class ResumeService {
 	
 	public void update(Resume resume){
 		resume.setUpdateTime(new Date());
-		resume.setStatus(ResumeStatus.active);
+		Resume oldResume = resumeDao.load(resume.getSid());
+		resume.setStatus(oldResume.getStatus());
 		
 		resumeDao.update(resume);
 	}
 	
 	public void create(Resume resume){
 		resume.setUpdateTime(new Date());
+		Resume activeResume = getActiveResumeNullable(resume.getUser().getSid());
+		if(activeResume != null){
+			activeResume.setStatus(ResumeStatus.inactive);
+			resumeDao.update(activeResume);
+		}
+
 		resume.setStatus(ResumeStatus.active);
 		resumeDao.create(resume);
 	}
@@ -89,5 +90,20 @@ public class ResumeService {
 	public QueryResult<Resume> queryMyResumes(ResumeQueryCriteria criteria,long userSid) {
 		criteria.setUserSid(userSid);
 		return resumeDao.query(criteria);
+	}
+	
+	private Resume getActiveResumeNullable(long userSid){
+		ResumeQueryCriteria criteria = new ResumeQueryCriteria();
+		criteria.setUserSid(userSid);
+		criteria.setStatus(ResumeStatus.active);
+		
+		List<Resume> resumes = resumeDao.query(criteria).getRecords();
+		if(resumes.size() == 0){
+			return null;
+		}else if(resumes.size() > 1){
+			throw new ServiceInternalException(getClass(),"More than one active resume found");
+		}
+		
+		return resumes.get(0);
 	}
 }
