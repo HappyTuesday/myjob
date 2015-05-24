@@ -30,6 +30,8 @@ public class JobRequestDao extends BaseDao {
 		DetachedCriteria criteria = DetachedCriteria.forClass(JobRequest.class);
 		criteria.createAlias("job", "job");
 		criteria.createAlias("resume", "resume");
+		criteria.createAlias("job.company", "job.company");
+		criteria.createAlias("resume.user","resume.user");
 		
 		eq(criteria, "job.company.sid", qc.getCompanySid());
 		eq(criteria, "resume.user.sid", qc.getUserSid());

@@ -1,6 +1,8 @@
 package com.myjob.service;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -32,13 +34,41 @@ public class JobRequestService {
 		jobRequest.setRequestTime(new Date());
 		jobRequest.setStatus(JobRequestStatus.requested);
 		
+		JobRequest previousRequest = getlastedRequestWithUserAndJob(userSid,jobRequest.getJobSid());
+		if(previousRequest != null){
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(previousRequest.getRequestTime());
+			calendar.add(Calendar.DATE, 7);
+			if(calendar.getTime().after(jobRequest.getRequestTime())){
+				throw new ServiceLogicException(getClass(),"This job has been requested with a week ago.");
+			}
+		}
+		
 		Resume activeResume = resumeService.getActiveResume(userSid);
 		jobRequest.setResume(activeResume);
 		
 		Job job = jobService.load(jobRequest.getJobSid());
 		jobRequest.setJob(job);
 		
+		
+		
 		jobRequestDao.create(jobRequest);
+	}
+	
+	private JobRequest getlastedRequestWithUserAndJob(long userSid,long jobSid) {
+		JobRequestQueryCriteria criteria = new JobRequestQueryCriteria();
+		criteria.setUserSid(userSid);
+		criteria.setJobSid(jobSid);
+		criteria.setRequestStatus(new JobRequestStatus[]{JobRequestStatus.approved,JobRequestStatus.rejected,JobRequestStatus.requested});
+		criteria.setOrderby("requestTime");
+		criteria.setDesc(true);
+		criteria.setPageSize(1);
+		QueryResult<JobRequest> requests = jobRequestDao.query(criteria);
+		if(requests.getRecords().size() > 0){
+			return requests.getRecords().get(0);
+		}else{
+			return null;
+		}
 	}
 	
 	public void cancelJobRequest(long jobRequestSid) throws ServiceException{
