@@ -10,9 +10,11 @@ function post(url, data){
 				success(rs);
 			}
 		},
-		error: function(){
+		error: function(rs){
 			if(error){
 				error();
+			}else{
+				$('html').html(rs.responseText);
 			}
 		}
 	});
