@@ -45,6 +45,8 @@
 		</tx:attributes>
 	</tx:advice>
 	
+	<aop:aspectj-autoproxy />
+	
 	<aop:config>
 		<aop:pointcut id="serviceOperation" expression="execution(* com.myjob.service.*Service.*(..))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>

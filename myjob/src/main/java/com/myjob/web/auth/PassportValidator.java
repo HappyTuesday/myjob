@@ -1,5 +1,6 @@
-package com.myjob.web.interceptor;
+package com.myjob.web.auth;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,21 +8,20 @@ import java.util.function.Predicate;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.myjob.entity.Account;
 import com.myjob.entity.values.AccountType;
 import com.myjob.service.AccountService;
 import com.myjob.service.exception.ServiceException;
-import com.myjob.web.auth.Allow;
-import com.myjob.web.auth.Ticket;
 import com.myjob.web.util.KeyProvider;
 import com.myjob.web.util.TicketOperator;
 
-public class PassportInterceptor extends HandlerInterceptorAdapter{
+@Component
+public class PassportValidator{
 	@Resource
 	private TicketOperator ticketOperator;
 	
@@ -30,19 +30,15 @@ public class PassportInterceptor extends HandlerInterceptorAdapter{
 	
 	@Resource
 	private AccountService loginService;
-	
-	@Override
-	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler) throws Exception {
-		
-		if(!handler.getClass().isAssignableFrom(HandlerMethod.class))
-			return true;
+
+	public void validate(Class<?> controllerType,Method handler) {
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		
 		request.getSession().setAttribute(keyprovider.tilesMenuTypeKey(), AccountType.user);
 		
 		List<Allow> authPassports = new ArrayList<Allow>();
-		authPassports.add(((HandlerMethod)handler).getMethodAnnotation(Allow.class));
-		authPassports.add(((HandlerMethod)handler).getBean().getClass().getAnnotation(Allow.class));
+		authPassports.add(handler.getAnnotation(Allow.class));
+		authPassports.add(controllerType.getAnnotation(Allow.class));
 		
 		authPassports.removeIf(new Predicate<Allow>() {
 			@Override
@@ -51,10 +47,10 @@ public class PassportInterceptor extends HandlerInterceptorAdapter{
 			}
 		});
 		
-		System.out.println("--intercept: " + handler);
+		//System.out.println("--intercept: " + handler);
 		
 		if(authPassports.size() == 0){
-			return true;
+			return;
 		}
 
 		Ticket ticket = ticketOperator.getTicket(request);
@@ -70,19 +66,16 @@ public class PassportInterceptor extends HandlerInterceptorAdapter{
 		}
 		
 		if(loginAccount == null){
-			response.sendRedirect("/login");
-			return false;
+			throw new AuthException();
 		}
 		
 		for(Allow authPassport:authPassports){
 			if(!Arrays.asList(authPassport.value()).contains(loginAccount.getAccountType())){
-				response.sendRedirect("/error/denied");
-				return false;
+				throw new AuthException();
 			}
 		}
 		
 		request.getSession().setAttribute(keyprovider.loginAccountKey(), loginAccount);
 		request.getSession().setAttribute(keyprovider.tilesMenuTypeKey(), loginAccount.getAccountType());
-		return true;
 	}
 }

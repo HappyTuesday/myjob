@@ -11,7 +11,6 @@ import com.myjob.entity.JobRequest;
 import com.myjob.entity.values.JobRequestStatus;
 import com.myjob.query.QueryResult;
 import com.myjob.query.criteria.JobRequestQueryCriteria;
-import com.myjob.service.exception.ServiceException;
 import com.myjob.service.exception.ServiceLogicException;
 
 @Service
@@ -20,11 +19,11 @@ public class JobResponseService {
 	@Resource
 	private JobRequestDao jobRequestDao;
 	
-	public void acceptRequest(long jobRequestSid,String hrRemark) throws ServiceException{
+	public void acceptRequest(long jobRequestSid,String hrRemark){
 		JobRequest jobRequest = jobRequestDao.load(jobRequestSid);
 		
 		if(jobRequest.getStatus() != JobRequestStatus.requested){
-			throw new ServiceLogicException(getClass(), "invalid jobrequest status in the database. must be requested");
+			throw new ServiceLogicException("invalid jobrequest status in the database. must be requested");
 		}
 		
 		jobRequest.setHrRemark(hrRemark);
@@ -33,11 +32,11 @@ public class JobResponseService {
 		jobRequestDao.update(jobRequest);
 	}
 	
-	public void rejectRequest(long jobRequestSid,String hrRemark) throws ServiceException{
+	public void rejectRequest(long jobRequestSid,String hrRemark){
 		JobRequest jobRequest = jobRequestDao.load(jobRequestSid);
 		
 		if(jobRequest.getStatus() != JobRequestStatus.requested){
-			throw new ServiceLogicException(getClass(), "invalid jobrequest status in the database. must be requested");
+			throw new ServiceLogicException("invalid jobrequest status in the database. must be requested");
 		}
 		
 		jobRequest.setHrRemark(hrRemark);

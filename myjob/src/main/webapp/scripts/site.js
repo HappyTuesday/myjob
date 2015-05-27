@@ -6,16 +6,26 @@ function post(url, data){
 		method: 'POST',
 		data: data,
 		success: function(rs){
-			if(success){
-				success(rs);
+			switch(rs.code){
+			case 'success':
+				if(success){
+					success(rs.value);
+				}
+				break;
+			case 'error':
+				if(error){
+					error(rs.value);
+				}else{
+					alert(rs.value);
+				}
+				break;
+			case 'redirect':
+				window.location.href = rs.value;
+				break;
 			}
 		},
 		error: function(rs){
-			if(error){
-				error();
-			}else{
-				$('html').html(rs.responseText);
-			}
+			$('html').html(rs.responseText);
 		}
 	});
 }

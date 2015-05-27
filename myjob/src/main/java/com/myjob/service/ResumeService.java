@@ -12,7 +12,6 @@ import com.myjob.entity.Resume;
 import com.myjob.entity.values.ResumeStatus;
 import com.myjob.query.QueryResult;
 import com.myjob.query.criteria.ResumeQueryCriteria;
-import com.myjob.service.exception.ServiceException;
 import com.myjob.service.exception.ServiceInternalException;
 import com.myjob.service.exception.ServiceLogicException;
 
@@ -21,10 +20,10 @@ public class ResumeService {
 	@Resource
 	private ResumeDao resumeDao;
 	
-	public Resume getActiveResume(long userSid) throws ServiceException{
+	public Resume getActiveResume(long userSid){
 		Resume resume = getActiveResumeNullable(userSid);
 		if(resume == null){
-			throw new ServiceLogicException(getClass(),"No active resume found");
+			throw new ServiceLogicException("No active resume found");
 		}
 		
 		return resume;
@@ -101,7 +100,7 @@ public class ResumeService {
 		if(resumes.size() == 0){
 			return null;
 		}else if(resumes.size() > 1){
-			throw new ServiceInternalException(getClass(),"More than one active resume found");
+			throw new ServiceInternalException("More than one active resume found");
 		}
 		
 		return resumes.get(0);
