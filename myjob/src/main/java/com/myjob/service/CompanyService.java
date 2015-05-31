@@ -10,14 +10,13 @@ import com.myjob.dao.CompanyDao;
 import com.myjob.entity.Company;
 import com.myjob.entity.values.AccountType;
 import com.myjob.entity.values.CompanyStatus;
-import com.myjob.service.exception.ServiceLogicException;
 
 @Service
 public class CompanyService {
 	@Resource
 	private CompanyDao companyDao;
 
-	public void create(Company company) throws ServiceLogicException{
+	public void create(Company company){
 		company.setCreateDate(new Date());
 		company.getAccount().setAccountType(AccountType.company);
 		company.setStatus(CompanyStatus.active);

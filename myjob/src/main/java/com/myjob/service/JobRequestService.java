@@ -2,7 +2,6 @@ package com.myjob.service;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -15,7 +14,6 @@ import com.myjob.entity.Resume;
 import com.myjob.entity.values.JobRequestStatus;
 import com.myjob.query.QueryResult;
 import com.myjob.query.criteria.JobRequestQueryCriteria;
-import com.myjob.service.exception.ServiceException;
 import com.myjob.service.exception.ServiceLogicException;
 
 @Service
@@ -30,7 +28,7 @@ public class JobRequestService {
 	@Resource
 	private ResumeService resumeService;
 	
-	public void createJobRequest(JobRequest jobRequest,long userSid) throws ServiceException{
+	public void createJobRequest(JobRequest jobRequest,long userSid){
 		jobRequest.setRequestTime(new Date());
 		jobRequest.setStatus(JobRequestStatus.requested);
 		
@@ -40,7 +38,7 @@ public class JobRequestService {
 			calendar.setTime(previousRequest.getRequestTime());
 			calendar.add(Calendar.DATE, 7);
 			if(calendar.getTime().after(jobRequest.getRequestTime())){
-				throw new ServiceLogicException(getClass(),"This job has been requested with a week ago.");
+				throw new ServiceLogicException("This job has been requested with a week ago.");
 			}
 		}
 		
@@ -71,11 +69,11 @@ public class JobRequestService {
 		}
 	}
 	
-	public void cancelJobRequest(long jobRequestSid) throws ServiceException{
+	public void cancelJobRequest(long jobRequestSid){
 		JobRequest jobRequest = jobRequestDao.get(jobRequestSid);
 		
 		if(jobRequest.getStatus() != JobRequestStatus.requested){
-			throw new ServiceLogicException(getClass(),"Only the job request that in requested status can be canceled");
+			throw new ServiceLogicException("Only the job request that in requested status can be canceled");
 		}
 		
 		jobRequest.setStatus(JobRequestStatus.canceled);
