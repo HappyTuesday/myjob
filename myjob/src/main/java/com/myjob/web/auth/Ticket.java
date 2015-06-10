@@ -8,7 +8,7 @@ public class Ticket implements Serializable{
 	
 	private String loginName;
 	private String password;
-	private Date createTime;
+	private Date createTime; 
 	public String getLoginName() {
 		return loginName;
 	}
